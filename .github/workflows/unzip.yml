@@ -3,7 +3,7 @@ name: Auto Unzip
 on:
   push:
     paths:
-      - "*.zip"
+      - "**/*.zip"
 
 permissions:
   contents: write
@@ -13,10 +13,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: unzip -o *.zip -d unzipped
-      - run: |
+
+      - name: Unzip all zip files into folders
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+          mkdir -p unzipped
+          find . -maxdepth 1 -name "*.zip" -print0 | while IFS= read -r -d '' z; do
+            base="$(basename "$z" .zip)"
+            mkdir -p "unzipped/$base"
+            unzip -o "$z" -d "unzipped/$base"
+          done
+
+      - name: Commit extracted files
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add unzipped
           git commit -m "Auto unzip" || echo "No changes"
           git push
