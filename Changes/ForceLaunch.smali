@@ -1,4 +1,4 @@
-.class public Lr3/m;
+.class public Lcom/silent/depth/activity/ForceLaunch;
 .super Ljava/lang/Object;
 .implements Landroid/view/View$OnClickListener;
 
@@ -8,18 +8,18 @@
 .method public constructor <init>(Lcom/silent/depth/activity/Tron_two;I)V
     .registers 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-    iput-object p1, p0, Lr3/m;->a:Lcom/silent/depth/activity/Tron_two;
-    iput p2, p0, Lr3/m;->b:I
+    iput-object p1, p0, Lcom/silent/depth/activity/ForceLaunch;->a:Lcom/silent/depth/activity/Tron_two;
+    iput p2, p0, Lcom/silent/depth/activity/ForceLaunch;->b:I
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
     .registers 5
 
-    iget v0, p0, Lr3/m;->b:I
+    iget v0, p0, Lcom/silent/depth/activity/ForceLaunch;->b:I
     if-nez v0, :cond_return
 
-    iget-object v0, p0, Lr3/m;->a:Lcom/silent/depth/activity/Tron_two;
+    iget-object v0, p0, Lcom/silent/depth/activity/ForceLaunch;->a:Lcom/silent/depth/activity/Tron_two;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
     move-result-object v1
