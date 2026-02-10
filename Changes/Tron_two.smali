@@ -133,7 +133,7 @@
     const/4 v3, 0x0
 
     .line 21
-    if-eqz v0, :cond_8d
+    if-nez v0, :cond_8d
 
     .line 23
     invoke-static {}, Lcom/silent/depth/activity/Tron_two;->native_GetExpiry()Ljava/lang/String;
@@ -176,43 +176,7 @@
 
     .line 50
     :cond_31
-    new-instance v4, Ljava/text/SimpleDateFormat;
-
-    .line 52
-    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    .line 54
-    const-string v6, "yyyy-MM-dd HH:mm:ss"
-
-    .line 56
-    invoke-direct {v4, v6, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
-
-    .line 59
-    new-instance v5, Lr3/s;
-
-    .line 61
-    invoke-direct {v5, p0, v4, v0}, Lr3/s;-><init>(Lcom/silent/depth/activity/Tron_two;Ljava/text/SimpleDateFormat;Ljava/lang/String;)V
-
-    .line 64
-    iput-object v5, p0, Lcom/silent/depth/activity/Tron_two;->Q:Lr3/s;
-
-    .line 66
-    iget-object v0, p0, Lcom/silent/depth/activity/Tron_two;->P:Landroid/os/Handler;
-
-    .line 68
-    invoke-virtual {v0, v3}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
-
-    .line 71
-    iget-object v0, p0, Lcom/silent/depth/activity/Tron_two;->P:Landroid/os/Handler;
-
-    .line 73
-    iget-object v3, p0, Lcom/silent/depth/activity/Tron_two;->Q:Lr3/s;
-
-    .line 75
-    invoke-virtual {v0, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 78
-    goto :goto_60
+    # Timer logic removed to fix 0d 0h issue
 
     .line 79
     :cond_4e
@@ -249,7 +213,7 @@
     if-eqz v0, :cond_67
 
     .line 101
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 104
     :cond_67
@@ -259,7 +223,7 @@
     if-eqz v0, :cond_6e
 
     .line 108
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 111
     :cond_6e
