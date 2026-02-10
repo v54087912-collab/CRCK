@@ -141,8 +141,10 @@
     .line 26
     move-result-object v0
 
+    const-string v0, "2099-12-31 23:59:59"
+
     .line 27
-    if-eqz v0, :cond_4e
+    # if-eqz v0, :cond_4e
 
     .line 29
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -222,7 +224,7 @@
     if-eqz v0, :cond_57
 
     .line 83
-    const-string v3, "Unknown"
+    const-string v3, "Active/Premium"
 
     .line 85
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -235,7 +237,7 @@
     if-eqz v0, :cond_60
 
     .line 92
-    const-string v3, "0d 0h 0m 0s"
+    const-string v3, "999 Days 23h"
 
     .line 94
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
