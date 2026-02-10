@@ -1,0 +1,11 @@
+# classes.dex
+
+.class public interface abstract Lblack/android/view/IAutoFillManagerStatic;
+.super Ljava/lang/Object;
+.source "IAutoFillManagerStatic.java"
+
+
+# annotations
+.annotation runtime Ltop/niunaijun/blackreflection/annotation/BClassNameNotProcess;
+    value = "android.view.autofill.IAutoFillManager"
+.end annotation

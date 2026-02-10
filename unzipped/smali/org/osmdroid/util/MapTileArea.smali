@@ -1,0 +1,547 @@
+# classes3.dex
+
+.class public Lorg/osmdroid/util/MapTileArea;
+.super Ljava/lang/Object;
+.source "MapTileArea.java"
+
+# interfaces
+.implements Lorg/osmdroid/util/MapTileContainer;
+.implements Lorg/osmdroid/util/IterableWithSize;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lorg/osmdroid/util/MapTileContainer;",
+        "Lorg/osmdroid/util/IterableWithSize<",
+        "Ljava/lang/Long;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field private mHeight:I
+
+.field private mLeft:I
+
+.field private mMapTileUpperBound:I
+
+.field private mTop:I
+
+.field private mWidth:I
+
+.field private mZoom:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 14
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic access$000(Lorg/osmdroid/util/MapTileArea;)I
+    .registers 1
+
+    .line 14
+    iget p0, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    return p0
+.end method
+
+.method static synthetic access$100(Lorg/osmdroid/util/MapTileArea;)I
+    .registers 1
+
+    .line 14
+    iget p0, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    return p0
+.end method
+
+.method static synthetic access$200(Lorg/osmdroid/util/MapTileArea;)I
+    .registers 1
+
+    .line 14
+    iget p0, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    return p0
+.end method
+
+.method static synthetic access$300(Lorg/osmdroid/util/MapTileArea;)I
+    .registers 1
+
+    .line 14
+    iget p0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    return p0
+.end method
+
+.method static synthetic access$400(Lorg/osmdroid/util/MapTileArea;)I
+    .registers 1
+
+    .line 14
+    iget p0, p0, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    return p0
+.end method
+
+.method private cleanValue(I)I
+    .registers 3
+
+    :goto_0
+    if-gez p1, :cond_6
+
+    .line 141
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    add-int/2addr p1, v0
+
+    goto :goto_0
+
+    .line 143
+    :cond_6
+    :goto_6
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    if-lt p1, v0, :cond_c
+
+    sub-int/2addr p1, v0
+
+    goto :goto_6
+
+    :cond_c
+    return p1
+.end method
+
+.method private computeSize(II)I
+    .registers 4
+
+    :goto_0
+    if-le p1, p2, :cond_6
+
+    .line 151
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    add-int/2addr p2, v0
+
+    goto :goto_0
+
+    .line 153
+    :cond_6
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    sub-int/2addr p2, p1
+
+    add-int/lit8 p2, p2, 0x1
+
+    invoke-static {v0, p2}, Ljava/lang/Math;->min(II)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method private contains(III)Z
+    .registers 5
+
+    :goto_0
+    if-ge p1, p2, :cond_6
+
+    .line 134
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    add-int/2addr p1, v0
+
+    goto :goto_0
+
+    :cond_6
+    add-int/2addr p2, p3
+
+    if-ge p1, p2, :cond_b
+
+    const/4 p1, 0x1
+
+    goto :goto_c
+
+    :cond_b
+    const/4 p1, 0x0
+
+    :goto_c
+    return p1
+.end method
+
+
+# virtual methods
+.method public contains(J)Z
+    .registers 7
+
+    .line 123
+    invoke-static {p1, p2}, Lorg/osmdroid/util/MapTileIndex;->getZoom(J)I
+
+    move-result v0
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    const/4 v2, 0x0
+
+    if-eq v0, v1, :cond_a
+
+    return v2
+
+    .line 126
+    :cond_a
+    invoke-static {p1, p2}, Lorg/osmdroid/util/MapTileIndex;->getX(J)I
+
+    move-result v0
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    iget v3, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    invoke-direct {p0, v0, v1, v3}, Lorg/osmdroid/util/MapTileArea;->contains(III)Z
+
+    move-result v0
+
+    if-nez v0, :cond_19
+
+    return v2
+
+    .line 129
+    :cond_19
+    invoke-static {p1, p2}, Lorg/osmdroid/util/MapTileIndex;->getY(J)I
+
+    move-result p1
+
+    iget p2, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    invoke-direct {p0, p1, p2, v0}, Lorg/osmdroid/util/MapTileArea;->contains(III)Z
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public getBottom()I
+    .registers 3
+
+    .line 78
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    add-int/2addr v0, v1
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    rem-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public getHeight()I
+    .registers 2
+
+    .line 70
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    return v0
+.end method
+
+.method public getLeft()I
+    .registers 2
+
+    .line 58
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    return v0
+.end method
+
+.method public getRight()I
+    .registers 3
+
+    .line 74
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    add-int/2addr v0, v1
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    rem-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public getTop()I
+    .registers 2
+
+    .line 62
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    return v0
+.end method
+
+.method public getWidth()I
+    .registers 2
+
+    .line 66
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    return v0
+.end method
+
+.method public getZoom()I
+    .registers 2
+
+    .line 54
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    return v0
+.end method
+
+.method public iterator()Ljava/util/Iterator;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "Ljava/lang/Long;",
+            ">;"
+        }
+    .end annotation
+
+    .line 88
+    new-instance v0, Lorg/osmdroid/util/MapTileArea$1;
+
+    invoke-direct {v0, p0}, Lorg/osmdroid/util/MapTileArea$1;-><init>(Lorg/osmdroid/util/MapTileArea;)V
+
+    return-object v0
+.end method
+
+.method public reset()Lorg/osmdroid/util/MapTileArea;
+    .registers 2
+
+    const/4 v0, 0x0
+
+    .line 49
+    iput v0, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    return-object p0
+.end method
+
+.method public set(IIIII)Lorg/osmdroid/util/MapTileArea;
+    .registers 7
+
+    .line 24
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    const/4 v0, 0x1
+
+    shl-int p1, v0, p1
+
+    .line 25
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mMapTileUpperBound:I
+
+    .line 26
+    invoke-direct {p0, p2, p4}, Lorg/osmdroid/util/MapTileArea;->computeSize(II)I
+
+    move-result p1
+
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    .line 27
+    invoke-direct {p0, p3, p5}, Lorg/osmdroid/util/MapTileArea;->computeSize(II)I
+
+    move-result p1
+
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    .line 28
+    invoke-direct {p0, p2}, Lorg/osmdroid/util/MapTileArea;->cleanValue(I)I
+
+    move-result p1
+
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    .line 29
+    invoke-direct {p0, p3}, Lorg/osmdroid/util/MapTileArea;->cleanValue(I)I
+
+    move-result p1
+
+    iput p1, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    return-object p0
+.end method
+
+.method public set(ILandroid/graphics/Rect;)Lorg/osmdroid/util/MapTileArea;
+    .registers 9
+
+    .line 34
+    iget v2, p2, Landroid/graphics/Rect;->left:I
+
+    iget v3, p2, Landroid/graphics/Rect;->top:I
+
+    iget v4, p2, Landroid/graphics/Rect;->right:I
+
+    iget v5, p2, Landroid/graphics/Rect;->bottom:I
+
+    move-object v0, p0
+
+    move v1, p1
+
+    invoke-virtual/range {v0 .. v5}, Lorg/osmdroid/util/MapTileArea;->set(IIIII)Lorg/osmdroid/util/MapTileArea;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public set(Lorg/osmdroid/util/MapTileArea;)Lorg/osmdroid/util/MapTileArea;
+    .registers 8
+
+    .line 38
+    invoke-virtual {p1}, Lorg/osmdroid/util/MapTileArea;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_b
+
+    .line 39
+    invoke-virtual {p0}, Lorg/osmdroid/util/MapTileArea;->reset()Lorg/osmdroid/util/MapTileArea;
+
+    move-result-object p1
+
+    return-object p1
+
+    .line 41
+    :cond_b
+    iget v1, p1, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    iget v2, p1, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    iget v3, p1, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    invoke-virtual {p1}, Lorg/osmdroid/util/MapTileArea;->getRight()I
+
+    move-result v4
+
+    invoke-virtual {p1}, Lorg/osmdroid/util/MapTileArea;->getBottom()I
+
+    move-result v5
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lorg/osmdroid/util/MapTileArea;->set(IIIII)Lorg/osmdroid/util/MapTileArea;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public size()I
+    .registers 3
+
+    .line 83
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    mul-int v0, v0, v1
+
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 3
+
+    .line 158
+    iget v0, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    if-nez v0, :cond_b
+
+    const-string v0, "23111D35070D0224000B1157040311131C"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 161
+    :cond_b
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "23111D35070D0224000B11571B010E0A58"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mZoom:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "421C08071A5C"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mLeft:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "4204021153"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mTop:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "420704051A095A"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mWidth:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "4218080809091358"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lorg/osmdroid/util/MapTileArea;->mHeight:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method

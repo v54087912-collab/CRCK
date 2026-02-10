@@ -1,0 +1,174 @@
+# classes3.dex
+
+.class public final Lkotlin/io/CloseableKt;
+.super Ljava/lang/Object;
+.source "Closeable.kt"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u001c\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0003\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u0018\u0010\u0000\u001a\u00020\u0001*\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004H\u0001\u001aH\u0010\u0005\u001a\u0002H\u0006\"\n\b\u0000\u0010\u0007*\u0004\u0018\u00010\u0002\"\u0004\b\u0001\u0010\u0006*\u0002H\u00072\u0012\u0010\b\u001a\u000e\u0012\u0004\u0012\u0002H\u0007\u0012\u0004\u0012\u0002H\u00060\tH\u0087\bø\u0001\u0000\u0082\u0002\n\n\b\b\u0001\u0012\u0002\u0010\u0001 \u0001¢\u0006\u0002\u0010\n\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006\u000b"
+    }
+    d2 = {
+        "closeFinally",
+        "",
+        "Ljava/io/Closeable;",
+        "cause",
+        "",
+        "use",
+        "R",
+        "T",
+        "block",
+        "Lkotlin/Function1;",
+        "(Ljava/io/Closeable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;",
+        "kotlin-stdlib"
+    }
+    k = 0x2
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static final closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+    .registers 2
+
+    if-eqz p0, :cond_10
+
+    if-nez p1, :cond_8
+
+    .line 56
+    invoke-interface {p0}, Ljava/io/Closeable;->close()V
+
+    goto :goto_10
+
+    .line 59
+    :cond_8
+    :try_start_8
+    invoke-interface {p0}, Ljava/io/Closeable;->close()V
+    :try_end_b
+    .catchall {:try_start_8 .. :try_end_b} :catchall_c
+
+    goto :goto_10
+
+    :catchall_c
+    move-exception p0
+
+    .line 61
+    invoke-static {p1, p0}, Lkotlin/ExceptionsKt;->addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+
+    :cond_10
+    :goto_10
+    return-void
+.end method
+
+.method private static final use(Ljava/io/Closeable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/io/Closeable;",
+            "R:",
+            "Ljava/lang/Object;",
+            ">(TT;",
+            "Lkotlin/jvm/functions/Function1<",
+            "-TT;+TR;>;)TR;"
+        }
+    .end annotation
+
+    const-string v0, "0C1C020205"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    .line 27
+    :try_start_b
+    invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+    :try_end_f
+    .catchall {:try_start_b .. :try_end_f} :catchall_26
+
+    invoke-static {v1}, Lkotlin/jvm/internal/InlineMarker;->finallyStart(I)V
+
+    .line 33
+    invoke-static {v1, v1, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1d
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    goto :goto_22
+
+    :cond_1d
+    if-eqz p0, :cond_22
+
+    .line 35
+    invoke-interface {p0}, Ljava/io/Closeable;->close()V
+
+    :cond_22
+    :goto_22
+    invoke-static {v1}, Lkotlin/jvm/internal/InlineMarker;->finallyEnd(I)V
+
+    return-object p1
+
+    :catchall_26
+    move-exception p1
+
+    .line 30
+    :try_start_27
+    throw p1
+    :try_end_28
+    .catchall {:try_start_27 .. :try_end_28} :catchall_28
+
+    :catchall_28
+    move-exception v2
+
+    .line 32
+    invoke-static {v1}, Lkotlin/jvm/internal/InlineMarker;->finallyStart(I)V
+
+    .line 33
+    invoke-static {v1, v1, v0}, Lkotlin/internal/PlatformImplementationsKt;->apiVersionIsAtLeast(III)Z
+
+    move-result v0
+
+    if-nez v0, :cond_38
+
+    if-eqz p0, :cond_3b
+
+    .line 38
+    :try_start_34
+    invoke-interface {p0}, Ljava/io/Closeable;->close()V
+    :try_end_37
+    .catchall {:try_start_34 .. :try_end_37} :catchall_3b
+
+    goto :goto_3b
+
+    .line 33
+    :cond_38
+    invoke-static {p0, p1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    .line 39
+    :catchall_3b
+    :cond_3b
+    :goto_3b
+    invoke-static {v1}, Lkotlin/jvm/internal/InlineMarker;->finallyEnd(I)V
+
+    throw v2
+.end method
