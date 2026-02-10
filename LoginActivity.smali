@@ -97,63 +97,10 @@
 .method public static synthetic w(Lcom/silent/depth/activity/LoginActivity;Ljava/lang/String;Landroid/os/Handler;)V
     .registers 4
 
-    .line 1
-    invoke-static {p0, p1}, Lcom/silent/depth/activity/LoginActivity;->native_Check(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    const/4 v0, 0x0
 
-    .line 4
-    move-result-object p0
+    invoke-virtual {p2, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 5
-    if-eqz p0, :cond_17
-
-    .line 7
-    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    .line 10
-    move-result-object p1
-
-    .line 11
-    const-string v0, "OK"
-
-    .line 13
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    .line 16
-    move-result p1
-
-    .line 17
-    if-eqz p1, :cond_17
-
-    .line 19
-    const/4 p0, 0x0
-
-    .line 20
-    invoke-virtual {p2, p0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    .line 23
-    goto :goto_23
-
-    .line 24
-    :cond_17
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    .line 27
-    move-result-object p1
-
-    .line 28
-    const/4 v0, 0x1
-
-    .line 29
-    iput v0, p1, Landroid/os/Message;->what:I
-
-    .line 31
-    iput-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    .line 33
-    invoke-virtual {p2, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    .line 36
-    :goto_23
     return-void
 .end method
 
