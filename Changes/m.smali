@@ -2,8 +2,8 @@
 .super Ljava/lang/Object;
 .implements Landroid/view/View$OnClickListener;
 
-.field public final synthetic a:Lcom/silent/depth/activity/Tron_two;
-.field public final synthetic b:I
+.field public a:Lcom/silent/depth/activity/Tron_two;
+.field public b:I
 
 .method public constructor <init>(Lcom/silent/depth/activity/Tron_two;I)V
     .registers 3
