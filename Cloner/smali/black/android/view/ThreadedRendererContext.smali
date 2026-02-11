@@ -1,0 +1,11 @@
+# classes.dex
+
+.class public interface abstract Lblack/android/view/ThreadedRendererContext;
+.super Ljava/lang/Object;
+.source "ThreadedRendererContext.java"
+
+
+# annotations
+.annotation runtime Ltop/niunaijun/blackreflection/annotation/BClassNameNotProcess;
+    value = "android.view.ThreadedRenderer"
+.end annotation

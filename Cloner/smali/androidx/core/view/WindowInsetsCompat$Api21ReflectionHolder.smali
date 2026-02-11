@@ -1,0 +1,282 @@
+# classes.dex
+
+.class Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;
+.super Ljava/lang/Object;
+.source "WindowInsetsCompat.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/core/view/WindowInsetsCompat;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "Api21ReflectionHolder"
+.end annotation
+
+
+# static fields
+.field private static sContentInsets:Ljava/lang/reflect/Field;
+
+.field private static sReflectionSucceeded:Z
+
+.field private static sStableInsets:Ljava/lang/reflect/Field;
+
+.field private static sViewAttachInfoField:Ljava/lang/reflect/Field;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 3
+
+    .line 2133
+    :try_start_0
+    const-class v0, Landroid/view/View;
+
+    const-string v1, "033119150F020F2C1C081F"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v0
+
+    sput-object v0, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sViewAttachInfoField:Ljava/lang/reflect/Field;
+
+    const/4 v1, 0x1
+
+    .line 2134
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    const-string v0, "0F1E09130108034B0407151A4F38080212562F0419000D092E0B1401"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 2135
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    const-string v2, "032319000C0D022C1C1D151912"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 2136
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v2
+
+    sput-object v2, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sStableInsets:Ljava/lang/reflect/Field;
+
+    .line 2137
+    invoke-virtual {v2, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    const-string v2, "0333020F1A0409113B000308151D"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 2138
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v0
+
+    sput-object v0, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sContentInsets:Ljava/lang/reflect/Field;
+
+    .line 2139
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    .line 2140
+    sput-boolean v1, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sReflectionSucceeded:Z
+    :try_end_3c
+    .catch Ljava/lang/ReflectiveOperationException; {:try_start_0 .. :try_end_3c} :catch_3d
+
+    goto :goto_5d
+
+    :catch_3d
+    move-exception v0
+
+    .line 2142
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "2811040D0B0547111D4E1708154E170E161B0C1C0841070F1400061D500B13010C4724061A110E09270F010A52"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/lang/ReflectiveOperationException;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "3919030501162E0B010B041E22010C170406"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_5d
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .registers 1
+
+    .line 2122
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static getRootWindowInsets(Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
+    .registers 5
+
+    .line 2150
+    sget-boolean v0, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sReflectionSucceeded:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_70
+
+    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-nez v0, :cond_c
+
+    goto :goto_70
+
+    .line 2154
+    :cond_c
+    invoke-virtual {p0}, Landroid/view/View;->getRootView()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 2156
+    :try_start_10
+    sget-object v2, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sViewAttachInfoField:Ljava/lang/reflect/Field;
+
+    invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_70
+
+    .line 2158
+    sget-object v2, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sStableInsets:Ljava/lang/reflect/Field;
+
+    invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/graphics/Rect;
+
+    .line 2159
+    sget-object v3, Landroidx/core/view/WindowInsetsCompat$Api21ReflectionHolder;->sContentInsets:Ljava/lang/reflect/Field;
+
+    invoke-virtual {v3, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/Rect;
+
+    if-eqz v2, :cond_70
+
+    if-eqz v0, :cond_70
+
+    .line 2161
+    new-instance v3, Landroidx/core/view/WindowInsetsCompat$Builder;
+
+    invoke-direct {v3}, Landroidx/core/view/WindowInsetsCompat$Builder;-><init>()V
+
+    .line 2162
+    invoke-static {v2}, Landroidx/core/graphics/Insets;->of(Landroid/graphics/Rect;)Landroidx/core/graphics/Insets;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Landroidx/core/view/WindowInsetsCompat$Builder;->setStableInsets(Landroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsCompat$Builder;
+
+    move-result-object v2
+
+    .line 2163
+    invoke-static {v0}, Landroidx/core/graphics/Insets;->of(Landroid/graphics/Rect;)Landroidx/core/graphics/Insets;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Landroidx/core/view/WindowInsetsCompat$Builder;->setSystemWindowInsets(Landroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsCompat$Builder;
+
+    move-result-object v0
+
+    .line 2164
+    invoke-virtual {v0}, Landroidx/core/view/WindowInsetsCompat$Builder;->build()Landroidx/core/view/WindowInsetsCompat;
+
+    move-result-object v0
+
+    .line 2168
+    invoke-virtual {v0, v0}, Landroidx/core/view/WindowInsetsCompat;->setRootWindowInsets(Landroidx/core/view/WindowInsetsCompat;)V
+
+    .line 2169
+    invoke-virtual {p0}, Landroid/view/View;->getRootView()Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroidx/core/view/WindowInsetsCompat;->copyRootViewBounds(Landroid/view/View;)V
+    :try_end_4f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_10 .. :try_end_4f} :catch_50
+
+    return-object v0
+
+    :catch_50
+    move-exception p0
+
+    .line 2174
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v2, "2811040D0B0547111D4E1708154E080916171A034D071C0E0A45331A040C02062809031D4050"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "3919030501162E0B010B041E22010C170406"
+
+    invoke-static {v2}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_70
+    :goto_70
+    return-object v1
+.end method
