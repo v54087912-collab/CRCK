@@ -1,4 +1,4 @@
-name: Auto Unzip (BS & Cloner)
+name: Auto Unzip (BS & Cloner) + Delete ZIP
 
 on:
   push:
@@ -19,24 +19,28 @@ jobs:
       - name: Install unzip
         run: sudo apt-get update && sudo apt-get install -y unzip
 
-      - name: Unzip ZIPs inside BS and Cloner
+      - name: Unzip and delete zip files
         run: |
           set -e
           for folder in BS Cloner; do
-            if [ -d "$folder" ]; then
-              find "$folder" -type f -name "*.zip" -print0 | while IFS= read -r -d '' z; do
-                base="$(basename "$z" .zip)"
-                target_dir="$(dirname "$z")/$base"
-                mkdir -p "$target_dir"
-                unzip -o "$z" -d "$target_dir"
-              done
-            fi
+            [ -d "$folder" ] || continue
+
+            find "$folder" -type f -name "*.zip" -print0 | while IFS= read -r -d '' z; do
+              base="$(basename "$z" .zip)"
+              target_dir="$(dirname "$z")/$base"
+              mkdir -p "$target_dir"
+
+              unzip -o "$z" -d "$target_dir"
+
+              # Delete ZIP after successful unzip
+              rm -f "$z"
+            done
           done
 
-      - name: Commit extracted files
+      - name: Commit extracted files (and deleted zips)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add BS Cloner
-          git commit -m "Auto unzip ZIPs in BS/Cloner" || echo "No changes"
+          git commit -m "Auto unzip and delete ZIPs" || echo "No changes"
           git push
