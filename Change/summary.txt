@@ -1,0 +1,7 @@
+Modified/Created Files:
+1. Cloner/AndroidManifest.xml.txt -> Change/AndroidManifest.xml.txt
+   - Added service com.android.support.Menu
+2. Cloner/smali/com/kgo/greenbox/proxy/ProxyActivity.smali -> Change/ProxyActivity.smali
+   - Injected DelayLoader hook in onCreate
+3. Cloner/smali/com/cloneplus/zenin/DelayLoader.smali -> Change/DelayLoader.smali
+   - Created new DelayLoader class for native library injection
