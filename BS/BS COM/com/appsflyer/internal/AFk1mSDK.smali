@@ -1,0 +1,32 @@
+# classes4.dex
+
+.class public final Lcom/appsflyer/internal/AFk1mSDK;
+.super Ljava/lang/Object;
+.source ""
+
+
+# instance fields
+.field public AFAdRevenueData:I
+
+.field public component1:I
+
+.field public component2:I
+
+.field public getCurrencyIso4217Code:C
+
+.field public getMediationNetwork:I
+
+.field public getMonetizationNetwork:C
+
+.field public getRevenue:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 317
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

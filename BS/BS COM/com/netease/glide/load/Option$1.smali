@@ -1,0 +1,47 @@
+# classes5.dex
+
+.class Lcom/netease/glide/load/Option$1;
+.super Ljava/lang/Object;
+.source "Option.java"
+
+# interfaces
+.implements Lcom/netease/glide/load/Option$CacheKeyUpdater;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/netease/glide/load/Option;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/netease/glide/load/Option$CacheKeyUpdater<",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 1
+
+    .line 26
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public update([BLjava/lang/Object;Ljava/security/MessageDigest;)V
+    .registers 4
+
+    return-void
+.end method
