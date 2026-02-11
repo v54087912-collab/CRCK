@@ -1,18 +1,34 @@
-# Changes
+# Changes for Mod Menu Injection
 
-This folder contains the modified files and new additions to enable the Mod Menu Injection.
+This folder contains the modified files to enable the Mod Menu injection in the Cloner application.
 
 ## Modified Files
-1.  `AndroidManifest.xml`: Copied from `AndroidManifest.xml.txt` and modified to add `<service android:name="com.android.support.Menu" ... />` inside the `<application>` tag.
-2.  `smali/com/kgo/greenbox/proxy/ProxyActivity.smali`: Injected `DelayLoader` trigger in `onCreate` before `finish()`.
+
+1.  **AndroidManifest.xml**
+    - Added `<service android:name="com.android.support.Menu" android:enabled="true" android:exported="false" />` to the `<application>` tag.
+    - Located at: `Changes/AndroidManifest.xml` (Original: `Cloner/AndroidManifest.xml.txt`)
+
+2.  **smali/com/kgo/greenbox/proxy/ProxyActivity.smali**
+    - Injected `invoke-static {p0}, Lcom/mod/loader/DelayLoader;->start(Landroid/content/Context;)V` in `onCreate` method before `finish()`.
+    - This triggers the loader when the game is launched.
 
 ## New Files
-1.  `smali/com/mod/loader/DelayLoader.smali`: Handles the 12-second delay and loading sequence.
-2.  `smali/com/mod/loader/DelayLoader$1.smali`: Runnable implementation for the loader.
-3.  `smali/com/gotoubun/Launcher.smali`: JNI bridge class with native `Init` method.
-4.  `smali/com/gotoubun/Floating.smali`: Placeholder class for JNI signatures.
-5.  `smali/com/android/support/Menu.smali`: Basic Service implementation required by the mod menu.
-6.  `lib/lib/arm64-v8a/libNajmulKM.so`: The native mod library (matches existing structure `lib/lib/` in `Cloner`).
+
+3.  **smali/com/mod/loader/DelayLoader.smali** & **DelayLoader$1.smali**
+    - Implements the delay logic (12 seconds).
+    - Loads `libNajmulKM.so`.
+    - Calls `com.gotoubun.Launcher.Init`.
+    - Starts `com.android.support.Menu` service.
+    - Handles errors with a Toast.
+
+4.  **smali/com/gotoubun/Launcher.smali**
+    - Defines the native `Init` method required for the library bridge.
+
+5.  **smali/com/android/support/Menu.smali**
+    - Defines the `com.android.support.Menu` service required by the mod menu.
 
 ## Instructions
-Copy the contents of this folder into the `Cloner` directory. Ensure `AndroidManifest.xml` replaces `AndroidManifest.xml.txt` (or is used as the manifest). Merge folders and rebuild the APK.
+
+- Replace the original `ProxyActivity.smali` with the one provided.
+- Use the new `AndroidManifest.xml` (renamed from `.txt`).
+- Add the new smali files to the corresponding directories in the source.
