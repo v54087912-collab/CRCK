@@ -1,5 +1,3 @@
-# classes2.dex
-
 .class public Lcom/kgo/greenbox/proxy/ProxyActivity;
 .super Landroid/app/Activity;
 .source "ProxyActivity.java"
@@ -95,7 +93,7 @@
     .line 31
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/kgo/greenbox/proxy/ProxyActivity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
