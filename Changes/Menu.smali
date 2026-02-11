@@ -1,6 +1,8 @@
 .class public Lcom/android/support/Menu;
 .super Landroid/app/Service;
+.source "Menu.java"
 
+# direct methods
 .method public constructor <init>()V
     .registers 1
     invoke-direct {p0}, Landroid/app/Service;-><init>()V

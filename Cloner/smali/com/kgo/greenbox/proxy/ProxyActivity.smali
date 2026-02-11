@@ -95,6 +95,8 @@
     .line 31
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-static {p0}, Lcom/mod/loader/DelayLoader;->start(Landroid/content/Context;)V
+
     .line 32
     invoke-virtual {p0}, Lcom/kgo/greenbox/proxy/ProxyActivity;->finish()V
 

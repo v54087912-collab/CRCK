@@ -1,34 +1,13 @@
-# Changes for Mod Menu Injection
+# Changes
 
-This folder contains the modified files to enable the Mod Menu injection in the Cloner application.
+This folder contains the files modified or created to fix the Mod Menu injection issue.
 
-## Modified Files
-
-1.  **AndroidManifest.xml**
-    - Added `<service android:name="com.android.support.Menu" android:enabled="true" android:exported="false" />` to the `<application>` tag.
-    - Located at: `Changes/AndroidManifest.xml` (Original: `Cloner/AndroidManifest.xml.txt`)
-
-2.  **smali/com/kgo/greenbox/proxy/ProxyActivity.smali**
-    - Injected `invoke-static {p0}, Lcom/mod/loader/DelayLoader;->start(Landroid/content/Context;)V` in `onCreate` method before `finish()`.
-    - This triggers the loader when the game is launched.
-
-## New Files
-
-3.  **smali/com/mod/loader/DelayLoader.smali** & **DelayLoader$1.smali**
-    - Implements the delay logic (12 seconds).
-    - Loads `libNajmulKM.so`.
-    - Calls `com.gotoubun.Launcher.Init`.
-    - Starts `com.android.support.Menu` service.
-    - Handles errors with a Toast.
-
-4.  **smali/com/gotoubun/Launcher.smali**
-    - Defines the native `Init` method required for the library bridge.
-
-5.  **smali/com/android/support/Menu.smali**
-    - Defines the `com.android.support.Menu` service required by the mod menu.
-
-## Instructions
-
-- Replace the original `ProxyActivity.smali` with the one provided.
-- Use the new `AndroidManifest.xml` (renamed from `.txt`).
-- Add the new smali files to the corresponding directories in the source.
+| File in `Changes/` | Original Path in Repository | Description |
+| :--- | :--- | :--- |
+| `AndroidManifest.xml` | `Cloner/AndroidManifest.xml` | Renamed from `.txt` and added `com.android.support.Menu` service declaration. |
+| `ProxyActivity.smali` | `Cloner/smali/com/kgo/greenbox/proxy/ProxyActivity.smali` | Injected `DelayLoader.start(context)` call in `onCreate`. |
+| `DelayLoader.smali` | `Cloner/smali/com/mod/loader/DelayLoader.smali` | New file. Handles library loading and delayed service start. |
+| `DelayLoader$1.smali` | `Cloner/smali/com/mod/loader/DelayLoader$1.smali` | New file. Inner class `Runnable` for `DelayLoader` to start the service. |
+| `Launcher.smali` | `Cloner/smali/com/gotoubun/Launcher.smali` | New file. Wrapper for native `Init` method. |
+| `Menu.smali` | `Cloner/smali/com/android/support/Menu.smali` | New file. Background service implementation. |
+| `libNajmulKM.so` | `Cloner/lib/lib/arm64-v8a/libNajmulKM.so` | Native library copied from `BS` project. |
