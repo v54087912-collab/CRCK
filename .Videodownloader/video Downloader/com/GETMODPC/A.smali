@@ -6253,7 +6253,9 @@
     .end annotation
 .end method
 
-.method public static native a(Landroid/content/Context;)V
+.method public static a(Landroid/content/Context;)V
+    .registers 1
+    return-void
 .end method
 
 .method public static native a(Landroid/content/Context;)Z
@@ -6470,7 +6472,9 @@
 .method public static native cneo()I
 .end method
 
-.method public static native dia(Landroid/content/Context;)V
+.method public static dia(Landroid/content/Context;)V
+    .registers 1
+    return-void
 .end method
 
 .method public static native ecno(I)I
