@@ -1,4 +1,0 @@
-# classes3.dex
-
-.class public interface abstract Lcom/inmobi/media/b4;
-.super Ljava/lang/Object;
