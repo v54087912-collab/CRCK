@@ -1059,8 +1059,31 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .registers 2
+    .registers 4
 
+    iget-object v0, p0, Lcom/GETMODPC/T;->contextRef:Ljava/lang/ref/WeakReference;
+
+    if-nez v0, :cond_skip
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    if-eqz v0, :cond_skip
+
+    invoke-static {v0}, Lcom/DialogInvoker;->checkSecurity(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_skip
+
+    const/4 v0, 0x0
+
+    throw v0
+
+    :cond_skip
     return-void
 .end method
 
