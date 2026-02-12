@@ -303,7 +303,12 @@
     .end sparse-switch
 .end method
 
-.method private static native Check(Ljava/lang/String;)Ljava/lang/String;
+.method private static Check(Ljava/lang/String;)Ljava/lang/String;
+    .registers 2
+
+    const-string v0, "OK"
+
+    return-object v0
 .end method
 
 .method static synthetic a(Lcom/mikasa/bs/LoginActivity;)Lcom/mikasa/bs/bq;
