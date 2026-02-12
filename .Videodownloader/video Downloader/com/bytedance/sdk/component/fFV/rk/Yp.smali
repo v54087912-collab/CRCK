@@ -1,0 +1,1305 @@
+# classes.dex
+
+.class public final Lcom/bytedance/sdk/component/fFV/rk/Yp;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;
+    }
+.end annotation
+
+
+# static fields
+.field private static final DK:[C
+
+
+# instance fields
+.field private final ArD:Ljava/lang/String;
+
+.field private final Yp:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field final aAs:I
+
+.field final fFV:Ljava/lang/String;
+
+.field private final lG:Ljava/lang/String;
+
+.field private final ppR:Ljava/lang/String;
+
+.field private final pw:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final rQf:Ljava/lang/String;
+
+.field final rk:Ljava/lang/String;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const/16 v0, 0x10
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_a
+
+    sput-object v0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->DK:[C
+
+    return-void
+
+    :array_a
+    .array-data 2
+        0x30s
+        0x31s
+        0x32s
+        0x33s
+        0x34s
+        0x35s
+        0x36s
+        0x37s
+        0x38s
+        0x39s
+        0x41s
+        0x42s
+        0x43s
+        0x44s
+        0x45s
+        0x46s
+    .end array-data
+.end method
+
+.method constructor <init>(Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;)V
+    .registers 6
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->rk:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->fFV:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rQf:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->aAs:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->lG:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->DK:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->fFV:Ljava/lang/String;
+
+    invoke-virtual {p1}, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->rk()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->aAs:I
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->lG:Ljava/util/List;
+
+    invoke-direct {p0, v0, v1}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/util/List;Z)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->Yp:Ljava/util/List;
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->Yp:Ljava/util/List;
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_35
+
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v0, v3}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/util/List;Z)Ljava/util/List;
+
+    move-result-object v0
+
+    goto :goto_36
+
+    :cond_35
+    move-object v0, v2
+
+    :goto_36
+    iput-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->pw:Ljava/util/List;
+
+    iget-object v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->pw:Ljava/lang/String;
+
+    if-eqz v0, :cond_40
+
+    invoke-static {v0, v1}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_40
+    iput-object v2, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ppR:Ljava/lang/String;
+
+    invoke-virtual {p1}, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public static aAs(Ljava/lang/String;)Lcom/bytedance/sdk/component/fFV/rk/Yp;
+    .registers 4
+
+    new-instance v0, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;
+
+    invoke-direct {v0}, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;-><init>()V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, p0}, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->rk(Lcom/bytedance/sdk/component/fFV/rk/Yp;Ljava/lang/String;)Lcom/bytedance/sdk/component/fFV/rk/Yp$rk$rk;
+
+    move-result-object p0
+
+    sget-object v2, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk$rk;->rk:Lcom/bytedance/sdk/component/fFV/rk/Yp$rk$rk;
+
+    if-ne p0, v2, :cond_13
+
+    invoke-virtual {v0}, Lcom/bytedance/sdk/component/fFV/rk/Yp$rk;->fFV()Lcom/bytedance/sdk/component/fFV/rk/Yp;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_13
+    return-object v1
+.end method
+
+.method static fFV(Ljava/lang/String;)Ljava/util/List;
+    .registers 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_6
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-gt v1, v2, :cond_43
+
+    const/16 v2, 0x26
+
+    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v2
+
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_19
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    :cond_19
+    const/16 v4, 0x3d
+
+    invoke-virtual {p0, v4, v1}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v4
+
+    if-eq v4, v3, :cond_35
+
+    if-le v4, v2, :cond_24
+
+    goto :goto_35
+
+    :cond_24
+    invoke-virtual {p0, v1, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v4, v4, 0x1
+
+    invoke-virtual {p0, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_40
+
+    :cond_35
+    :goto_35
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :goto_40
+    add-int/lit8 v1, v2, 0x1
+
+    goto :goto_6
+
+    :cond_43
+    return-object v0
+.end method
+
+.method static fFV(Ljava/lang/StringBuilder;Ljava/util/List;)V
+    .registers 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/StringBuilder;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_5
+    if-ge v1, v0, :cond_2c
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    add-int/lit8 v3, v1, 0x1
+
+    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    if-lez v1, :cond_1c
+
+    const/16 v4, 0x26
+
+    invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_1c
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v3, :cond_29
+
+    const/16 v2, 0x3d
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_29
+    add-int/lit8 v1, v1, 0x2
+
+    goto :goto_5
+
+    :cond_2c
+    return-void
+.end method
+
+.method public static rk(Ljava/lang/String;)I
+    .registers 2
+
+    const-string v0, "http"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    const/16 p0, 0x50
+
+    return p0
+
+    :cond_b
+    const-string v0, "https"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_16
+
+    const/16 p0, 0x1bb
+
+    return p0
+
+    :cond_16
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
+.method static rk(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+    .registers 20
+
+    move-object v1, p0
+
+    move v3, p2
+
+    move v2, p1
+
+    :goto_3
+    if-ge v2, v3, :cond_5b
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->codePointAt(I)I
+
+    move-result v0
+
+    const/16 v4, 0x20
+
+    if-lt v0, v4, :cond_19
+
+    const/16 v4, 0x7f
+
+    if-eq v0, v4, :cond_19
+
+    const/16 v4, 0x80
+
+    if-lt v0, v4, :cond_17
+
+    if-nez p7, :cond_19
+
+    :cond_17
+    move-object v4, p3
+
+    goto :goto_1b
+
+    :cond_19
+    move-object v4, p3
+
+    goto :goto_3d
+
+    :goto_1b
+    invoke-virtual {p3, v0}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v5
+
+    const/4 v6, -0x1
+
+    if-ne v5, v6, :cond_3d
+
+    const/16 v5, 0x25
+
+    if-ne v0, v5, :cond_30
+
+    if-eqz p4, :cond_3d
+
+    if-eqz p5, :cond_30
+
+    invoke-static {p0, v2, p2}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;II)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3d
+
+    :cond_30
+    const/16 v5, 0x2b
+
+    if-ne v0, v5, :cond_37
+
+    if-eqz p6, :cond_37
+
+    goto :goto_3d
+
+    :cond_37
+    invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v0
+
+    add-int/2addr v2, v0
+
+    goto :goto_3
+
+    :cond_3d
+    :goto_3d
+    new-instance v10, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    invoke-direct {v10}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;-><init>()V
+
+    move v0, p1
+
+    invoke-virtual {v10, p0, p1, v2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(Ljava/lang/String;II)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    move-object v0, v10
+
+    move-object v1, p0
+
+    move v3, p2
+
+    move-object v4, p3
+
+    move v5, p4
+
+    move/from16 v6, p5
+
+    move/from16 v7, p6
+
+    move/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    invoke-static/range {v0 .. v9}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
+
+    invoke-virtual {v10}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->aAs()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_5b
+    move v0, p1
+
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static rk(Ljava/lang/String;IIZ)Ljava/lang/String;
+    .registers 7
+
+    move v0, p1
+
+    :goto_1
+    if-ge v0, p2, :cond_25
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    const/16 v2, 0x25
+
+    if-eq v1, v2, :cond_15
+
+    const/16 v2, 0x2b
+
+    if-ne v1, v2, :cond_12
+
+    if-eqz p3, :cond_12
+
+    goto :goto_15
+
+    :cond_12
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_15
+    :goto_15
+    new-instance v1, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    invoke-direct {v1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;-><init>()V
+
+    invoke-virtual {v1, p0, p1, v0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(Ljava/lang/String;II)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    invoke-static {v1, p0, v0, p2, p3}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;Ljava/lang/String;IIZ)V
+
+    invoke-virtual {v1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->aAs()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_25
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static rk(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    .registers 15
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    const/4 v8, 0x0
+
+    const/4 v1, 0x0
+
+    move-object v0, p0
+
+    move-object v3, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    move v6, p4
+
+    move v7, p5
+
+    invoke-static/range {v0 .. v8}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static rk(Ljava/lang/String;Z)Ljava/lang/String;
+    .registers 4
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v1, v0, p1}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;IIZ)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private rk(Ljava/util/List;Z)Ljava/util/List;
+    .registers 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;Z)",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v2, 0x0
+
+    :goto_a
+    if-ge v2, v0, :cond_20
+
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    if-eqz v3, :cond_19
+
+    invoke-static {v3, p2}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_1a
+
+    :cond_19
+    const/4 v3, 0x0
+
+    :goto_1a
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_a
+
+    :cond_20
+    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method static rk(Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
+    .registers 16
+
+    const/4 v0, 0x0
+
+    :goto_1
+    if-ge p2, p3, :cond_9a
+
+    invoke-virtual {p1, p2}, Ljava/lang/String;->codePointAt(I)I
+
+    move-result v1
+
+    if-eqz p5, :cond_19
+
+    const/16 v2, 0x9
+
+    if-eq v1, v2, :cond_93
+
+    const/16 v2, 0xa
+
+    if-eq v1, v2, :cond_93
+
+    const/16 v2, 0xc
+
+    if-eq v1, v2, :cond_93
+
+    const/16 v2, 0xd
+
+    if-eq v1, v2, :cond_93
+
+    :cond_19
+    const/16 v2, 0x2b
+
+    if-ne v1, v2, :cond_2b
+
+    if-eqz p7, :cond_2b
+
+    if-eqz p5, :cond_24
+
+    const-string v2, "+"
+
+    goto :goto_26
+
+    :cond_24
+    const-string v2, "%2B"
+
+    :goto_26
+    invoke-virtual {p0, v2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(Ljava/lang/String;)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    goto/16 :goto_93
+
+    :cond_2b
+    const/16 v2, 0x20
+
+    const/16 v3, 0x25
+
+    if-lt v1, v2, :cond_53
+
+    const/16 v2, 0x7f
+
+    if-eq v1, v2, :cond_53
+
+    const/16 v2, 0x80
+
+    if-lt v1, v2, :cond_3b
+
+    if-nez p8, :cond_53
+
+    :cond_3b
+    invoke-virtual {p4, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v2
+
+    const/4 v4, -0x1
+
+    if-ne v2, v4, :cond_53
+
+    if-ne v1, v3, :cond_4f
+
+    if-eqz p5, :cond_53
+
+    if-eqz p6, :cond_4f
+
+    invoke-static {p1, p2, p3}, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk(Ljava/lang/String;II)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4f
+
+    goto :goto_53
+
+    :cond_4f
+    invoke-virtual {p0, v1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    goto :goto_93
+
+    :cond_53
+    :goto_53
+    if-nez v0, :cond_5a
+
+    new-instance v0, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    invoke-direct {v0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;-><init>()V
+
+    :cond_5a
+    if-eqz p9, :cond_6e
+
+    sget-object v2, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk:Ljava/nio/charset/Charset;
+
+    invoke-virtual {p9, v2}, Ljava/nio/charset/Charset;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_65
+
+    goto :goto_6e
+
+    :cond_65
+    invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v2
+
+    add-int/2addr v2, p2
+
+    invoke-virtual {v0, p1, p2, v2, p9}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(Ljava/lang/String;IILjava/nio/charset/Charset;)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    goto :goto_71
+
+    :cond_6e
+    :goto_6e
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    :goto_71
+    invoke-virtual {v0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk()Z
+
+    move-result v2
+
+    if-nez v2, :cond_93
+
+    invoke-virtual {v0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV()B
+
+    move-result v2
+
+    and-int/lit16 v4, v2, 0xff
+
+    invoke-virtual {p0, v3}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    sget-object v5, Lcom/bytedance/sdk/component/fFV/rk/Yp;->DK:[C
+
+    shr-int/lit8 v4, v4, 0x4
+
+    and-int/lit8 v4, v4, 0xf
+
+    aget-char v4, v5, v4
+
+    invoke-virtual {p0, v4}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    and-int/lit8 v2, v2, 0xf
+
+    aget-char v2, v5, v2
+
+    invoke-virtual {p0, v2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    goto :goto_71
+
+    :cond_93
+    :goto_93
+    invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v1
+
+    add-int/2addr p2, v1
+
+    goto/16 :goto_1
+
+    :cond_9a
+    return-void
+.end method
+
+.method static rk(Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;Ljava/lang/String;IIZ)V
+    .registers 10
+
+    :goto_0
+    if-ge p2, p3, :cond_42
+
+    invoke-virtual {p1, p2}, Ljava/lang/String;->codePointAt(I)I
+
+    move-result v0
+
+    const/16 v1, 0x25
+
+    if-ne v0, v1, :cond_2d
+
+    add-int/lit8 v1, p2, 0x2
+
+    if-ge v1, p3, :cond_2d
+
+    add-int/lit8 v2, p2, 0x1
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(C)I
+
+    move-result v2
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    invoke-static {v3}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(C)I
+
+    move-result v3
+
+    const/4 v4, -0x1
+
+    if-eq v2, v4, :cond_39
+
+    if-eq v3, v4, :cond_39
+
+    shl-int/lit8 p2, v2, 0x4
+
+    add-int/2addr p2, v3
+
+    invoke-virtual {p0, p2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    move p2, v1
+
+    goto :goto_3c
+
+    :cond_2d
+    const/16 v1, 0x2b
+
+    if-ne v0, v1, :cond_39
+
+    if-eqz p4, :cond_39
+
+    const/16 v1, 0x20
+
+    invoke-virtual {p0, v1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->fFV(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    goto :goto_3c
+
+    :cond_39
+    invoke-virtual {p0, v0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;->rk(I)Lcom/bytedance/sdk/component/fFV/rk/fFV/rk;
+
+    :goto_3c
+    invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v0
+
+    add-int/2addr p2, v0
+
+    goto :goto_0
+
+    :cond_42
+    return-void
+.end method
+
+.method static rk(Ljava/lang/StringBuilder;Ljava/util/List;)V
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/StringBuilder;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_5
+    if-ge v1, v0, :cond_18
+
+    const/16 v2, 0x2f
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_5
+
+    :cond_18
+    return-void
+.end method
+
+.method static rk(Ljava/lang/String;II)Z
+    .registers 5
+
+    add-int/lit8 v0, p1, 0x2
+
+    if-ge v0, p2, :cond_24
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
+
+    move-result p2
+
+    const/16 v1, 0x25
+
+    if-ne p2, v1, :cond_24
+
+    const/4 p2, 0x1
+
+    add-int/2addr p1, p2
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
+
+    move-result p1
+
+    invoke-static {p1}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(C)I
+
+    move-result p1
+
+    const/4 v1, -0x1
+
+    if-eq p1, v1, :cond_24
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result p0
+
+    invoke-static {p0}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(C)I
+
+    move-result p0
+
+    if-eq p0, v1, :cond_24
+
+    return p2
+
+    :cond_24
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+
+# virtual methods
+.method public DK()Ljava/util/List;
+    .registers 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, 0x3
+
+    const/16 v2, 0x2f
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    const-string v4, "?#"
+
+    invoke-static {v1, v0, v3, v4}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(Ljava/lang/String;IILjava/lang/String;)I
+
+    move-result v1
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    :goto_21
+    if-ge v0, v1, :cond_36
+
+    add-int/lit8 v0, v0, 0x1
+
+    iget-object v4, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-static {v4, v0, v1, v2}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(Ljava/lang/String;IIC)I
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v5, v0, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    move v0, v4
+
+    goto :goto_21
+
+    :cond_36
+    return-object v3
+.end method
+
+.method public aAs()Ljava/lang/String;
+    .registers 4
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->lG:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    const-string v0, ""
+
+    return-object v0
+
+    :cond_b
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, 0x3
+
+    const/16 v2, 0x3a
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    const/16 v2, 0x40
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .registers 3
+
+    instance-of v0, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp;
+
+    if-eqz v0, :cond_12
+
+    check-cast p1, Lcom/bytedance/sdk/component/fFV/rk/Yp;
+
+    iget-object p1, p1, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_12
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_12
+    const/4 p1, 0x0
+
+    return p1
+.end method
+
+.method public fFV()Ljava/lang/String;
+    .registers 5
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rQf:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    const-string v0, ""
+
+    return-object v0
+
+    :cond_b
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->rk:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x3
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    const-string v3, ":@"
+
+    invoke-static {v1, v0, v2, v3}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(Ljava/lang/String;IILjava/lang/String;)I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .registers 2
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public rQf()Ljava/lang/String;
+    .registers 5
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->pw:Ljava/util/List;
+
+    if-nez v0, :cond_6
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_6
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    const/16 v1, 0x3f
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    const/16 v3, 0x23
+
+    invoke-static {v1, v0, v2, v3}, Lcom/bytedance/sdk/component/fFV/rk/fFV/ppR;->rk(Ljava/lang/String;IIC)I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public rk()Ljava/net/URL;
+    .registers 3
+
+    :try_start_0
+    new-instance v0, Ljava/net/URL;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    :try_end_7
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_7} :catch_8
+
+    return-object v0
+
+    :catch_8
+    move-exception v0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 2
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/fFV/rk/Yp;->ArD:Ljava/lang/String;
+
+    return-object v0
+.end method

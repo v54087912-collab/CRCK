@@ -1,0 +1,26 @@
+# classes2.dex
+
+.class public interface abstract Lcom/google/android/gms/ads/mediation/MediationRewardedAdCallback;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/ads/mediation/MediationAdCallback;
+
+
+# virtual methods
+.method public abstract onAdFailedToShow(Lcom/google/android/gms/ads/AdError;)V
+.end method
+
+.method public abstract onAdFailedToShow(Ljava/lang/String;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end method
+
+.method public abstract onUserEarnedReward()V
+.end method
+
+.method public abstract onVideoComplete()V
+.end method
+
+.method public abstract onVideoStart()V
+.end method

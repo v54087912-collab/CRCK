@@ -1,0 +1,22 @@
+# classes2.dex
+
+.class public final Lcom/google/android/gms/internal/ads/zzsa;
+.super Ljava/io/IOException;
+
+
+# instance fields
+.field public final zza:I
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Throwable;I)V
+    .registers 3
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+
+    const/16 p1, 0x1771
+
+    iput p1, p0, Lcom/google/android/gms/internal/ads/zzsa;->zza:I
+
+    return-void
+.end method
