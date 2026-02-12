@@ -304,10 +304,6 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v3, Lcom/GETMODPC/Killer;
-    invoke-direct {v3}, Lcom/GETMODPC/Killer;-><init>()V
-    invoke-virtual {v2, v3}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
-
     return-void
 .end method
 
