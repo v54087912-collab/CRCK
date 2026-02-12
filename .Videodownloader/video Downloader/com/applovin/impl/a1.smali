@@ -1,0 +1,487 @@
+# classes.dex
+
+.class public final Lcom/applovin/impl/a1;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/applovin/impl/a1$c;,
+        Lcom/applovin/impl/a1$b;
+    }
+.end annotation
+
+
+# instance fields
+.field private final a:Lcom/applovin/impl/sdk/o;
+
+.field private final b:Landroid/os/Handler;
+
+.field private final c:Ljava/util/Set;
+
+.field private final d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+
+# direct methods
+.method public constructor <init>(Landroid/os/Handler;Lcom/applovin/impl/sdk/k;)V
+    .registers 4
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v0, p0, Lcom/applovin/impl/a1;->c:Ljava/util/Set;
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+
+    iput-object v0, p0, Lcom/applovin/impl/a1;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    if-eqz p1, :cond_26
+
+    if-eqz p2, :cond_1e
+
+    iput-object p1, p0, Lcom/applovin/impl/a1;->b:Landroid/os/Handler;
+
+    invoke-virtual {p2}, Lcom/applovin/impl/sdk/k;->O()Lcom/applovin/impl/sdk/o;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    return-void
+
+    :cond_1e
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "No sdk specified."
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_26
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "No handler specified."
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method private a(Lcom/applovin/impl/a1$c;I)V
+    .registers 5
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->b:Landroid/os/Handler;
+
+    new-instance v1, Lcom/applovin/impl/A;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/applovin/impl/A;-><init>(Lcom/applovin/impl/a1;Lcom/applovin/impl/a1$c;I)V
+
+    invoke-static {p1}, Lcom/applovin/impl/a1$c;->b(Lcom/applovin/impl/a1$c;)J
+
+    move-result-wide p1
+
+    invoke-virtual {v0, v1, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    return-void
+.end method
+
+.method public static synthetic a(Lcom/applovin/impl/a1;Lcom/applovin/impl/a1$c;I)V
+    .registers 3
+
+    invoke-direct {p0, p1, p2}, Lcom/applovin/impl/a1;->b(Lcom/applovin/impl/a1$c;I)V
+
+    return-void
+.end method
+
+.method private synthetic b(Lcom/applovin/impl/a1$c;I)V
+    .registers 7
+
+    invoke-static {p1}, Lcom/applovin/impl/a1$c;->c(Lcom/applovin/impl/a1$c;)Lcom/applovin/impl/a1$b;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/applovin/impl/a1$b;->b()Z
+
+    move-result v1
+
+    const-string v2, "CountdownManager"
+
+    if-eqz v1, :cond_61
+
+    iget-object v1, p0, Lcom/applovin/impl/a1;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v1
+
+    if-ne v1, p2, :cond_40
+
+    :try_start_14
+    invoke-interface {v0}, Lcom/applovin/impl/a1$b;->a()V
+    :try_end_17
+    .catchall {:try_start_14 .. :try_end_17} :catchall_1b
+
+    invoke-direct {p0, p1, p2}, Lcom/applovin/impl/a1;->a(Lcom/applovin/impl/a1$c;I)V
+
+    goto :goto_81
+
+    :catchall_1b
+    move-exception p2
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3c
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Encountered error on countdown step for: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Lcom/applovin/impl/a1$c;->a(Lcom/applovin/impl/a1$c;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, v2, p1, p2}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :cond_3c
+    invoke-virtual {p0}, Lcom/applovin/impl/a1;->a()V
+
+    return-void
+
+    :cond_40
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_81
+
+    iget-object p2, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Killing duplicate countdown from previous generation: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Lcom/applovin/impl/a1$c;->a(Lcom/applovin/impl/a1$c;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, v2, p1}, Lcom/applovin/impl/sdk/o;->k(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_81
+
+    :cond_61
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_81
+
+    iget-object p2, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Ending countdown for "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Lcom/applovin/impl/a1$c;->a(Lcom/applovin/impl/a1$c;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, v2, p1}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_81
+    :goto_81
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()V
+    .registers 4
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    const-string v1, "CountdownManager"
+
+    const-string v2, "Removing all countdowns..."
+
+    invoke-virtual {v0, v1, v2}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_f
+    invoke-virtual {p0}, Lcom/applovin/impl/a1;->c()V
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->c:Ljava/util/Set;
+
+    invoke-interface {v0}, Ljava/util/Set;->clear()V
+
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;JLcom/applovin/impl/a1$b;)V
+    .registers 14
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p2, v0
+
+    if-lez v0, :cond_40
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->b:Landroid/os/Handler;
+
+    if-eqz v0, :cond_38
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_28
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Adding countdown: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "CountdownManager"
+
+    invoke-virtual {v0, v2, v1}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_28
+    new-instance v0, Lcom/applovin/impl/a1$c;
+
+    const/4 v8, 0x0
+
+    move-object v3, v0
+
+    move-object v4, p1
+
+    move-wide v5, p2
+
+    move-object v7, p4
+
+    invoke-direct/range {v3 .. v8}, Lcom/applovin/impl/a1$c;-><init>(Ljava/lang/String;JLcom/applovin/impl/a1$b;Lcom/applovin/impl/a1$a;)V
+
+    iget-object p1, p0, Lcom/applovin/impl/a1;->c:Ljava/util/Set;
+
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    return-void
+
+    :cond_38
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "No handler specified."
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_40
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "Invalid step specified."
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public b()V
+    .registers 8
+
+    new-instance v0, Ljava/util/HashSet;
+
+    iget-object v1, p0, Lcom/applovin/impl/a1;->c:Ljava/util/Set;
+
+    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v1
+
+    const-string v2, "CountdownManager"
+
+    if-eqz v1, :cond_2e
+
+    iget-object v1, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Starting "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v0}, Ljava/util/Set;->size()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, " countdowns..."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2e
+    iget-object v1, p0, Lcom/applovin/impl/a1;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+
+    move-result v1
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_38
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_75
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/applovin/impl/a1$c;
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_71
+
+    iget-object v4, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Starting countdown: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v3}, Lcom/applovin/impl/a1$c;->a(Lcom/applovin/impl/a1$c;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v6, " for generation "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, "..."
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v2, v5}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_71
+    invoke-direct {p0, v3, v1}, Lcom/applovin/impl/a1;->a(Lcom/applovin/impl/a1$c;I)V
+
+    goto :goto_38
+
+    :cond_75
+    return-void
+.end method
+
+.method public c()V
+    .registers 4
+
+    invoke-static {}, Lcom/applovin/impl/sdk/o;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->a:Lcom/applovin/impl/sdk/o;
+
+    const-string v1, "CountdownManager"
+
+    const-string v2, "Stopping countdowns..."
+
+    invoke-virtual {v0, v1, v2}, Lcom/applovin/impl/sdk/o;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_f
+    iget-object v0, p0, Lcom/applovin/impl/a1;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+
+    iget-object v0, p0, Lcom/applovin/impl/a1;->b:Landroid/os/Handler;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+
+    return-void
+.end method

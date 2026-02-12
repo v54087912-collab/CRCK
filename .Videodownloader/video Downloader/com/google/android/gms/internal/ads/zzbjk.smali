@@ -1,0 +1,52 @@
+# classes2.dex
+
+.class final Lcom/google/android/gms/internal/ads/zzbjk;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzbkf;
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final bridge synthetic zza(Ljava/lang/Object;Ljava/util/Map;)V
+    .registers 4
+
+    check-cast p1, Lcom/google/android/gms/internal/ads/zzcfg;
+
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ads/zzcfg;->zzK()Lcom/google/android/gms/internal/ads/zzbgd;
+
+    move-result-object p2
+
+    const-string v0, "nativeAdViewSignalsReady"
+
+    if-eqz p2, :cond_14
+
+    invoke-interface {p2}, Lcom/google/android/gms/internal/ads/zzbgd;->zza()Lorg/json/JSONObject;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_14
+
+    invoke-interface {p1, v0, p2}, Lcom/google/android/gms/internal/ads/zzbna;->zze(Ljava/lang/String;Lorg/json/JSONObject;)V
+
+    return-void
+
+    :cond_14
+    new-instance p2, Lorg/json/JSONObject;
+
+    invoke-direct {p2}, Lorg/json/JSONObject;-><init>()V
+
+    invoke-interface {p1, v0, p2}, Lcom/google/android/gms/internal/ads/zzbna;->zze(Ljava/lang/String;Lorg/json/JSONObject;)V
+
+    return-void
+.end method

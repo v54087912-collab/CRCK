@@ -1,0 +1,24 @@
+# classes.dex
+
+.class public Lcom/bykv/vk/openvk/preload/geckox/d/f;
+.super Lcom/bykv/vk/openvk/preload/b/g;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/bykv/vk/openvk/preload/b/g<",
+        "Lcom/bykv/vk/openvk/preload/geckox/model/UpdatePackage;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Lcom/bykv/vk/openvk/preload/b/g;-><init>()V
+
+    return-void
+.end method

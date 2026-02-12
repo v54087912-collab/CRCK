@@ -1,0 +1,220 @@
+# classes2.dex
+
+.class public final Lcom/google/android/gms/internal/ads/zzfme;
+.super Landroid/database/ContentObserver;
+
+
+# instance fields
+.field private final zza:Landroid/os/Handler;
+
+.field private final zzb:Landroid/content/Context;
+
+.field private final zzc:Landroid/media/AudioManager;
+
+.field private final zzd:Ljava/util/concurrent/atomic/AtomicReference;
+
+.field private final zze:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+.field private final zzf:Ljava/util/concurrent/ExecutorService;
+
+.field private final zzg:Lcom/google/android/gms/internal/ads/zzfmq;
+
+
+# direct methods
+.method public constructor <init>(Landroid/os/Handler;Landroid/content/Context;Lcom/google/android/gms/internal/ads/zzfma;Lcom/google/android/gms/internal/ads/zzfmq;)V
+    .registers 6
+
+    invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+
+    new-instance p3, Ljava/util/concurrent/atomic/AtomicReference;
+
+    const/high16 v0, -0x40800000  # -1.0f
+
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v0
+
+    invoke-direct {p3, v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzd:Ljava/util/concurrent/atomic/AtomicReference;
+
+    new-instance p3, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v0, 0x0
+
+    invoke-direct {p3, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzfme;->zze:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzf:Ljava/util/concurrent/ExecutorService;
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfme;->zza:Landroid/os/Handler;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzb:Landroid/content/Context;
+
+    const-string p1, "audio"
+
+    invoke-virtual {p2, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/media/AudioManager;
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzc:Landroid/media/AudioManager;
+
+    iput-object p4, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzg:Lcom/google/android/gms/internal/ads/zzfmq;
+
+    return-void
+.end method
+
+.method static bridge synthetic zza(Lcom/google/android/gms/internal/ads/zzfme;)F
+    .registers 3
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzc:Landroid/media/AudioManager;
+
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0}, Landroid/media/AudioManager;->getStreamVolume(I)I
+
+    move-result v1
+
+    invoke-virtual {p0, v0}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
+
+    move-result p0
+
+    const/4 v0, 0x0
+
+    if-lez p0, :cond_1c
+
+    if-gtz v1, :cond_11
+
+    goto :goto_1c
+
+    :cond_11
+    int-to-float v0, v1
+
+    int-to-float p0, p0
+
+    div-float/2addr v0, p0
+
+    const/high16 p0, 0x3f800000  # 1.0f
+
+    cmpl-float v1, v0, p0
+
+    if-lez v1, :cond_1c
+
+    move v0, p0
+
+    nop
+
+    :cond_1c
+    :goto_1c
+    return v0
+.end method
+
+.method static bridge synthetic zzb(Lcom/google/android/gms/internal/ads/zzfme;)Landroid/os/Handler;
+    .registers 1
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zza:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic zzc(Lcom/google/android/gms/internal/ads/zzfme;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    .registers 1
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zze:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic zzd(Lcom/google/android/gms/internal/ads/zzfme;)Ljava/util/concurrent/atomic/AtomicReference;
+    .registers 1
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzd:Ljava/util/concurrent/atomic/AtomicReference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic zzg(Lcom/google/android/gms/internal/ads/zzfme;)Lcom/google/android/gms/internal/ads/zzfmq;
+    .registers 1
+
+    iget-object p0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzg:Lcom/google/android/gms/internal/ads/zzfmq;
+
+    return-object p0
+.end method
+
+.method private final zzh()V
+    .registers 3
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzfmd;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/ads/zzfmd;-><init>(Lcom/google/android/gms/internal/ads/zzfme;)V
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzf:Ljava/util/concurrent/ExecutorService;
+
+    invoke-interface {v1, v0}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onChange(Z)V
+    .registers 3
+
+    iget-object p1, p0, Lcom/google/android/gms/internal/ads/zzfme;->zze:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_a
+
+    return-void
+
+    :cond_a
+    invoke-direct {p0}, Lcom/google/android/gms/internal/ads/zzfme;->zzh()V
+
+    return-void
+.end method
+
+.method public final zze()V
+    .registers 4
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/ads/zzfme;->zzh()V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzb:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    return-void
+.end method
+
+.method public final zzf()V
+    .registers 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzfme;->zzb:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    return-void
+.end method

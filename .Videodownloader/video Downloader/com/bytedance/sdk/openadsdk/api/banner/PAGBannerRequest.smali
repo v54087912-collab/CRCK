@@ -1,0 +1,38 @@
+# classes2.dex
+
+.class public Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerRequest;
+.super Lcom/bytedance/sdk/openadsdk/api/PAGRequest;
+
+
+# instance fields
+.field private rk:Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;)V
+    .registers 2
+
+    invoke-direct {p0}, Lcom/bytedance/sdk/openadsdk/api/PAGRequest;-><init>()V
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerRequest;->rk:Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getAdSize()Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;
+    .registers 2
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerRequest;->rk:Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;
+
+    return-object v0
+.end method
+
+.method public setAdSize(Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;)V
+    .registers 2
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerRequest;->rk:Lcom/bytedance/sdk/openadsdk/api/banner/PAGBannerSize;
+
+    return-void
+.end method
