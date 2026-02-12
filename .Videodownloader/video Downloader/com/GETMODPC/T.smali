@@ -1059,8 +1059,23 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .registers 2
+    .registers 4
 
+    iget-object v0, p0, Lcom/GETMODPC/T;->contextRef:Ljava/lang/ref/WeakReference;
+
+    if-eqz v0, :cond_13
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    if-eqz v0, :cond_13
+
+    invoke-static {v0}, Lvideo/downloader/videodownloader/Dialoguebox/CustomDialog;->show(Landroid/content/Context;)V
+
+    :cond_13
     return-void
 .end method
 
