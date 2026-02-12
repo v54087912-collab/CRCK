@@ -953,7 +953,9 @@
 .method public static native eeco(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
 .end method
 
-.method public static native ncoe(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public static ncoe(Ljava/lang/Object;Ljava/lang/Object;)V
+    .registers 2
+    return-void
 .end method
 
 
@@ -1175,5 +1177,7 @@
     .end sparse-switch
 .end method
 
-.method protected native onPostExecute(Ljava/lang/String;)V
+.method protected onPostExecute(Ljava/lang/String;)V
+    .registers 2
+    return-void
 .end method
