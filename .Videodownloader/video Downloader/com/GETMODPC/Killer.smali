@@ -9,7 +9,7 @@
 .end method
 
 .method public onShow(Landroid/content/DialogInterface;)V
-    .registers 2
+    .registers 4
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
     return-void
 .end method
