@@ -1,0 +1,285 @@
+# classes2.dex
+
+.class final Lcom/google/android/gms/internal/ads/zzfqr;
+.super Lcom/google/android/gms/internal/ads/zzfqy;
+
+
+# instance fields
+.field private final zzb:Ljava/lang/String;
+
+.field private final zzc:I
+
+.field private final zzd:I
+
+
+# direct methods
+.method synthetic constructor <init>(Ljava/lang/String;ZILcom/google/android/gms/internal/ads/zzfqn;Lcom/google/android/gms/internal/ads/zzfqo;ILcom/google/android/gms/internal/ads/zzfqq;)V
+    .registers 8
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/ads/zzfqy;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzb:Ljava/lang/String;
+
+    iput p3, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzc:I
+
+    iput p6, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzd:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .registers 7
+
+    const/4 v0, 0x1
+
+    if-ne p1, p0, :cond_4
+
+    return v0
+
+    :cond_4
+    instance-of v1, p1, Lcom/google/android/gms/internal/ads/zzfqy;
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_38
+
+    check-cast p1, Lcom/google/android/gms/internal/ads/zzfqy;
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzb:Ljava/lang/String;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zzc()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_38
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zzd()Z
+
+    iget v1, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzc:I
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zze()I
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    if-eqz v1, :cond_37
+
+    if-ne v1, v3, :cond_38
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zza()Lcom/google/android/gms/internal/ads/zzfqn;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zzb()Lcom/google/android/gms/internal/ads/zzfqo;
+
+    iget v1, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzd:I
+
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/ads/zzfqy;->zzf()I
+
+    move-result p1
+
+    if-eqz v1, :cond_36
+
+    if-ne p1, v0, :cond_38
+
+    return v0
+
+    :cond_36
+    throw v4
+
+    :cond_37
+    throw v4
+
+    :cond_38
+    return v2
+.end method
+
+.method public final hashCode()I
+    .registers 5
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzb:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    const v1, 0xf4243
+
+    xor-int/2addr v0, v1
+
+    iget v2, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzc:I
+
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_20
+
+    mul-int/2addr v0, v1
+
+    xor-int/lit16 v0, v0, 0x4d5
+
+    mul-int/2addr v0, v1
+
+    xor-int/2addr v0, v2
+
+    iget v1, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzd:I
+
+    if-eqz v1, :cond_1f
+
+    const v1, 0x22cd8cdb
+
+    mul-int/2addr v0, v1
+
+    xor-int/lit8 v0, v0, 0x1
+
+    return v0
+
+    :cond_1f
+    throw v3
+
+    :cond_20
+    throw v3
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .registers 6
+
+    iget v0, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzc:I
+
+    const-string v1, "null"
+
+    const/4 v2, 0x1
+
+    if-eq v0, v2, :cond_1b
+
+    const/4 v3, 0x2
+
+    if-eq v0, v3, :cond_18
+
+    const/4 v3, 0x3
+
+    if-eq v0, v3, :cond_15
+
+    const/4 v3, 0x4
+
+    if-eq v0, v3, :cond_12
+
+    move-object v0, v1
+
+    goto :goto_1d
+
+    :cond_12
+    const-string v0, "NO_CHECKS"
+
+    goto :goto_1d
+
+    :cond_15
+    const-string v0, "SKIP_SECURITY_CHECK"
+
+    goto :goto_1d
+
+    :cond_18
+    const-string v0, "SKIP_COMPLIANCE_CHECK"
+
+    goto :goto_1d
+
+    :cond_1b
+    const-string v0, "ALL_CHECKS"
+
+    :goto_1d
+    iget v3, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzd:I
+
+    if-eq v3, v2, :cond_22
+
+    goto :goto_24
+
+    :cond_22
+    const-string v1, "READ_AND_WRITE"
+
+    :goto_24
+    iget-object v2, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzb:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "FileComplianceOptions{fileOwner="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, ", hasDifferentDmaOwner=false, fileChecks="
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ", dataForwardingNotAllowedResolver=null, multipleProductIdGroupsResolver=null, filePurpose="
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "}"
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final zza()Lcom/google/android/gms/internal/ads/zzfqn;
+    .registers 2
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public final zzb()Lcom/google/android/gms/internal/ads/zzfqo;
+    .registers 2
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public final zzc()Ljava/lang/String;
+    .registers 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzb:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public final zzd()Z
+    .registers 2
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public final zze()I
+    .registers 2
+
+    iget v0, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzc:I
+
+    return v0
+.end method
+
+.method public final zzf()I
+    .registers 2
+
+    iget v0, p0, Lcom/google/android/gms/internal/ads/zzfqr;->zzd:I
+
+    return v0
+.end method

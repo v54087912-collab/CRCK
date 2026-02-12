@@ -1,0 +1,113 @@
+# classes2.dex
+
+.class final Lcom/google/android/gms/internal/ads/zzafz;
+.super Lcom/google/android/gms/internal/ads/zzadg;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/ads/zzaeg;IJJ)V
+    .registers 23
+
+    move-object/from16 v0, p1
+
+    invoke-static/range {p1 .. p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v1, Lcom/google/android/gms/internal/ads/zzafw;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/internal/ads/zzafw;-><init>(Lcom/google/android/gms/internal/ads/zzaeg;)V
+
+    new-instance v2, Lcom/google/android/gms/internal/ads/zzafx;
+
+    const/4 v3, 0x0
+
+    move/from16 v4, p2
+
+    invoke-direct {v2, v0, v4, v3}, Lcom/google/android/gms/internal/ads/zzafx;-><init>(Lcom/google/android/gms/internal/ads/zzaeg;ILcom/google/android/gms/internal/ads/zzafy;)V
+
+    invoke-virtual/range {p1 .. p1}, Lcom/google/android/gms/internal/ads/zzaeg;->zza()J
+
+    move-result-wide v3
+
+    iget-wide v7, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzj:J
+
+    iget v5, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzd:I
+
+    if-lez v5, :cond_29
+
+    iget v6, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzc:I
+
+    int-to-long v9, v6
+
+    int-to-long v5, v5
+
+    add-long/2addr v5, v9
+
+    const-wide/16 v9, 0x2
+
+    div-long/2addr v5, v9
+
+    const-wide/16 v9, 0x1
+
+    add-long/2addr v5, v9
+
+    move-wide v13, v5
+
+    goto :goto_43
+
+    :cond_29
+    iget v5, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zza:I
+
+    iget v6, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzb:I
+
+    const-wide/16 v9, 0x1000
+
+    if-ne v5, v6, :cond_34
+
+    if-lez v5, :cond_34
+
+    int-to-long v9, v5
+
+    :cond_34
+    iget v5, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzg:I
+
+    int-to-long v5, v5
+
+    iget v11, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzh:I
+
+    int-to-long v11, v11
+
+    mul-long/2addr v9, v5
+
+    mul-long/2addr v9, v11
+
+    const-wide/16 v5, 0x8
+
+    div-long/2addr v9, v5
+
+    const-wide/16 v5, 0x40
+
+    add-long/2addr v9, v5
+
+    move-wide v13, v9
+
+    :goto_43
+    const/4 v5, 0x6
+
+    iget v0, v0, Lcom/google/android/gms/internal/ads/zzaeg;->zzc:I
+
+    invoke-static {v5, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v15
+
+    const-wide/16 v5, 0x0
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v9, p3
+
+    move-wide/from16 v11, p5
+
+    invoke-direct/range {v0 .. v15}, Lcom/google/android/gms/internal/ads/zzadg;-><init>(Lcom/google/android/gms/internal/ads/zzadd;Lcom/google/android/gms/internal/ads/zzadf;JJJJJJI)V
+
+    return-void
+.end method

@@ -1,0 +1,305 @@
+# classes.dex
+
+.class public Lcom/bytedance/sdk/component/adexpress/lG/AXL;
+.super Landroid/widget/FrameLayout;
+
+
+# instance fields
+.field private DK:Landroid/animation/AnimatorSet;
+
+.field private aAs:Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+.field private fFV:Landroid/widget/ImageView;
+
+.field private rQf:Z
+
+.field private rk:Landroid/content/Context;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .registers 3
+
+    invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rQf:Z
+
+    iput-object p1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    new-instance p1, Landroid/animation/AnimatorSet;
+
+    invoke-direct {p1}, Landroid/animation/AnimatorSet;-><init>()V
+
+    iput-object p1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->DK:Landroid/animation/AnimatorSet;
+
+    invoke-direct {p0}, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->aAs()V
+
+    invoke-direct {p0}, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->DK()V
+
+    new-instance p1, Lcom/bytedance/sdk/component/adexpress/lG/AXL$1;
+
+    invoke-direct {p1, p0}, Lcom/bytedance/sdk/component/adexpress/lG/AXL$1;-><init>(Lcom/bytedance/sdk/component/adexpress/lG/AXL;)V
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method private DK()V
+    .registers 9
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    const/4 v1, 0x2
+
+    new-array v2, v1, [F
+
+    fill-array-data v2, :array_56
+
+    const-string v3, "scaleX"
+
+    invoke-static {v0, v3, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    const-wide/16 v2, 0x320
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v0, v4}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+
+    new-instance v5, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v5}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v0, v5}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v5, Lcom/bytedance/sdk/component/adexpress/lG/AXL$2;
+
+    invoke-direct {v5, p0}, Lcom/bytedance/sdk/component/adexpress/lG/AXL$2;-><init>(Lcom/bytedance/sdk/component/adexpress/lG/AXL;)V
+
+    invoke-virtual {v0, v5}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v5, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    const-string v6, "scaleY"
+
+    new-array v7, v1, [F
+
+    fill-array-data v7, :array_5e
+
+    invoke-static {v5, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v5, v1}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+
+    invoke-virtual {v5, v4}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+
+    new-instance v2, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v2}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v5, v2}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->DK:Landroid/animation/AnimatorSet;
+
+    new-array v1, v1, [Landroid/animation/Animator;
+
+    const/4 v3, 0x0
+
+    aput-object v0, v1, v3
+
+    const/4 v0, 0x1
+
+    aput-object v5, v1, v0
+
+    invoke-virtual {v2, v1}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+
+    return-void
+
+    :array_56
+    .array-data 4
+        0x3f800000  # 1.0f
+        0x3f666666  # 0.9f
+    .end array-data
+
+    :array_5e
+    .array-data 4
+        0x3f800000  # 1.0f
+        0x3f666666  # 0.9f
+    .end array-data
+.end method
+
+.method private aAs()V
+    .registers 5
+
+    new-instance v0, Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/bytedance/sdk/component/adexpress/lG/Kl;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->aAs:Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    const/high16 v1, 0x42200000  # 40.0f
+
+    invoke-static {v0, v1}, Lcom/bytedance/sdk/component/adexpress/DK/Yp;->rk(Landroid/content/Context;F)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    invoke-static {v2, v1}, Lcom/bytedance/sdk/component/adexpress/DK/Yp;->rk(Landroid/content/Context;F)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v2, v0, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    const v0, 0x800013
+
+    iput v0, v2, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->aAs:Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+    invoke-virtual {p0, v0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    new-instance v0, Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    const/high16 v1, 0x42780000  # 62.0f
+
+    invoke-static {v0, v1}, Lcom/bytedance/sdk/component/adexpress/DK/Yp;->rk(Landroid/content/Context;F)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iget-object v2, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    invoke-static {v2, v1}, Lcom/bytedance/sdk/component/adexpress/DK/Yp;->rk(Landroid/content/Context;F)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v2, v0, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    const/16 v0, 0x10
+
+    iput v0, v2, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rk:Landroid/content/Context;
+
+    const-string v3, "tt_splash_hand"
+
+    invoke-static {v1, v3}, Lcom/bytedance/sdk/component/utils/Kl;->DK(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+
+.method static synthetic aAs(Lcom/bytedance/sdk/component/adexpress/lG/AXL;)Z
+    .registers 1
+
+    iget-boolean p0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rQf:Z
+
+    return p0
+.end method
+
+.method static synthetic fFV(Lcom/bytedance/sdk/component/adexpress/lG/AXL;)Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+    .registers 1
+
+    iget-object p0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->aAs:Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+    return-object p0
+.end method
+
+.method static synthetic rk(Lcom/bytedance/sdk/component/adexpress/lG/AXL;)Landroid/widget/ImageView;
+    .registers 1
+
+    iget-object p0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    return-object p0
+.end method
+
+.method static synthetic rk(Lcom/bytedance/sdk/component/adexpress/lG/AXL;Z)Z
+    .registers 2
+
+    iput-boolean p1, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->rQf:Z
+
+    return p1
+.end method
+
+
+# virtual methods
+.method public fFV()V
+    .registers 2
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->DK:Landroid/animation/AnimatorSet;
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
+
+    :cond_7
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->aAs:Lcom/bytedance/sdk/component/adexpress/lG/Kl;
+
+    if-eqz v0, :cond_e
+
+    invoke-virtual {v0}, Lcom/bytedance/sdk/component/adexpress/lG/Kl;->fFV()V
+
+    :cond_e
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->fFV:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_15
+
+    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+
+    :cond_15
+    return-void
+.end method
+
+.method public rk()V
+    .registers 2
+
+    iget-object v0, p0, Lcom/bytedance/sdk/component/adexpress/lG/AXL;->DK:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+
+    return-void
+.end method
