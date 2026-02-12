@@ -209,6 +209,18 @@
     goto/16 :goto_21
 
     :sswitch_c2
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/GETMODPC/A;->settings:Ljava/lang/String;
+
+    sput v0, Lcom/GETMODPC/A;->link_id:I
+
+    sput v0, Lcom/GETMODPC/A;->image_id:I
+
+    sput v0, Lcom/GETMODPC/A;->close_id:I
+
+    sput-object v0, Lcom/GETMODPC/A;->toast:Ljava/lang/String;
+
     return-void
 
     nop
