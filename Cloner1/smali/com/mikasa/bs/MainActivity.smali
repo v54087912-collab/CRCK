@@ -3518,13 +3518,19 @@
     .end sparse-switch
 .end method
 
-.method private static native getExecute(I)V
+.method private static getExecute(I)V
+    .registers 1
+    return-void
 .end method
 
-.method private static native getGame(Ljava/lang/String;)V
+.method private static getGame(Ljava/lang/String;)V
+    .registers 1
+    return-void
 .end method
 
-.method private static native getMode(Ljava/lang/String;)V
+.method private static getMode(Ljava/lang/String;)V
+    .registers 1
+    return-void
 .end method
 
 .method public static ۣ۟ۨۢۤ(Ljava/lang/Object;)V

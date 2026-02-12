@@ -686,26 +686,7 @@
 
     move-result-object v0
 
-    :try_start_79
-    invoke-static {}, Lcom/mikasa/bs/br;->ۥۡۥۢ()[S
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x1b
-
-    const/16 v4, 0x7cd
-
-    invoke-static {v1, v2, v3, v4}, Lcom/mikasa/bs/ۢۥۨۢ;->۟ۧۥۧۥ([SIII)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/mikasa/bs/ۣۡ۠ۦ;->۟ۧۦۤۢ(Ljava/lang/Object;)Ljava/lang/Class;
-    :try_end_89
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_79 .. :try_end_89} :catch_a9
-
-    move-result-object v1
+    const-class v1, Lcom/mikasa/bs/MainActivity;
 
     new-instance v2, Landroid/content/Intent;
 
@@ -736,19 +717,6 @@
     const v0, 0xbe22
 
     goto :goto_9f
-
-    :catch_a9
-    move-exception v0
-
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
-
-    invoke-static {v0}, Lcom/mikasa/bs/ۢۥۨۢ;->ۧ۠۠ۤ(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
-
-    throw v1
 
     :sswitch_data_b4
     .sparse-switch
