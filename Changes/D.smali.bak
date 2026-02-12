@@ -167,6 +167,18 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    move-result-object v3
+    if-eqz v3, :killer
+    const v4, 0x106000d
+    invoke-virtual {v3, v4}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
+    const/4 v4, 0x0
+    invoke-virtual {v3, v4}, Landroid/view/Window;->setDimAmount(F)V
+    :killer
+    new-instance v3, Lcom/GETMODPC/Killer;
+    invoke-direct {v3}, Lcom/GETMODPC/Killer;-><init>()V
+    invoke-virtual {v2, v3}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+
     return-void
 .end method
 
