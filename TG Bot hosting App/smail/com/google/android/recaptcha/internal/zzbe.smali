@@ -122,7 +122,7 @@
     move-result v2
 
     .line 62
-    if-ne v2, v1, :cond_44
+    goto :cond_52
 
     .line 64
     sget-object v2, Lcom/google/android/recaptcha/internal/zzqi;->zzO:Lcom/google/android/recaptcha/internal/zzqi;
