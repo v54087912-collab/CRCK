@@ -2309,9 +2309,80 @@
 .end method
 
 .method public launchApk(Ljava/lang/String;I)Z
-    .registers 6
+    .registers 10
 
     .line 1
+    const-string v0, "com.netease.newspike"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_check_overlay
+
+    invoke-static {}, Lcom/zcore/ZCoreCore;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/provider/Settings;->canDrawOverlays(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_check_overlay
+
+    invoke-static {}, Lcom/zcore/ZCoreCore;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "Please enable Display Overlay for Mod Menu"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.action.MANAGE_OVERLAY_PERMISSION"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "package"
+
+    invoke-static {}, Lcom/zcore/ZCoreCore;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-static {}, Lcom/zcore/ZCoreCore;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    const/4 p1, 0x0
+
+    return p1
+
+    :cond_check_overlay
     invoke-static {}, Lcom/zcore/ZCoreCore;->get()Lcom/zcore/ZCoreCore;
 
     .line 4
