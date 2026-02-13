@@ -29,6 +29,20 @@
     return-void
 .end method
 
+.method public onCreate()V
+    .registers 3
+
+    invoke-super {p0}, Landroid/app/Application;->onCreate()V
+
+    new-instance v0, Lcom/LifecycleHandler;
+
+    invoke-direct {v0}, Lcom/LifecycleHandler;-><init>()V
+
+    invoke-virtual {p0, v0}, Landroid/app/Application;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .registers 1
 
