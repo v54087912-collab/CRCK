@@ -1,0 +1,25 @@
+# classes2.dex
+
+.class public Lkotlin/jvm/KotlinReflectionNotSupportedError;
+.super Ljava/lang/Error;
+.source "KotlinReflectionNotSupportedError.kt"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 1
+    const-string v0, "Kotlin reflection implementation is not found at runtime. Make sure you have kotlin-reflect.jar in the classpath"
+
+    .line 3
+    invoke-direct {p0, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
+
+    .line 6
+    return-void
+.end method

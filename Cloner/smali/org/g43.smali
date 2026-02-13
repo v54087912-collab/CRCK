@@ -1,0 +1,35 @@
+# classes2.dex
+
+.class public final synthetic Lorg/g43;
+.super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-measurement-api@@22.0.2"
+
+# interfaces
+.implements Lorg/rq;
+
+
+# direct methods
+.method public synthetic constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Lorg/mq;)Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    invoke-static {p1}, Lcom/google/firebase/analytics/connector/internal/AnalyticsConnectorRegistrar;->lambda$getComponents$0(Lorg/mq;)Lorg/m4;
+
+    .line 4
+    move-result-object p1
+
+    .line 5
+    return-object p1
+.end method

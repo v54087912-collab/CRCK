@@ -1,0 +1,46 @@
+# classes.dex
+
+.class public interface abstract Lorg/cx2;
+.super Ljava/lang/Object;
+.source "WebViewProviderFactory.java"
+
+
+# virtual methods
+.method public abstract a()[Ljava/lang/String;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract createWebView(Landroid/webkit/WebView;)Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
+    .param p1  # Landroid/webkit/WebView;
+        .annotation build Lorg/xc1;
+        .end annotation
+    .end param
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract getDropDataProvider()Lorg/chromium/support_lib_boundary/DropDataContentProviderBoundaryInterface;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract getServiceWorkerController()Lorg/chromium/support_lib_boundary/ServiceWorkerControllerBoundaryInterface;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract getStatics()Lorg/chromium/support_lib_boundary/StaticsBoundaryInterface;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract getTracingController()Lorg/chromium/support_lib_boundary/TracingControllerBoundaryInterface;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public abstract getWebkitToCompatConverter()Lorg/chromium/support_lib_boundary/WebkitToCompatConverterBoundaryInterface;
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method

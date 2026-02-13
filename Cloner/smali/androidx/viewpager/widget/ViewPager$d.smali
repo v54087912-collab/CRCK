@@ -1,0 +1,241 @@
+# classes.dex
+
+.class Landroidx/viewpager/widget/ViewPager$d;
+.super Ljava/lang/Object;
+.source "ViewPager.java"
+
+# interfaces
+.implements Lorg/jf1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroidx/viewpager/widget/ViewPager;->k()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final a:Landroid/graphics/Rect;
+
+.field public final synthetic b:Landroidx/viewpager/widget/ViewPager;
+
+
+# direct methods
+.method public constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$d;->b:Landroidx/viewpager/widget/ViewPager;
+
+    .line 6
+    new-instance p1, Landroid/graphics/Rect;
+
+    .line 8
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+
+    .line 11
+    iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$d;->a:Landroid/graphics/Rect;
+
+    .line 13
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Landroid/view/View;Lorg/dy2;)Lorg/dy2;
+    .registers 9
+
+    .line 1
+    invoke-static {p1, p2}, Lorg/qt2;->I(Landroid/view/View;Lorg/dy2;)Lorg/dy2;
+
+    .line 4
+    move-result-object p1
+
+    .line 5
+    invoke-virtual {p1}, Lorg/dy2;->g()Z
+
+    .line 8
+    move-result p2
+
+    .line 9
+    if-eqz p2, :cond_b
+
+    .line 11
+    return-object p1
+
+    .line 12
+    :cond_b
+    invoke-virtual {p1}, Lorg/dy2;->c()I
+
+    .line 15
+    move-result p2
+
+    .line 16
+    iget-object v0, p0, Landroidx/viewpager/widget/ViewPager$d;->a:Landroid/graphics/Rect;
+
+    .line 18
+    iput p2, v0, Landroid/graphics/Rect;->left:I
+
+    .line 20
+    invoke-virtual {p1}, Lorg/dy2;->e()I
+
+    .line 23
+    move-result p2
+
+    .line 24
+    iput p2, v0, Landroid/graphics/Rect;->top:I
+
+    .line 26
+    invoke-virtual {p1}, Lorg/dy2;->d()I
+
+    .line 29
+    move-result p2
+
+    .line 30
+    iput p2, v0, Landroid/graphics/Rect;->right:I
+
+    .line 32
+    invoke-virtual {p1}, Lorg/dy2;->b()I
+
+    .line 35
+    move-result p2
+
+    .line 36
+    iput p2, v0, Landroid/graphics/Rect;->bottom:I
+
+    .line 38
+    iget-object p2, p0, Landroidx/viewpager/widget/ViewPager$d;->b:Landroidx/viewpager/widget/ViewPager;
+
+    .line 40
+    invoke-virtual {p2}, Landroid/view/ViewGroup;->getChildCount()I
+
+    .line 43
+    move-result v1
+
+    .line 44
+    const/4 v2, 0x0
+
+    .line 45
+    :goto_2c
+    if-ge v2, v1, :cond_69
+
+    .line 47
+    invoke-virtual {p2, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    .line 50
+    move-result-object v3
+
+    .line 51
+    invoke-static {v3, p1}, Lorg/qt2;->b(Landroid/view/View;Lorg/dy2;)Lorg/dy2;
+
+    .line 54
+    move-result-object v3
+
+    .line 55
+    invoke-virtual {v3}, Lorg/dy2;->c()I
+
+    .line 58
+    move-result v4
+
+    .line 59
+    iget v5, v0, Landroid/graphics/Rect;->left:I
+
+    .line 61
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+
+    .line 64
+    move-result v4
+
+    .line 65
+    iput v4, v0, Landroid/graphics/Rect;->left:I
+
+    .line 67
+    invoke-virtual {v3}, Lorg/dy2;->e()I
+
+    .line 70
+    move-result v4
+
+    .line 71
+    iget v5, v0, Landroid/graphics/Rect;->top:I
+
+    .line 73
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+
+    .line 76
+    move-result v4
+
+    .line 77
+    iput v4, v0, Landroid/graphics/Rect;->top:I
+
+    .line 79
+    invoke-virtual {v3}, Lorg/dy2;->d()I
+
+    .line 82
+    move-result v4
+
+    .line 83
+    iget v5, v0, Landroid/graphics/Rect;->right:I
+
+    .line 85
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+
+    .line 88
+    move-result v4
+
+    .line 89
+    iput v4, v0, Landroid/graphics/Rect;->right:I
+
+    .line 91
+    invoke-virtual {v3}, Lorg/dy2;->b()I
+
+    .line 94
+    move-result v3
+
+    .line 95
+    iget v4, v0, Landroid/graphics/Rect;->bottom:I
+
+    .line 97
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
+
+    .line 100
+    move-result v3
+
+    .line 101
+    iput v3, v0, Landroid/graphics/Rect;->bottom:I
+
+    .line 103
+    add-int/lit8 v2, v2, 0x1
+
+    .line 105
+    goto :goto_2c
+
+    .line 106
+    :cond_69
+    iget p2, v0, Landroid/graphics/Rect;->left:I
+
+    .line 108
+    iget v1, v0, Landroid/graphics/Rect;->top:I
+
+    .line 110
+    iget v2, v0, Landroid/graphics/Rect;->right:I
+
+    .line 112
+    iget v0, v0, Landroid/graphics/Rect;->bottom:I
+
+    .line 114
+    invoke-virtual {p1, p2, v1, v2, v0}, Lorg/dy2;->h(IIII)Lorg/dy2;
+
+    .line 117
+    move-result-object p1
+
+    .line 118
+    return-object p1
+.end method

@@ -1,0 +1,10 @@
+# classes2.dex
+
+.class public final Lkotlinx/coroutines/channels/ClosedSendChannelException;
+.super Ljava/lang/IllegalStateException;
+.source "Channel.kt"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+.end annotation
