@@ -103,6 +103,9 @@
 .method public static final initialize(Landroid/content/Context;Ljava/lang/String;Lcom/unity3d/ads/IUnityAdsInitializationListener;)V
     .registers 3
 
+    if-eqz p2, :cond_5
+    invoke-interface {p2}, Lcom/unity3d/ads/IUnityAdsInitializationListener;->onInitializationComplete()V
+    :cond_5
     return-void
 .end method
 
@@ -115,6 +118,9 @@
 .method public static final initialize(Landroid/content/Context;Ljava/lang/String;ZLcom/unity3d/ads/IUnityAdsInitializationListener;)V
     .registers 4
 
+    if-eqz p3, :cond_5
+    invoke-interface {p3}, Lcom/unity3d/ads/IUnityAdsInitializationListener;->onInitializationComplete()V
+    :cond_5
     return-void
 .end method
 
