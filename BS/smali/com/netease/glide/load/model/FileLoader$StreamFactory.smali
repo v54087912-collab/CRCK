@@ -1,0 +1,39 @@
+# classes9.dex
+
+.class public Lcom/netease/glide/load/model/FileLoader$StreamFactory;
+.super Lcom/netease/glide/load/model/FileLoader$Factory;
+.source "FileLoader.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/netease/glide/load/model/FileLoader;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "StreamFactory"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/netease/glide/load/model/FileLoader$Factory<",
+        "Ljava/io/InputStream;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 137
+    new-instance v0, Lcom/netease/glide/load/model/FileLoader$StreamFactory$1;
+
+    invoke-direct {v0}, Lcom/netease/glide/load/model/FileLoader$StreamFactory$1;-><init>()V
+
+    invoke-direct {p0, v0}, Lcom/netease/glide/load/model/FileLoader$Factory;-><init>(Lcom/netease/glide/load/model/FileLoader$FileOpener;)V
+
+    return-void
+.end method
