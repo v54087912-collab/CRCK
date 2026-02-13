@@ -134,18 +134,6 @@
     .line 90
     move-result-object p1
 
-    .line 91
-    const/4 v0, 0x0
-
-    .line 92
-    invoke-static {v1, p1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    .line 95
-    move-result-object p1
-
-    .line 96
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-
     .line 99
     return-void
 .end method

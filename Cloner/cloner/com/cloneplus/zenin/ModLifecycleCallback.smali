@@ -23,14 +23,26 @@
 
     move-result p1
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_12
 
-    .line 2
+    .line 3
+    :try_start_8
     const-string p1, "Najmul101FreeMod"
 
     invoke-static {p1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+    :try_end_d
+    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_d} :catch_e
 
-    .line 4
-    :cond_10
+    goto :goto_12
+
+    :catch_e
+    move-exception p1
+
+    .line 5
+    invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+
+    .line 7
+    :cond_12
+    :goto_12
     return-void
 .end method
