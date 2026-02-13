@@ -1,0 +1,230 @@
+.class public final synthetic Lcom/google/android/gms/internal/ads/rq;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/ar;
+
+
+# static fields
+.field public static final synthetic k:Lcom/google/android/gms/internal/ads/rq;
+
+
+# direct methods
+.method public static synthetic constructor <clinit>()V
+    .registers 1
+
+    .line 1
+    new-instance v0, Lcom/google/android/gms/internal/ads/rq;
+
+    .line 3
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    sput-object v0, Lcom/google/android/gms/internal/ads/rq;->k:Lcom/google/android/gms/internal/ads/rq;
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final k(Ljava/lang/Object;Ljava/util/Map;)V
+    .registers 8
+
+    .line 1
+    check-cast p1, Lcom/google/android/gms/internal/ads/i30;
+
+    .line 3
+    sget-object v0, Lcom/google/android/gms/internal/ads/zq;->a:Lcom/google/android/gms/internal/ads/oq;
+
+    .line 5
+    sget-object v0, Lcom/google/android/gms/internal/ads/um;->k9:Lcom/google/android/gms/internal/ads/nm;
+
+    .line 7
+    sget-object v1, Lu2/s;->e:Lu2/s;
+
+    .line 9
+    iget-object v1, v1, Lu2/s;->c:Lcom/google/android/gms/internal/ads/sm;
+
+    .line 11
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/internal/ads/sm;->a(Lcom/google/android/gms/internal/ads/pm;)Ljava/lang/Object;
+
+    .line 14
+    move-result-object v0
+
+    .line 15
+    check-cast v0, Ljava/lang/Boolean;
+
+    .line 17
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    .line 20
+    move-result v0
+
+    .line 21
+    if-nez v0, :cond_1c
+
+    .line 23
+    const-string p1, "canOpenAppGmsgHandler disabled."
+
+    .line 25
+    invoke-static {p1}, Ly2/j;->f(Ljava/lang/String;)V
+
+    .line 28
+    return-void
+
+    .line 29
+    :cond_1c
+    const-string v0, "package_name"
+
+    .line 31
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 34
+    move-result-object p2
+
+    .line 35
+    check-cast p2, Ljava/lang/String;
+
+    .line 37
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    .line 40
+    move-result v0
+
+    .line 41
+    if-eqz v0, :cond_30
+
+    .line 43
+    const-string p1, "Package name missing in canOpenApp GMSG."
+
+    .line 45
+    invoke-static {p1}, Ly2/j;->f(Ljava/lang/String;)V
+
+    .line 48
+    return-void
+
+    .line 49
+    :cond_30
+    new-instance v0, Ljava/util/HashMap;
+
+    .line 51
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    .line 54
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ads/i30;->getContext()Landroid/content/Context;
+
+    .line 57
+    move-result-object v1
+
+    .line 58
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    .line 61
+    move-result-object v1
+
+    .line 62
+    invoke-virtual {v1, p2}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 65
+    move-result-object v1
+
+    .line 66
+    if-eqz v1, :cond_45
+
+    .line 68
+    const/4 v1, 0x1
+
+    .line 69
+    goto :goto_46
+
+    .line 70
+    :cond_45
+    const/4 v1, 0x0
+
+    .line 71
+    :goto_46
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 74
+    move-result-object v1
+
+    .line 75
+    invoke-virtual {v0, p2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 78
+    invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    .line 81
+    move-result-object v2
+
+    .line 82
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    .line 85
+    move-result v2
+
+    .line 86
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    .line 89
+    move-result-object v3
+
+    .line 90
+    add-int/lit8 v2, v2, 0xd
+
+    .line 92
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    .line 95
+    move-result v3
+
+    .line 96
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    .line 98
+    add-int/2addr v2, v3
+
+    .line 99
+    invoke-direct {v4, v2}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    .line 102
+    const-string v2, "/canOpenApp;"
+
+    .line 104
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 107
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 110
+    const-string p2, ";"
+
+    .line 112
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 115
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 118
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 121
+    move-result-object p2
+
+    .line 122
+    invoke-static {p2}, Lx2/j0;->k(Ljava/lang/String;)V
+
+    .line 125
+    check-cast p1, Lcom/google/android/gms/internal/ads/is;
+
+    .line 127
+    const-string p2, "openableApp"
+
+    .line 129
+    invoke-interface {p1, p2, v0}, Lcom/google/android/gms/internal/ads/is;->a(Ljava/lang/String;Ljava/util/Map;)V
+
+    .line 132
+    return-void
+.end method

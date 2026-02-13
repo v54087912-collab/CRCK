@@ -1,0 +1,23 @@
+.class public interface abstract Lblack/android/location/LocationManager$GpsStatusListenerTransportVIVO;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Ld7/b;
+    value = "android.location.LocationManager$GnssStatusListenerTransport"
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lblack/android/location/LocationManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "GpsStatusListenerTransportVIVO"
+.end annotation
+
+
+# virtual methods
+.method public abstract onSvStatusChanged(I[I[F[F[FIII[J)V
+.end method

@@ -1,0 +1,40 @@
+.class public abstract Landroidx/lifecycle/p0;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field public final a:Ljava/util/HashMap;
+
+.field public final b:Ljava/util/LinkedHashSet;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Landroidx/lifecycle/p0;->a:Ljava/util/HashMap;
+
+    new-instance v0, Ljava/util/LinkedHashSet;
+
+    invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
+
+    iput-object v0, p0, Landroidx/lifecycle/p0;->b:Ljava/util/LinkedHashSet;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()V
+    .registers 1
+
+    .line 1
+    return-void
+.end method

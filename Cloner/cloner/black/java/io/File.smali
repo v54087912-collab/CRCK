@@ -1,0 +1,14 @@
+.class public interface abstract Lblack/java/io/File;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Ld7/b;
+    value = "java.io.File"
+.end annotation
+
+
+# virtual methods
+.method public abstract fs()Ljava/lang/Object;
+.end method
