@@ -3530,60 +3530,10 @@
 .end method
 
 .method public static isVpnRunning(Landroid/content/Context;)Z
-    .registers 3
+    .registers 2
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_26
-
-    .line 1418
-    :try_start_3
-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    const-string v1, "connectivity"
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/net/ConnectivityManager;
-
-    if-eqz p0, :cond_26
-
-    const/16 v1, 0x11
-
-    .line 1420
-    invoke-virtual {p0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_21
-
-    .line 1421
-    invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result p0
-    :try_end_1d
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_1d} :catch_22
-
-    if-eqz p0, :cond_21
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_21
-    return v0
-
-    :catch_22
-    move-exception p0
-
-    .line 1425
-    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
-
-    :cond_26
     return v0
 .end method
 

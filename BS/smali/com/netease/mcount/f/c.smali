@@ -354,91 +354,9 @@
 .method public static e(Landroid/content/Context;)Ljava/lang/String;
     .registers 3
 
-    const-string v0, "android.permission.ACCESS_NETWORK_STATE"
+    const-string v0, "0"
 
-    invoke-static {p0, v0}, Lcom/netease/mcount/f/h;->a(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_42
-
-    const-string v0, "connectivity"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/net/ConnectivityManager;
-
-    :try_start_10
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_2b
-
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_29
-
-    const/4 v0, 0x4
-
-    invoke-virtual {p0, v0}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_29
-
-    const/4 p0, 0x1
-
-    goto :goto_35
-
-    :cond_29
-    const/4 p0, 0x0
-
-    goto :goto_35
-
-    :cond_2b
-    const/16 v0, 0x11
-
-    invoke-virtual {p0, v0}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
-
-    move-result p0
-
-    :goto_35
-    if-eqz p0, :cond_3a
-
-    const-string p0, "1"
-
-    goto :goto_3c
-
-    :cond_3a
-    const-string p0, "0"
-    :try_end_3c
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_3c} :catch_3d
-
-    :goto_3c
-    return-object p0
-
-    :catch_3d
-    const-string p0, "VPN status unknown"
-
-    invoke-static {p0}, Lcom/netease/mcount/f/h;->a(Ljava/lang/String;)V
-
-    :cond_42
-    const-string p0, "-1"
-
-    return-object p0
+    return-object v0
 .end method
 
 .method public static f()Ljava/lang/String;
