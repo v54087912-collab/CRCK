@@ -178,6 +178,14 @@
     move-result-object v1
 
     .line 47
+    iget-object v2, v1, Lcom/zcore/ZCoreCore;->d:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/cloneplus/zenin/ModLifecycleCallback;
+
+    invoke-direct {v3}, Lcom/cloneplus/zenin/ModLifecycleCallback;-><init>()V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     invoke-virtual {v1}, Lcom/zcore/ZCoreCore;->doCreate()V
 
     .line 50
