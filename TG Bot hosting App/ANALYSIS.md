@@ -71,3 +71,15 @@ The `TG Bot hosting App` folder contains a decompiled Android application, likel
 
 ## 9. Unused/Duplicate Code
 -   A large portion of the Smali code belongs to third-party libraries (Unity, Google). The actual application logic (in `com.hosting.hosting`) is very small in the Smali layer, as most of it resides in the compiled Flutter code (not visible here). This makes the Smali codebase appear bloated with library code relative to the app's custom logic.
+
+## 10. Recent Patches (Ad Fix)
+-   **Problem:** The application was failing to show ads ("Ad failed to show") likely due to network issues or invalid placement IDs, blocking the user from proceeding.
+-   **Fix:**
+    -   **UnityAdsImplementation.smali:** Patched  and  to immediately invoke success callbacks. Mocked  and  to return true.
+    -   **UnityAds.smali:** Patched the static wrapper methods (, , , ) to ensuring they also invoke success callbacks immediately. This ensures that regardless of whether the app uses the static API or the implementation instance, the ad logic is bypassed successfully.
+
+## 10. Recent Patches (Ad Fix)
+-   **Problem:** The application was failing to show ads ("Ad failed to show") likely due to network issues or invalid placement IDs, blocking the user from proceeding.
+-   **Fix:**
+    -   **UnityAdsImplementation.smali:** Patched `load` and `initialize` to immediately invoke success callbacks. Mocked `isInitialized` and `isSupported` to return true.
+    -   **UnityAds.smali:** Patched the static wrapper methods (`load`, `show`, `isInitialized`, `isSupported`) to ensuring they also invoke success callbacks immediately. This ensures that regardless of whether the app uses the static API or the implementation instance, the ad logic is bypassed successfully.

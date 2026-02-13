@@ -578,187 +578,36 @@
 .end method
 
 .method public initialize(Landroid/content/Context;Ljava/lang/String;ZLcom/unity3d/ads/IUnityAdsInitializationListener;)V
-    .registers 6
+    .registers 5
 
-    .line 1
-    invoke-static {}, Lcom/unity3d/services/core/log/DeviceLog;->entered()V
+    if-eqz p4, :cond_5
+    invoke-interface {p4}, Lcom/unity3d/ads/IUnityAdsInitializationListener;->onInitializationComplete()V
 
-    .line 4
-    invoke-direct {p0, p1}, Lcom/unity3d/services/ads/UnityAdsImplementation;->hasInvalidContext(Landroid/content/Context;)Z
-
-    .line 7
-    move-result v0
-
-    .line 8
-    if-eqz v0, :cond_1a
-
-    .line 10
-    const-string p1, "Error while initializing Unity Services: null context, halting Unity Ads init"
-
-    .line 12
-    invoke-static {p1}, Lcom/unity3d/services/core/log/DeviceLog;->error(Ljava/lang/String;)V
-
-    .line 15
-    if-eqz p4, :cond_19
-
-    .line 17
-    new-instance p1, Lcom/unity3d/services/ads/a;
-
-    .line 19
-    const/4 p2, 0x0
-
-    .line 20
-    invoke-direct {p1, p4, p2}, Lcom/unity3d/services/ads/a;-><init>(Lcom/unity3d/ads/IUnityAdsInitializationListener;I)V
-
-    .line 23
-    invoke-static {p1}, Lcom/unity3d/services/core/misc/Utilities;->wrapCustomerListener(Ljava/lang/Runnable;)V
-
-    .line 26
-    :cond_19
-    return-void
-
-    .line 27
-    :cond_1a
-    invoke-static {p1, p2, p3, p4}, Lcom/unity3d/services/UnityServices;->initialize(Landroid/content/Context;Ljava/lang/String;ZLcom/unity3d/ads/IUnityAdsInitializationListener;)V
-
-    .line 30
+    :cond_5
     return-void
 .end method
 
 .method public isInitialized()Z
     .registers 2
 
-    .line 1
-    invoke-static {}, Lcom/unity3d/services/UnityServices;->isInitialized()Z
-
-    .line 4
-    move-result v0
-
-    .line 5
+    const/4 v0, 0x1
     return v0
 .end method
 
 .method public isSupported()Z
     .registers 2
 
-    .line 1
-    invoke-static {}, Lcom/unity3d/services/UnityServices;->isSupported()Z
-
-    .line 4
-    move-result v0
-
-    .line 5
+    const/4 v0, 0x1
     return v0
 .end method
 
 .method public load(Ljava/lang/String;Lcom/unity3d/ads/UnityAdsLoadOptions;Lcom/unity3d/ads/IUnityAdsLoadListener;)V
-    .registers 8
+    .registers 4
 
-    .line 1
-    invoke-direct {p0}, Lcom/unity3d/services/ads/UnityAdsImplementation;->hasInvalidContext()Z
+    if-eqz p3, :cond_5
+    invoke-interface {p3, p1}, Lcom/unity3d/ads/IUnityAdsLoadListener;->onUnityAdsAdLoaded(Ljava/lang/String;)V
 
-    .line 4
-    move-result v0
-
-    .line 5
-    if-eqz v0, :cond_17
-
-    .line 7
-    const-string p2, "No valid Context for loading ads"
-
-    .line 9
-    invoke-static {p2}, Lcom/unity3d/services/core/log/DeviceLog;->error(Ljava/lang/String;)V
-
-    .line 12
-    if-eqz p3, :cond_16
-
-    .line 14
-    new-instance p2, LA3/a;
-
-    .line 16
-    const/4 v0, 0x5
-
-    .line 17
-    invoke-direct {p2, p1, v0, p3}, LA3/a;-><init>(Ljava/lang/String;ILjava/lang/Object;)V
-
-    .line 20
-    invoke-static {p2}, Lcom/unity3d/services/core/misc/Utilities;->wrapCustomerListener(Ljava/lang/Runnable;)V
-
-    .line 23
-    :cond_16
-    return-void
-
-    .line 24
-    :cond_17
-    const-class v0, Lcom/unity3d/ads/core/configuration/AlternativeFlowReader;
-
-    .line 26
-    invoke-static {v0}, Lcom/unity3d/services/core/misc/Utilities;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    .line 29
-    move-result-object v0
-
-    .line 30
-    check-cast v0, Lcom/unity3d/ads/core/configuration/AlternativeFlowReader;
-
-    .line 32
-    invoke-virtual {v0}, Lcom/unity3d/ads/core/configuration/AlternativeFlowReader;->invoke()Z
-
-    .line 35
-    move-result v0
-
-    .line 36
-    if-eqz v0, :cond_2f
-
-    .line 38
-    new-instance v0, Lcom/unity3d/services/UnityAdsSDK;
-
-    .line 40
-    invoke-direct {v0}, Lcom/unity3d/services/UnityAdsSDK;-><init>()V
-
-    .line 43
-    const/4 v1, 0x0
-
-    .line 44
-    invoke-virtual {v0, p1, p2, p3, v1}, Lcom/unity3d/services/UnityAdsSDK;->load(Ljava/lang/String;Lcom/unity3d/ads/UnityAdsLoadOptions;Lcom/unity3d/ads/IUnityAdsLoadListener;Lcom/unity3d/services/banners/UnityBannerSize;)Lh4/i0;
-
-    .line 47
-    goto :goto_46
-
-    .line 48
-    :cond_2f
-    sget-object v0, Lcom/unity3d/services/ads/UnityAdsImplementation;->configuration:Lcom/unity3d/services/core/configuration/Configuration;
-
-    .line 50
-    if-nez v0, :cond_38
-
-    .line 52
-    new-instance v0, Lcom/unity3d/services/core/configuration/Configuration;
-
-    .line 54
-    invoke-direct {v0}, Lcom/unity3d/services/core/configuration/Configuration;-><init>()V
-
-    .line 57
-    :cond_38
-    invoke-static {}, Lcom/unity3d/services/ads/operation/load/LoadModule;->getInstance()Lcom/unity3d/services/ads/operation/load/ILoadModule;
-
-    .line 60
-    move-result-object v1
-
-    .line 61
-    sget-object v2, Lcom/unity3d/services/ads/UnityAdsImplementation;->webViewBridgeInvoker:Lcom/unity3d/services/core/webview/bridge/WebViewBridgeInvoker;
-
-    .line 63
-    new-instance v3, Lcom/unity3d/services/ads/operation/load/LoadOperationState;
-
-    .line 65
-    invoke-direct {v3, p1, p3, p2, v0}, Lcom/unity3d/services/ads/operation/load/LoadOperationState;-><init>(Ljava/lang/String;Lcom/unity3d/ads/IUnityAdsLoadListener;Lcom/unity3d/ads/UnityAdsLoadOptions;Lcom/unity3d/services/core/configuration/Configuration;)V
-
-    .line 68
-    invoke-interface {v1, v2, v3}, Lcom/unity3d/services/ads/operation/IAdModule;->executeAdOperation(Lcom/unity3d/services/core/webview/bridge/IWebViewBridgeInvoker;Ljava/lang/Object;)V
-
-    .line 71
-    :goto_46
+    :cond_5
     return-void
 .end method
 

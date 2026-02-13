@@ -127,7 +127,7 @@
 .method public static final isInitialized()Z
     .registers 1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
     return v0
 .end method
 
@@ -140,7 +140,7 @@
 .method public static final isSupported()Z
     .registers 1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
     return v0
 .end method
 
@@ -159,12 +159,18 @@
 .method public static final load(Ljava/lang/String;Lcom/unity3d/ads/IUnityAdsLoadListener;)V
     .registers 2
 
+    if-eqz p1, :cond_5
+    invoke-interface {p1, p0}, Lcom/unity3d/ads/IUnityAdsLoadListener;->onUnityAdsAdLoaded(Ljava/lang/String;)V
+    :cond_5
     return-void
 .end method
 
 .method public static final load(Ljava/lang/String;Lcom/unity3d/ads/UnityAdsLoadOptions;Lcom/unity3d/ads/IUnityAdsLoadListener;)V
     .registers 3
 
+    if-eqz p2, :cond_5
+    invoke-interface {p2, p0}, Lcom/unity3d/ads/IUnityAdsLoadListener;->onUnityAdsAdLoaded(Ljava/lang/String;)V
+    :cond_5
     return-void
 .end method
 
@@ -181,8 +187,12 @@
 .end method
 
 .method public static final show(Landroid/app/Activity;Ljava/lang/String;Lcom/unity3d/ads/IUnityAdsShowListener;)V
-    .registers 3
+    .registers 4
 
+    if-eqz p2, :cond_5
+    sget-object v0, Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;->COMPLETED:Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;
+    invoke-interface {p2, p1, v0}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;)V
+    :cond_5
     return-void
 .end method
 
@@ -193,7 +203,11 @@
 .end method
 
 .method public static final show(Landroid/app/Activity;Ljava/lang/String;Lcom/unity3d/ads/UnityAdsShowOptions;Lcom/unity3d/ads/IUnityAdsShowListener;)V
-    .registers 4
+    .registers 5
 
+    if-eqz p3, :cond_5
+    sget-object v0, Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;->COMPLETED:Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;
+    invoke-interface {p3, p1, v0}, Lcom/unity3d/ads/IUnityAdsShowListener;->onUnityAdsShowComplete(Ljava/lang/String;Lcom/unity3d/ads/UnityAds$UnityAdsShowCompletionState;)V
+    :cond_5
     return-void
 .end method
