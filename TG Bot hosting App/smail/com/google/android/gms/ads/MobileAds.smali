@@ -330,12 +330,15 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
-    .registers 3
+    .registers 4
 
-    if-eqz p1, :cond_5
-    const/4 v0, 0x0
-    invoke-interface {p1, v0}, Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;->onInitializationComplete(Lcom/google/android/gms/ads/initialization/InitializationStatus;)V
-    :cond_5
+    if-eqz p1, :cond_13
+    new-instance v0, Ljava/util/HashMap;
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    new-instance v1, Lcom/google/android/gms/internal/ads/zzblg;
+    invoke-direct {v1, v0}, Lcom/google/android/gms/internal/ads/zzblg;-><init>(Ljava/util/Map;)V
+    invoke-interface {p1, v1}, Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;->onInitializationComplete(Lcom/google/android/gms/ads/initialization/InitializationStatus;)V
+    :cond_13
     return-void
 .end method
 
