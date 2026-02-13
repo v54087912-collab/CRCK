@@ -162,6 +162,9 @@
     .line 1
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    return-void
+
     .line 4
     invoke-virtual {p0}, Lcom/unity3d/services/ads/adunit/AdUnitActivity;->createController()Lcom/unity3d/services/ads/adunit/AdUnitActivityController;
 

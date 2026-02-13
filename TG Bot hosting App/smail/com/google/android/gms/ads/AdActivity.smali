@@ -187,6 +187,9 @@
     .line 1
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    return-void
+
     .line 4
     sget-object v0, Li1/s;->f:Li1/s;
 

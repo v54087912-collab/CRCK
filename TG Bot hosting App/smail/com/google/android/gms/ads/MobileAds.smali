@@ -324,31 +324,21 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;)V
-    .registers 3
-
-    .line 1
-    invoke-static {}, Li1/Z0;->e()Li1/Z0;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    .line 2
-    invoke-virtual {v0, p0, v1}, Li1/Z0;->g(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
+    .registers 1
 
     return-void
 .end method
 
 .method public static initialize(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
-    .registers 3
+    .registers 4
 
-    .line 3
-    invoke-static {}, Li1/Z0;->e()Li1/Z0;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0, p1}, Li1/Z0;->g(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
-
+    if-eqz p1, :cond_13
+    new-instance v0, Ljava/util/HashMap;
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    new-instance v1, Lcom/google/android/gms/internal/ads/zzblg;
+    invoke-direct {v1, v0}, Lcom/google/android/gms/internal/ads/zzblg;-><init>(Ljava/util/Map;)V
+    invoke-interface {p1, v1}, Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;->onInitializationComplete(Lcom/google/android/gms/ads/initialization/InitializationStatus;)V
+    :cond_13
     return-void
 .end method
 

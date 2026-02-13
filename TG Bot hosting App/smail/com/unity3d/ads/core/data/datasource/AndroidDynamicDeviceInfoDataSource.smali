@@ -1627,17 +1627,6 @@
     .line 25
     if-eqz v2, :cond_23
 
-    .line 27
-    const/16 v2, 0x10
-
-    .line 29
-    invoke-virtual {v0, v2}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
-
-    .line 32
-    move-result v0
-
-    .line 33
-    if-eqz v0, :cond_23
 
     .line 35
     const/4 v1, 0x1

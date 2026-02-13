@@ -42,73 +42,8 @@
 .end method
 
 .method public create(Landroid/content/Context;)V
-    .registers 4
+    .registers 2
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/k;->e(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 2
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/unity3d/services/core/properties/ClientProperties;->setApplicationContext(Landroid/content/Context;)V
-
-    .line 3
-    instance-of v0, p1, Landroid/app/Application;
-
-    if-eqz v0, :cond_17
-
-    .line 4
-    move-object v0, p1
-
-    check-cast v0, Landroid/app/Application;
-
-    invoke-static {v0}, Lcom/unity3d/services/core/properties/ClientProperties;->setApplication(Landroid/app/Application;)V
-
-    goto :goto_2d
-
-    .line 5
-    :cond_17
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    instance-of v0, v0, Landroid/app/Application;
-
-    if-eqz v0, :cond_2d
-
-    .line 6
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string v1, "null cannot be cast to non-null type android.app.Application"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/k;->c(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v0, Landroid/app/Application;
-
-    .line 7
-    invoke-static {v0}, Lcom/unity3d/services/core/properties/ClientProperties;->setApplication(Landroid/app/Application;)V
-
-    .line 8
-    :cond_2d
-    :goto_2d
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1}, Lcom/unity3d/services/core/properties/SdkProperties;->setAppInitializationTimeSinceEpoch(J)V
-
-    .line 9
-    :try_start_34
-    invoke-static {p1}, Lb2/a;->a(Landroid/content/Context;)Lcom/google/android/gms/tasks/Task;
-    :try_end_37
-    .catchall {:try_start_34 .. :try_end_37} :catchall_37
-
-    :catchall_37
     return-void
 .end method
 

@@ -322,59 +322,11 @@
 .end method
 
 .method public onStart()V
-    .registers 3
+    .registers 1
 
     .line 32
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
-    .line 35
-    :try_start_3
-    invoke-virtual {p0}, Lcom/pairip/licensecheck/LicenseActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    const-string v1, "activitytype"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/pairip/licensecheck/LicenseActivity$ActivityType;
-
-    .line 36
-    invoke-virtual {v0}, Lcom/pairip/licensecheck/LicenseActivity$ActivityType;->ordinal()I
-
-    move-result v0
-
-    if-eqz v0, :cond_1d
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_19
-
-    return-void
-
-    .line 41
-    :cond_19
-    invoke-direct {p0}, Lcom/pairip/licensecheck/LicenseActivity;->showErrorDialog()V
-
-    return-void
-
-    .line 38
-    :cond_1d
-    invoke-direct {p0}, Lcom/pairip/licensecheck/LicenseActivity;->showPaywallAndCloseApp()V
-    :try_end_20
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_20} :catch_21
-
-    return-void
-
-    :catch_21
-    move-exception v0
-
-    .line 45
-    const-string v1, "Couldn\'t process license activity correctly."
-
-    invoke-direct {p0, v1, v0}, Lcom/pairip/licensecheck/LicenseActivity;->logAndShowErrorDialog(Ljava/lang/String;Ljava/lang/Exception;)V
-
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
     return-void
 .end method

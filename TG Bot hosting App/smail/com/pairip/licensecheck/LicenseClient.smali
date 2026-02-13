@@ -97,7 +97,7 @@
     sput-object v0, Lcom/pairip/licensecheck/LicenseClient;->exitAction:Ljava/lang/Runnable;
 
     .line 64
-    sget-object v0, Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;->CHECK_REQUIRED:Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;
+    sget-object v0, Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;->OK:Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;
 
     sput-object v0, Lcom/pairip/licensecheck/LicenseClient;->licenseCheckState:Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;
 
@@ -139,72 +139,7 @@
 .end method
 
 .method private connectToLicensingService()V
-    .registers 4
-
-    .line 100
-    const-string v0, "LicenseClient"
-
-    const-string v1, "Connecting to the licensing service..."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 101
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.android.vending.licensing.ILicensingService"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string v2, "com.android.vending"
-
-    .line 103
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 104
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 107
-    :try_start_18
-    iget-object v1, p0, Lcom/pairip/licensecheck/LicenseClient;->context:Landroid/content/Context;
-
-    const/4 v2, 0x1
-
-    .line 108
-    invoke-virtual {v1, v0, p0, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result v0
-    :try_end_1f
-    .catch Ljava/lang/SecurityException; {:try_start_18 .. :try_end_1f} :catch_2c
-
-    if-nez v0, :cond_2b
-
-    .line 115
-    new-instance v0, Lcom/pairip/licensecheck/LicenseCheckException;
-
-    const-string v1, "Could not bind with the licensing service."
-
-    invoke-direct {v0, v1}, Lcom/pairip/licensecheck/LicenseCheckException;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {p0, v0}, Lcom/pairip/licensecheck/LicenseClient;->retryOrThrow(Lcom/pairip/licensecheck/LicenseCheckException;)V
-
-    :cond_2b
-    return-void
-
-    :catch_2c
-    move-exception v0
-
-    .line 110
-    new-instance v1, Lcom/pairip/licensecheck/LicenseCheckException;
-
-    const-string v2, "Not allowed to bind with the licensing service."
-
-    invoke-direct {v1, v2, v0}, Lcom/pairip/licensecheck/LicenseCheckException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    invoke-direct {p0, v1}, Lcom/pairip/licensecheck/LicenseClient;->retryOrThrow(Lcom/pairip/licensecheck/LicenseCheckException;)V
+    .registers 1
 
     return-void
 .end method
@@ -839,47 +774,7 @@
 .end method
 
 .method public initializeLicenseCheck()V
-    .registers 3
-
-    .line 84
-    sget-object v0, Lcom/pairip/licensecheck/LicenseClient;->licenseCheckState:Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;
-
-    invoke-virtual {v0}, Lcom/pairip/licensecheck/LicenseClient$LicenseCheckState;->ordinal()I
-
-    move-result v0
-
-    if-eqz v0, :cond_19
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_c
-
-    return-void
-
-    .line 90
-    :cond_c
-    :try_start_c
-    sget-object v0, Lcom/pairip/licensecheck/LicenseClient;->responsePayload:Landroid/os/Bundle;
-
-    sget-object v1, Lcom/pairip/licensecheck/LicenseClient;->packageName:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lcom/pairip/licensecheck/ResponseValidator;->validateResponse(Landroid/os/Bundle;Ljava/lang/String;)V
-    :try_end_13
-    .catch Lcom/pairip/licensecheck/LicenseCheckException; {:try_start_c .. :try_end_13} :catch_14
-
-    return-void
-
-    :catch_14
-    move-exception v0
-
-    .line 92
-    invoke-direct {p0, v0}, Lcom/pairip/licensecheck/LicenseClient;->handleError(Lcom/pairip/licensecheck/LicenseCheckException;)V
-
-    return-void
-
-    .line 86
-    :cond_19
-    invoke-direct {p0}, Lcom/pairip/licensecheck/LicenseClient;->connectToLicensingService()V
+    .registers 1
 
     return-void
 .end method
