@@ -324,30 +324,13 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;)V
-    .registers 3
-
-    .line 1
-    invoke-static {}, Li1/Z0;->e()Li1/Z0;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    .line 2
-    invoke-virtual {v0, p0, v1}, Li1/Z0;->g(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
+    .registers 1
 
     return-void
 .end method
 
 .method public static initialize(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
-    .registers 3
-
-    .line 3
-    invoke-static {}, Li1/Z0;->e()Li1/Z0;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0, p1}, Li1/Z0;->g(Landroid/content/Context;Lcom/google/android/gms/ads/initialization/OnInitializationCompleteListener;)V
+    .registers 2
 
     return-void
 .end method
