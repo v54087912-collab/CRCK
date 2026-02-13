@@ -1,0 +1,28 @@
+# classes2.dex
+
+.class abstract Lcom/google/common/util/concurrent/Striped$d;
+.super Lcom/google/common/util/concurrent/Striped;
+.source "Striped.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/util/concurrent/Striped;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "d"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<",
+        "L:Ljava/lang/Object;",
+        ">",
+        "Lcom/google/common/util/concurrent/Striped<",
+        "T",
+        "L;",
+        ">;"
+    }
+.end annotation

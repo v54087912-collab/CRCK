@@ -1,0 +1,16 @@
+# classes2.dex
+
+.class public interface abstract Lorg/qj;
+.super Ljava/lang/Object;
+.source "Call.java"
+
+# interfaces
+.implements Ljava/lang/Cloneable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lorg/qj$a;
+    }
+.end annotation

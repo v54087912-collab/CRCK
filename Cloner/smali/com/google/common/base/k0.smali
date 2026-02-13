@@ -1,0 +1,8 @@
+# classes2.dex
+
+.class Lcom/google/common/base/k0;
+.super Ljava/lang/Object;
+.source "Splitter.java"
+
+# interfaces
+.implements Lcom/google/common/base/l0$c;

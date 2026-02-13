@@ -1,0 +1,70 @@
+# classes2.dex
+
+.class Lcom/google/common/collect/t;
+.super Lcom/google/common/collect/CompactHashMap$b;
+.source "CompactHashMap.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/common/collect/CompactHashMap<",
+        "Ljava/lang/Object;",
+        "Ljava/lang/Object;",
+        ">.b<",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic e:Lcom/google/common/collect/CompactHashMap;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/common/collect/CompactHashMap;)V
+    .registers 2
+
+    .line 1
+    iput-object p1, p0, Lcom/google/common/collect/t;->e:Lcom/google/common/collect/CompactHashMap;
+
+    .line 3
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactHashMap$b;-><init>(Lcom/google/common/collect/CompactHashMap;)V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(I)Ljava/lang/Object;
+    .registers 3
+    .annotation runtime Lcom/google/common/collect/y3;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lcom/google/common/collect/CompactHashMap;->j:Ljava/lang/Object;
+
+    .line 3
+    iget-object v0, p0, Lcom/google/common/collect/t;->e:Lcom/google/common/collect/CompactHashMap;
+
+    .line 5
+    invoke-virtual {v0}, Lcom/google/common/collect/CompactHashMap;->t()[Ljava/lang/Object;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    aget-object p1, v0, p1
+
+    .line 11
+    return-object p1
+.end method

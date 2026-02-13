@@ -1,0 +1,30 @@
+# classes2.dex
+
+.class interface abstract Lcom/google/common/util/concurrent/AbstractFuture$h;
+.super Ljava/lang/Object;
+.source "AbstractFuture.java"
+
+# interfaces
+.implements Lcom/google/common/util/concurrent/q1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/util/concurrent/AbstractFuture;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "h"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/google/common/util/concurrent/q1<",
+        "TV;>;"
+    }
+.end annotation

@@ -1,0 +1,20 @@
+# classes2.dex
+
+.class public interface abstract Lcom/google/android/gms/internal/measurement/zzga;
+.super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-measurement-impl@@22.0.2"
+
+
+# virtual methods
+.method public abstract zza(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .param p1  # Landroid/content/ContentResolver;
+        .annotation build Lorg/he1;
+        .end annotation
+    .end param
+    .param p3  # Ljava/lang/String;
+        .annotation build Lorg/he1;
+        .end annotation
+    .end param
+    .annotation build Lorg/he1;
+    .end annotation
+.end method

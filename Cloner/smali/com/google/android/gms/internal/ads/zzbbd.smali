@@ -1,0 +1,50 @@
+# classes.dex
+
+.class public final synthetic Lcom/google/android/gms/internal/ads/zzbbd;
+.super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-ads@@23.3.0"
+
+# interfaces
+.implements Ljava/util/concurrent/Callable;
+
+
+# direct methods
+.method public synthetic constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final call()Ljava/lang/Object;
+    .registers 3
+
+    .line 1
+    const-string v0, "mounted"
+
+    .line 3
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
+
+    .line 6
+    move-result-object v1
+
+    .line 7
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    .line 10
+    move-result v0
+
+    .line 11
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 14
+    move-result-object v0
+
+    .line 15
+    return-object v0
+.end method

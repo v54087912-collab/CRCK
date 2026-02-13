@@ -1,0 +1,50 @@
+# classes.dex
+
+.class public final synthetic Lcom/google/android/gms/internal/ads/zzcna;
+.super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-ads@@23.3.0"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic zza:Lcom/google/android/gms/internal/ads/zzcni;
+
+.field public final synthetic zzb:Ljava/lang/Throwable;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/google/android/gms/internal/ads/zzcni;Ljava/lang/Throwable;)V
+    .registers 3
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzcna;->zza:Lcom/google/android/gms/internal/ads/zzcni;
+
+    .line 6
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzcna;->zzb:Ljava/lang/Throwable;
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 3
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzcna;->zza:Lcom/google/android/gms/internal/ads/zzcni;
+
+    .line 3
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzcna;->zzb:Ljava/lang/Throwable;
+
+    .line 5
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/ads/zzcni;->zzh(Ljava/lang/Throwable;)V
+
+    .line 8
+    return-void
+.end method

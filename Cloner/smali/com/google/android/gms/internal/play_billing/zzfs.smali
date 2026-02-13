@@ -1,0 +1,256 @@
+# classes2.dex
+
+.class final Lcom/google/android/gms/internal/play_billing/zzfs;
+.super Lcom/google/android/gms/internal/play_billing/zzfr;
+.source "com.android.billingclient:billing@@7.0.0"
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/android/gms/internal/play_billing/zzfr;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zza(I[BII)I
+    .registers 12
+
+    .line 1
+    :goto_0
+    if-ge p3, p4, :cond_9
+
+    .line 3
+    aget-byte p1, p2, p3
+
+    .line 5
+    if-ltz p1, :cond_9
+
+    .line 7
+    add-int/lit8 p3, p3, 0x1
+
+    .line 9
+    goto :goto_0
+
+    .line 10
+    :cond_9
+    const/4 p1, 0x0
+
+    .line 11
+    if-lt p3, p4, :cond_d
+
+    .line 13
+    return p1
+
+    .line 14
+    :cond_d
+    :goto_d
+    if-lt p3, p4, :cond_10
+
+    .line 16
+    return p1
+
+    .line 17
+    :cond_10
+    add-int/lit8 v0, p3, 0x1
+
+    .line 19
+    aget-byte v1, p2, p3
+
+    .line 21
+    if-gez v1, :cond_7a
+
+    .line 23
+    const/16 v2, -0x20
+
+    .line 25
+    const/16 v3, -0x41
+
+    .line 27
+    const/4 v4, -0x1
+
+    .line 28
+    if-ge v1, v2, :cond_2b
+
+    .line 30
+    if-lt v0, p4, :cond_20
+
+    .line 32
+    return v1
+
+    .line 33
+    :cond_20
+    const/16 v2, -0x3e
+
+    .line 35
+    if-lt v1, v2, :cond_2a
+
+    .line 37
+    add-int/lit8 p3, p3, 0x2
+
+    .line 39
+    aget-byte v0, p2, v0
+
+    .line 41
+    if-le v0, v3, :cond_d
+
+    .line 43
+    :cond_2a
+    return v4
+
+    .line 44
+    :cond_2b
+    const/16 v5, -0x10
+
+    .line 46
+    if-ge v1, v5, :cond_55
+
+    .line 48
+    add-int/lit8 v5, p4, -0x1
+
+    .line 50
+    if-lt v0, v5, :cond_38
+
+    .line 52
+    invoke-static {p2, v0, p4}, Lcom/google/android/gms/internal/play_billing/zzfu;->zza([BII)I
+
+    .line 55
+    move-result p1
+
+    .line 56
+    return p1
+
+    .line 57
+    :cond_38
+    add-int/lit8 v5, p3, 0x2
+
+    .line 59
+    aget-byte v0, p2, v0
+
+    .line 61
+    if-gt v0, v3, :cond_54
+
+    .line 63
+    const/16 v6, -0x60
+
+    .line 65
+    if-ne v1, v2, :cond_46
+
+    .line 67
+    if-lt v0, v6, :cond_45
+
+    .line 69
+    goto :goto_46
+
+    .line 70
+    :cond_45
+    return v4
+
+    .line 71
+    :cond_46
+    :goto_46
+    const/16 v2, -0x13
+
+    .line 73
+    if-ne v1, v2, :cond_4e
+
+    .line 75
+    if-ge v0, v6, :cond_4d
+
+    .line 77
+    goto :goto_4e
+
+    .line 78
+    :cond_4d
+    return v4
+
+    .line 79
+    :cond_4e
+    :goto_4e
+    add-int/lit8 p3, p3, 0x3
+
+    .line 81
+    aget-byte v0, p2, v5
+
+    .line 83
+    if-le v0, v3, :cond_d
+
+    .line 85
+    :cond_54
+    return v4
+
+    .line 86
+    :cond_55
+    add-int/lit8 v2, p4, -0x2
+
+    .line 88
+    if-lt v0, v2, :cond_5e
+
+    .line 90
+    invoke-static {p2, v0, p4}, Lcom/google/android/gms/internal/play_billing/zzfu;->zza([BII)I
+
+    .line 93
+    move-result p1
+
+    .line 94
+    return p1
+
+    .line 95
+    :cond_5e
+    add-int/lit8 v2, p3, 0x2
+
+    .line 97
+    aget-byte v0, p2, v0
+
+    .line 99
+    if-gt v0, v3, :cond_79
+
+    .line 101
+    shl-int/lit8 v1, v1, 0x1c
+
+    .line 103
+    add-int/lit8 v0, v0, 0x70
+
+    .line 105
+    add-int/2addr v0, v1
+
+    .line 106
+    shr-int/lit8 v0, v0, 0x1e
+
+    .line 108
+    if-nez v0, :cond_79
+
+    .line 110
+    add-int/lit8 v0, p3, 0x3
+
+    .line 112
+    aget-byte v1, p2, v2
+
+    .line 114
+    if-gt v1, v3, :cond_79
+
+    .line 116
+    add-int/lit8 p3, p3, 0x4
+
+    .line 118
+    aget-byte v0, p2, v0
+
+    .line 120
+    if-le v0, v3, :cond_d
+
+    .line 122
+    :cond_79
+    return v4
+
+    .line 123
+    :cond_7a
+    move p3, v0
+
+    .line 124
+    goto :goto_d
+.end method

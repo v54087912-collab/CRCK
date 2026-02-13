@@ -1,0 +1,63 @@
+# classes.dex
+
+.class Landroidx/browser/browseractions/BrowserServiceFileProvider$b;
+.super Landroid/os/AsyncTask;
+.source "BrowserServiceFileProvider.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/browser/browseractions/BrowserServiceFileProvider;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "b"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask<",
+        "Ljava/lang/String;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        ">;"
+    }
+.end annotation
+
+
+# virtual methods
+.method public final doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    check-cast p1, [Ljava/lang/String;
+
+    .line 3
+    new-instance p1, Ljava/io/File;
+
+    .line 5
+    const/4 p1, 0x0
+
+    .line 6
+    throw p1
+.end method
+
+.method public final onPostExecute(Ljava/lang/Object;)V
+    .registers 2
+
+    .line 1
+    check-cast p1, Ljava/lang/Void;
+
+    .line 3
+    new-instance p1, Landroidx/browser/browseractions/BrowserServiceFileProvider$a;
+
+    .line 5
+    invoke-direct {p1}, Landroid/os/AsyncTask;-><init>()V
+
+    .line 8
+    const/4 p1, 0x0
+
+    .line 9
+    throw p1
+.end method

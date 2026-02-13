@@ -1,0 +1,273 @@
+# classes2.dex
+
+.class Lcom/google/common/collect/Maps$r;
+.super Lcom/google/common/collect/Maps$m;
+.source "Maps.java"
+
+# interfaces
+.implements Ljava/util/SortedSet;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/collect/Maps;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "r"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<K:",
+        "Ljava/lang/Object;",
+        "V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/google/common/collect/Maps$m<",
+        "TK;TV;>;",
+        "Ljava/util/SortedSet<",
+        "TK;>;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+
+# virtual methods
+.method public final comparator()Ljava/util/Comparator;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Comparator<",
+            "-TK;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lorg/gm;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public bridge synthetic e()Ljava/util/Map;
+    .registers 2
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public f()Ljava/util/SortedMap;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/SortedMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lcom/google/common/collect/Maps$m;->a:Ljava/util/Map;
+
+    .line 3
+    check-cast v0, Ljava/util/SortedMap;
+
+    .line 5
+    return-object v0
+.end method
+
+.method public final first()Ljava/lang/Object;
+    .registers 2
+    .annotation runtime Lcom/google/common/collect/y3;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TK;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/SortedMap;->firstKey()Ljava/lang/Object;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .registers 4
+    .param p1  # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/y3;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    new-instance v0, Lcom/google/common/collect/Maps$r;
+
+    .line 3
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 6
+    move-result-object v1
+
+    .line 7
+    invoke-interface {v1, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
+
+    .line 10
+    move-result-object p1
+
+    .line 11
+    invoke-direct {v0, p1}, Lcom/google/common/collect/Maps$m;-><init>(Ljava/util/Map;)V
+
+    .line 14
+    return-object v0
+.end method
+
+.method public final last()Ljava/lang/Object;
+    .registers 2
+    .annotation runtime Lcom/google/common/collect/y3;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TK;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
+    .registers 5
+    .param p1  # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/y3;
+        .end annotation
+    .end param
+    .param p2  # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/y3;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    new-instance v0, Lcom/google/common/collect/Maps$r;
+
+    .line 3
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 6
+    move-result-object v1
+
+    .line 7
+    invoke-interface {v1, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
+
+    .line 10
+    move-result-object p1
+
+    .line 11
+    invoke-direct {v0, p1}, Lcom/google/common/collect/Maps$m;-><init>(Ljava/util/Map;)V
+
+    .line 14
+    return-object v0
+.end method
+
+.method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .registers 4
+    .param p1  # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/y3;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    new-instance v0, Lcom/google/common/collect/Maps$r;
+
+    .line 3
+    invoke-virtual {p0}, Lcom/google/common/collect/Maps$r;->f()Ljava/util/SortedMap;
+
+    .line 6
+    move-result-object v1
+
+    .line 7
+    invoke-interface {v1, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
+
+    .line 10
+    move-result-object p1
+
+    .line 11
+    invoke-direct {v0, p1}, Lcom/google/common/collect/Maps$m;-><init>(Ljava/util/Map;)V
+
+    .line 14
+    return-object v0
+.end method

@@ -1,0 +1,235 @@
+# classes.dex
+
+.class public abstract Landroidx/browser/trusted/TrustedWebActivityService;
+.super Landroid/app/Service;
+.source "TrustedWebActivityService.java"
+
+
+# instance fields
+.field public a:Landroid/app/NotificationManager;
+
+.field public b:I
+
+.field public final c:Landroid/support/customtabs/trusted/ITrustedWebActivityService$Stub;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0}, Landroid/app/Service;-><init>()V
+
+    .line 4
+    const/4 v0, -0x1
+
+    .line 5
+    iput v0, p0, Landroidx/browser/trusted/TrustedWebActivityService;->b:I
+
+    .line 7
+    new-instance v0, Landroidx/browser/trusted/TrustedWebActivityService$a;
+
+    .line 9
+    invoke-direct {v0, p0}, Landroidx/browser/trusted/TrustedWebActivityService$a;-><init>(Landroidx/browser/trusted/TrustedWebActivityService;)V
+
+    .line 12
+    iput-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityService;->c:Landroid/support/customtabs/trusted/ITrustedWebActivityService$Stub;
+
+    .line 14
+    return-void
+.end method
+
+.method public static a(Ljava/lang/String;)Ljava/lang/String;
+    .registers 4
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    .line 8
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    .line 11
+    move-result-object p0
+
+    .line 12
+    const/16 v1, 0x20
+
+    .line 14
+    const/16 v2, 0x5f
+
+    .line 16
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+
+    .line 19
+    move-result-object p0
+
+    .line 20
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 23
+    const-string p0, "_channel_id"
+
+    .line 25
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 28
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 31
+    move-result-object p0
+
+    .line 32
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public abstract b()Lorg/ti2;
+    .annotation build Lorg/ef;
+    .end annotation
+
+    .annotation build Lorg/xc1;
+    .end annotation
+.end method
+
+.method public final c()I
+    .registers 5
+    .annotation build Lorg/ef;
+    .end annotation
+
+    .line 1
+    const/4 v0, -0x1
+
+    .line 2
+    :try_start_1
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    .line 5
+    move-result-object v1
+
+    .line 6
+    new-instance v2, Landroid/content/ComponentName;
+
+    .line 8
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 11
+    move-result-object v3
+
+    .line 12
+    invoke-direct {v2, p0, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 15
+    const/16 v3, 0x80
+
+    .line 17
+    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+
+    .line 20
+    move-result-object v1
+
+    .line 21
+    iget-object v1, v1, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
+
+    .line 23
+    if-nez v1, :cond_19
+
+    .line 25
+    return v0
+
+    .line 26
+    :cond_19
+    const-string v2, "android.support.customtabs.trusted.SMALL_ICON"
+
+    .line 28
+    invoke-virtual {v1, v2, v0}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+
+    .line 31
+    move-result v0
+    :try_end_1f
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1f} :catch_1f
+
+    .line 32
+    :catch_1f
+    return v0
+.end method
+
+.method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+    .registers 2
+    .param p1  # Landroid/content/Intent;
+        .annotation build Lorg/he1;
+        .end annotation
+    .end param
+    .annotation build Lorg/he1;
+    .end annotation
+
+    .annotation build Lorg/y51;
+    .end annotation
+
+    .line 1
+    iget-object p1, p0, Landroidx/browser/trusted/TrustedWebActivityService;->c:Landroid/support/customtabs/trusted/ITrustedWebActivityService$Stub;
+
+    .line 3
+    return-object p1
+.end method
+
+.method public final onCreate()V
+    .registers 2
+    .annotation build Lorg/uj;
+    .end annotation
+
+    .annotation build Lorg/y51;
+    .end annotation
+
+    .line 1
+    invoke-super {p0}, Landroid/app/Service;->onCreate()V
+
+    .line 4
+    const-string v0, "notification"
+
+    .line 6
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 9
+    move-result-object v0
+
+    .line 10
+    check-cast v0, Landroid/app/NotificationManager;
+
+    .line 12
+    iput-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityService;->a:Landroid/app/NotificationManager;
+
+    .line 14
+    return-void
+.end method
+
+.method public final onUnbind(Landroid/content/Intent;)Z
+    .registers 3
+    .param p1  # Landroid/content/Intent;
+        .annotation build Lorg/he1;
+        .end annotation
+    .end param
+    .annotation build Lorg/y51;
+    .end annotation
+
+    .line 1
+    const/4 v0, -0x1
+
+    .line 2
+    iput v0, p0, Landroidx/browser/trusted/TrustedWebActivityService;->b:I
+
+    .line 4
+    invoke-super {p0, p1}, Landroid/app/Service;->onUnbind(Landroid/content/Intent;)Z
+
+    .line 7
+    move-result p1
+
+    .line 8
+    return p1
+.end method

@@ -1,0 +1,5 @@
+# classes2.dex
+
+.class public Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigClientException;
+.super Lcom/google/firebase/remoteconfig/FirebaseRemoteConfigException;
+.source "FirebaseRemoteConfigClientException.java"
