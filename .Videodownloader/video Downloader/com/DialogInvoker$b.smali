@@ -76,8 +76,7 @@
 
     const-string v8, "android.intent.extra.TEXT"
 
-    const-string v9, "Join For More
-https://t.me/allinformation0173"
+    const-string v9, "Join For More \nhttps://t.me/allinformation0173"
 
     invoke-virtual {v7, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

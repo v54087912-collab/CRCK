@@ -4,15 +4,15 @@
 
 
 # static fields
-.field private static showTime:I
+.field private static isShown:Z
 
 
 # direct methods
 .method static final constructor <clinit>()V
     .registers 1
 
-    const/16 v0, 0xa
-    sput v0, Lcom/DialogInvoker;->showTime:I
+    const/4 v0, 0x0
+    sput-boolean v0, Lcom/DialogInvoker;->isShown:Z
 
     return-void
 .end method
@@ -30,7 +30,17 @@
 
     move-object/from16 v0, p0
 
-    # Start Dialog Construction
+    # Check if already shown in this session
+    sget-boolean v9, Lcom/DialogInvoker;->isShown:Z
+    if-eqz v9, :cond_show
+    goto :cond_skip
+
+    :cond_show
+    # Set isShown to true
+    const/4 v9, 0x1
+    sput-boolean v9, Lcom/DialogInvoker;->isShown:Z
+
+    # Show Dialog
     new-instance v9, Landroid/app/AlertDialog$Builder;
     move-object v15, v9
     move-object v9, v15
@@ -145,7 +155,8 @@
     move-object v9, v7
     invoke-virtual {v9}, Landroid/app/AlertDialog;->show()V
 
-    # Return True
+    :cond_skip
+    # Always return true (1) to pass security check
     const/4 v9, 0x1
     return v9
 .end method
