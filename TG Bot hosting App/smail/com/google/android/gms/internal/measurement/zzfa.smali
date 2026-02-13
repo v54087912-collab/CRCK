@@ -1,0 +1,74 @@
+# classes.dex
+
+.class final Lcom/google/android/gms/internal/measurement/zzfa;
+.super Lcom/google/android/gms/internal/measurement/zzeu;
+.source "SourceFile"
+
+
+# instance fields
+.field final synthetic zza:Landroid/app/Activity;
+
+.field final synthetic zzb:Lcom/google/android/gms/internal/measurement/zzfe;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/measurement/zzfe;Landroid/app/Activity;)V
+    .registers 3
+
+    .line 1
+    iput-object p2, p0, Lcom/google/android/gms/internal/measurement/zzfa;->zza:Landroid/app/Activity;
+
+    .line 3
+    iput-object p1, p0, Lcom/google/android/gms/internal/measurement/zzfa;->zzb:Lcom/google/android/gms/internal/measurement/zzfe;
+
+    .line 5
+    iget-object p1, p1, Lcom/google/android/gms/internal/measurement/zzfe;->zza:Lcom/google/android/gms/internal/measurement/zzff;
+
+    .line 7
+    const/4 p2, 0x1
+
+    .line 8
+    invoke-direct {p0, p1, p2}, Lcom/google/android/gms/internal/measurement/zzeu;-><init>(Lcom/google/android/gms/internal/measurement/zzff;Z)V
+
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zza()V
+    .registers 5
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzfa;->zzb:Lcom/google/android/gms/internal/measurement/zzfe;
+
+    .line 3
+    iget-object v0, v0, Lcom/google/android/gms/internal/measurement/zzfe;->zza:Lcom/google/android/gms/internal/measurement/zzff;
+
+    .line 5
+    invoke-static {v0}, Lcom/google/android/gms/internal/measurement/zzff;->zze(Lcom/google/android/gms/internal/measurement/zzff;)Lcom/google/android/gms/internal/measurement/zzcv;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/H;->h(Ljava/lang/Object;)V
+
+    .line 12
+    iget-object v1, p0, Lcom/google/android/gms/internal/measurement/zzfa;->zza:Landroid/app/Activity;
+
+    .line 14
+    invoke-static {v1}, Lcom/google/android/gms/internal/measurement/zzdj;->zza(Landroid/app/Activity;)Lcom/google/android/gms/internal/measurement/zzdj;
+
+    .line 17
+    move-result-object v1
+
+    .line 18
+    iget-wide v2, p0, Lcom/google/android/gms/internal/measurement/zzeu;->zzi:J
+
+    .line 20
+    invoke-interface {v0, v1, v2, v3}, Lcom/google/android/gms/internal/measurement/zzcv;->onActivityPausedByScionActivityInfo(Lcom/google/android/gms/internal/measurement/zzdj;J)V
+
+    .line 23
+    return-void
+.end method

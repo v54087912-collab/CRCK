@@ -1,0 +1,126 @@
+# classes.dex
+
+.class final Lcom/google/android/play/core/integrity/a;
+.super Lcom/google/android/play/core/integrity/ap;
+.source "SourceFile"
+
+
+# instance fields
+.field private a:Ljava/lang/String;
+
+.field private b:Lcom/google/android/play/core/integrity/y;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Lcom/google/android/play/core/integrity/ap;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Lcom/google/android/play/core/integrity/y;)Lcom/google/android/play/core/integrity/ap;
+    .registers 2
+
+    iput-object p1, p0, Lcom/google/android/play/core/integrity/a;->b:Lcom/google/android/play/core/integrity/y;
+
+    return-object p0
+.end method
+
+.method public final b(Ljava/lang/String;)Lcom/google/android/play/core/integrity/ap;
+    .registers 2
+
+    iput-object p1, p0, Lcom/google/android/play/core/integrity/a;->a:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public final c()Lcom/google/android/play/core/integrity/aq;
+    .registers 4
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/play/core/integrity/a;->a:Ljava/lang/String;
+
+    .line 3
+    if-eqz v0, :cond_f
+
+    .line 5
+    iget-object v1, p0, Lcom/google/android/play/core/integrity/a;->b:Lcom/google/android/play/core/integrity/y;
+
+    .line 7
+    if-nez v1, :cond_9
+
+    .line 9
+    goto :goto_f
+
+    .line 10
+    :cond_9
+    new-instance v2, Lcom/google/android/play/core/integrity/aq;
+
+    .line 12
+    invoke-direct {v2, v0, v1}, Lcom/google/android/play/core/integrity/aq;-><init>(Ljava/lang/String;Lcom/google/android/play/core/integrity/y;)V
+
+    .line 15
+    return-object v2
+
+    .line 16
+    :cond_f
+    :goto_f
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 18
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 21
+    iget-object v1, p0, Lcom/google/android/play/core/integrity/a;->a:Ljava/lang/String;
+
+    .line 23
+    if-nez v1, :cond_1d
+
+    .line 25
+    const-string v1, " token"
+
+    .line 27
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 30
+    :cond_1d
+    iget-object v1, p0, Lcom/google/android/play/core/integrity/a;->b:Lcom/google/android/play/core/integrity/y;
+
+    .line 32
+    if-nez v1, :cond_26
+
+    .line 34
+    const-string v1, " integrityDialogWrapper"
+
+    .line 36
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 39
+    :cond_26
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    .line 41
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    .line 44
+    move-result-object v0
+
+    .line 45
+    const-string v2, "Missing required properties:"
+
+    .line 47
+    invoke-virtual {v2, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    .line 50
+    move-result-object v0
+
+    .line 51
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 54
+    throw v1
+.end method
