@@ -158,12 +158,14 @@ class BlackBoxLoader {
                                                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                                                     if (!android.provider.Settings.canDrawOverlays(hostContext)) {
                                                         Log.w(TAG, "Requesting overlay permission for Blood Strike mod (Host)")
+                                                        android.widget.Toast.makeText(hostContext, "Please grant Overlay Permission and restart the game for the Mod Menu to work.", android.widget.Toast.LENGTH_LONG).show()
                                                         val intent = android.content.Intent(
                                                             android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                                                             android.net.Uri.parse("package:" + hostContext.packageName)
                                                         )
                                                         intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
                                                         hostContext.startActivity(intent)
+                                                        return
                                                     }
                                                 }
 

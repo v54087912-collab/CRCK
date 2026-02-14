@@ -80,9 +80,10 @@ The project implements a **Client-Server Architecture** within a single Android 
 
 ## 8. Build Configuration & Manifest Issues
 
--   **Target SDK**: The project likely targets a lower SDK or uses `requestLegacyExternalStorage` to maintain file access, which is deprecated.
+-   **Target SDK**: The project targets SDK 28 (Android 9), which is outdated but beneficial for virtualization compatibility (avoiding Scoped Storage restrictions).
 -   **Manifest Bloat**: The `AndroidManifest.xml` is enormous, declaring 50+ activities (`ProxyActivity$P0`...) and providers. This increases APK size and install time.
 -   **Permission Declarations**: Many permissions are declared that might not be used by the *engine* but are needed for *guest apps*. This violates the principle of least privilege.
+-   **Overlay Permission**: Added logic in `BlackBoxLoader.kt` to strictly enforce `SYSTEM_ALERT_WINDOW` permission before loading mod libraries, fixing the "ESP not working" issue.
 
 ## 9. External Libraries & Native Integrations
 
@@ -98,30 +99,23 @@ The project implements a **Client-Server Architecture** within a single Android 
 -   **Native Crashes**: Inline hooking (`Dobby`) can cause instruction alignment issues or race conditions in multi-threaded environments, leading to `SIGSEGV`.
 -   **Process Death**: If the `DaemonService` is killed by the system (Low Memory Killer), all virtual apps will destabilize or crash.
 
-## Detailed Analysis of `libNajmul101FreeMod.so`
+## Detailed Analysis of `libNajmul101FreeMod.so` Integration
 
 This library, integrated into `NewBlackbox-main`, is a game mod menu ("Free Mod By Najmul101") specifically targeting "Blood Strike".
 
 ### Characteristics
 -   **Type**: Shared Object (`.so`) with JNI interface.
--   **Architecture**: `arm64-v8a` only (missing `armeabi-v7a` causing potential crashes on older devices).
--   **Initialization**: Uses `JNI_OnLoad` for dynamic registration. Likely hooks game functions using `xhook` or similar.
--   **UI Framework**: Uses **ImGui** for the overlay menu (evidenced by strings "TabLogin", "Key Information").
--   **Network Activity**: Contains strings like `https proxy request`, `http/1.1`, and OpenSSL functions, indicating it communicates with a remote server (`https://Najmul101.ltd/Mods/` potentially) for key verification or updates.
+-   **Architecture**: `arm64-v8a` only.
+-   **Initialization**: Uses `JNI_OnLoad` for dynamic registration.
+-   **UI Framework**: Uses **ImGui** for the overlay menu.
+-   **Network Activity**: Validates keys via network requests (OpenSSL/curl).
 
-### Login Mechanism (The "Bypass" Issue)
-The screenshot provided by the user shows a mandatory login screen:
--   **UI**: "Please Login! [Copy Key to Clipboard]", "Paste Key", "Tap Login 2x".
--   **Logic**:
-    1.  The library generates a unique device ID ("Information Key").
-    2.  The user must copy this key and likely visit a website (e.g., via linkvertise) to generate a valid session key.
-    3.  The user pastes the key and taps Login.
-    4.  The library validates the key, likely via a network request to the backend.
-
-### Bypass Challenges
--   **Obfuscation**: The library is stripped (`nm -D` shows no debug symbols) and likely uses string encryption (though some strings are visible).
--   **Native Implementation**: The login logic is compiled C++, making it hard to modify without disassembly.
--   **Server-Side Check**: If the validation is purely server-side (sending key -> receiving token), a bypass requires mimicking the server response. If it's local (algorithm-based), reverse engineering the algorithm is required.
+### Fixed Issues
+1.  **ESP Not Working**: Fixed by strictly enforcing `SYSTEM_ALERT_WINDOW` permission in `BlackBoxLoader.kt`. If the permission is missing, the mod library is **not loaded**, and the user is prompted to grant permission and restart. This prevents the mod from initializing without the ability to draw the overlay.
+2.  **Aimbot Issues**: Users reported aimbot not working properly. This is likely due to:
+    -   **Outdated Offsets**: The mod binary might be older than the game version, causing it to read/write wrong memory addresses.
+    -   **Virtualization Conflicts**: Running inside BlackBox (which hooks `ptrace` and file operations) might interfere with the mod's memory scanning logic (`/proc/self/maps`).
+    -   **Recommendation**: Update `libNajmul101FreeMod.so` to the latest version compatible with the current game update.
 
 ### Risks
 -   **Malware Potential**: The library has full access to the game process and memory. It could be a vehicle for malware or data theft.
