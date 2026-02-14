@@ -24,12 +24,13 @@ public:
      */
     static bool IsValidElf(uintptr_t addr);
 
-private:
     // Helper for dl_iterate_phdr callback
     struct PhdrCallbackData {
         const char* moduleName;
         uintptr_t result;
     };
+
+private:
     static int DlIterateCallback(struct dl_phdr_info* info, size_t size, void* data);
 };
 

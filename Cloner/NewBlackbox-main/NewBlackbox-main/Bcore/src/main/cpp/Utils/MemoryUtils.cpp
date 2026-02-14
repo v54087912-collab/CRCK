@@ -17,6 +17,8 @@
 #include <fstream>
 #include "../Log.h"
 
+#define ALOGW(...) __android_log_print(ANDROID_LOG_WARN, TAG, __VA_ARGS__)
+
 // Callback for dl_iterate_phdr
 static int DlIterateCallback(struct dl_phdr_info* info, size_t size, void* data) {
     auto* cbData = static_cast<MemoryUtils::PhdrCallbackData*>(data);
