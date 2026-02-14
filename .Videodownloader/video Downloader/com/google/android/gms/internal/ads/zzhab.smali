@@ -1,4 +1,0 @@
-# classes2.dex
-
-.class public final synthetic Lcom/google/android/gms/internal/ads/zzhab;
-.super Ljava/lang/Object;
