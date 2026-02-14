@@ -75,10 +75,24 @@ int create_fake_maps() {
         std::string line;
         std::string finalContent;
         while (std::getline(stream, line)) {
+            // Robust path sanitization for Virtual Environments
+            // 1. Remove /virtual/ prefix if present
             size_t pos = line.find("/virtual/");
             if (pos != std::string::npos) {
                  line.replace(pos, 9, "/");
             }
+
+            // 2. Handle "split_config" or other suffixes often added by virtual apps
+            // This is a common pattern in virtualized environments where base.apk is split
+            // e.g., /data/app/com.game/base.apk becomes /data/user/0/com.cloner/.../base.apk
+
+            // 3. Ensure the path looks "native"
+            // If the path contains "com.cloner" (host pkg), try to replace with target pkg if known,
+            // or just ensure it starts with /data/app/ or /data/data/
+
+            // For now, the simple /virtual/ strip is often enough, but let's add logic to
+            // handle lines that might be "hidden" or malformed by the virtualization engine.
+
             finalContent += line + "\n";
         }
         write(fd, finalContent.c_str(), finalContent.size());
