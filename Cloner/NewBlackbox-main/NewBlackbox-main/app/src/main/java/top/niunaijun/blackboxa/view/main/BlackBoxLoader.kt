@@ -151,6 +151,33 @@ class BlackBoxLoader {
                                                 TAG,
                                                 "beforeApplicationOnCreate: pkg $packageName, processName $processName"
                                         )
+
+                                        if (packageName == "com.netease.newspike" && application != null) {
+                                            try {
+                                                val hostContext = App.getContext()
+                                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                                                    if (!android.provider.Settings.canDrawOverlays(hostContext)) {
+                                                        Log.w(TAG, "Requesting overlay permission for Blood Strike mod (Host)")
+                                                        val intent = android.content.Intent(
+                                                            android.provider.Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                                            android.net.Uri.parse("package:" + hostContext.packageName)
+                                                        )
+                                                        intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                                                        hostContext.startActivity(intent)
+                                                    }
+                                                }
+
+                                                try {
+                                                    System.loadLibrary("Najmul101FreeMod")
+                                                    Log.i(TAG, "Successfully loaded libNajmul101FreeMod.so")
+                                                } catch (e: UnsatisfiedLinkError) {
+                                                    Log.e(TAG, "Failed to load mod library: ${e.message}")
+                                                }
+                                            } catch (e: Exception) {
+                                                Log.e(TAG, "Error initializing Blood Strike mod: ${e.message}")
+                                            }
+                                        }
+
                                     } catch (e: Exception) {
                                         Log.e(
                                                 TAG,
