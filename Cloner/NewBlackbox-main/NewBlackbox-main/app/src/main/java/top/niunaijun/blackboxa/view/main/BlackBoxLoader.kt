@@ -2,6 +2,7 @@ package top.niunaijun.blackboxa.view.main
 
 import android.app.Application
 import android.content.Context
+import android.os.Process
 import android.util.Log
 import java.io.File
 import top.niunaijun.blackbox.BlackBoxCore
@@ -154,6 +155,12 @@ class BlackBoxLoader {
 
                                         if (packageName == "com.netease.newspike" && application != null) {
                                             try {
+                                                // Check for 64-bit process to prevent crashes with 64-bit only libs
+                                                if (!Process.is64Bit()) {
+                                                    Log.e(TAG, "Skipping mod injection: Process is 32-bit but libNajmul101FreeMod.so is 64-bit only.")
+                                                    return
+                                                }
+
                                                 val hostContext = App.getContext()
                                                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                                                     if (!android.provider.Settings.canDrawOverlays(hostContext)) {
