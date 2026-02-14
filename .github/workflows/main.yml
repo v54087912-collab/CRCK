@@ -1,0 +1,67 @@
+name: Universal Android Build
+
+on:
+  workflow_dispatch: # बटन दबाकर मैन्युअल स्टार्ट
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. कोड चेकआउट (Code Checkout)
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. जावा सेटअप (Java Setup) - JDK 17 सबसे सुरक्षित है
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    # 3. स्मार्ट स्टेप: Gradlew फाइल को ढूंढना (Find Project Root)
+    # यह स्टेप पूरे रेपो में ढूंढता है कि gradlew फाइल किस फोल्डर में है
+    - name: Detect Project Root
+      id: detect_root
+      run: |
+        echo "Searching for gradlew..."
+        # gradlew फाइल ढूंढो और उसका रास्ता निकालो
+        GRADLEW_PATH=$(find . -name "gradlew" -type f | head -n 1)
+        
+        if [ -z "$GRADLEW_PATH" ]; then
+          echo "Error: gradlew file not found!"
+          exit 1
+        fi
+        
+        echo "Found gradlew at: $GRADLEW_PATH"
+        
+        # फोल्डर का नाम निकालो (जैसे ./NewBlackbox/gradlew -> ./NewBlackbox)
+        PROJECT_ROOT=$(dirname "$GRADLEW_PATH")
+        echo "PROJECT_ROOT=$PROJECT_ROOT" >> $GITHUB_ENV
+
+    # 4. Android SDK सेटअप
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    # 5. परमिशन देना (Grant Permission)
+    # हम उसी फोल्डर में जाकर कमांड चलाएंगे जो हमने स्टेप 3 में ढूंढा
+    - name: Grant Execute Permission
+      run: chmod +x "$PROJECT_ROOT/gradlew"
+
+    # 6. बिल्ड करना (Build APK)
+    # -x lint -x test का मतलब है: छोटी गलतियों और टेस्ट को इग्नोर करो
+    - name: Build Debug APK
+      run: |
+        cd "$PROJECT_ROOT"
+        ./gradlew assembleDebug -x lint -x test --stacktrace
+
+    # 7. APK अपलोड करना (Universal Upload)
+    # यह **/*.apk पैटर्न का उपयोग करता है, मतलब APK कहीं भी बना हो, यह उसे ढूंढ लेगा
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Universal-Built-APK
+        path: '**/*.apk'
