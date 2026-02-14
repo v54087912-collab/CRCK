@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-    <path name="design_layout_snackbar">res/layout-sw600dp-v13/design_layout_snackbar.xml</path>
-    <path name="mtrl_layout_snackbar">res/layout-sw600dp-v13/mtrl_layout_snackbar.xml</path>
-</resources>

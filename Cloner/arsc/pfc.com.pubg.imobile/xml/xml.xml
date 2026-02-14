@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-    <path name="file_path">res/xml/file_path.xml</path>
-    <path name="filepath">res/xml/filepath.xml</path>
-    <path name="network_security_config">res/xml/network_security_config.xml</path>
-    <path name="setting">res/xml/setting.xml</path>
-</resources>

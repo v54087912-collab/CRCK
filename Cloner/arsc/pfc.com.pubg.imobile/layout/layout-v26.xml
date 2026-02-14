@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-    <path name="abc_screen_toolbar">res/layout-v26/abc_screen_toolbar.xml</path>
-    <path name="mtrl_calendar_month">res/layout-v26/mtrl_calendar_month.xml</path>
-</resources>

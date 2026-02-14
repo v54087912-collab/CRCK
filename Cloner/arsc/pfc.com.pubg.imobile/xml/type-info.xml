@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<type id="0x13" defaultPublic="true">
-    <entry id="0x7f130000" name="file_path" />
-    <entry id="0x7f130001" name="filepath" />
-    <entry id="0x7f130002" name="network_security_config" />
-    <entry id="0x7f130003" name="setting" />
-</type>

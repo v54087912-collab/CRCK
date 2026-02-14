@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-    <path name="abc_alert_dialog_button_bar_material">res/layout-watch-v8/abc_alert_dialog_button_bar_material.xml</path>
-    <path name="abc_alert_dialog_title_material">res/layout-watch-v8/abc_alert_dialog_title_material.xml</path>
-</resources>

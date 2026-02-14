@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<resources>
-    <path name="app_menu">res/menu/app_menu.xml</path>
-    <path name="menu_list">res/menu/menu_list.xml</path>
-    <path name="menu_main">res/menu/menu_main.xml</path>
-    <path name="menu_search">res/menu/menu_search.xml</path>
-</resources>
