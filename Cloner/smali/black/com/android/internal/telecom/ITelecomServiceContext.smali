@@ -1,0 +1,11 @@
+# classes.dex
+
+.class public interface abstract Lblack/com/android/internal/telecom/ITelecomServiceContext;
+.super Ljava/lang/Object;
+.source "ITelecomServiceContext.java"
+
+
+# annotations
+.annotation runtime Ltop/niunaijun/blackreflection/annotation/BClassNameNotProcess;
+    value = "com.android.internal.telecom.ITelecomService"
+.end annotation

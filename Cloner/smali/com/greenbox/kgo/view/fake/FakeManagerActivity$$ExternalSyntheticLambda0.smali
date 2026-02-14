@@ -1,0 +1,50 @@
+# classes2.dex
+
+.class public final synthetic Lcom/greenbox/kgo/view/fake/FakeManagerActivity$$ExternalSyntheticLambda0;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Landroidx/activity/result/ActivityResultCallback;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/greenbox/kgo/view/fake/FakeManagerActivity;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 52
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/greenbox/kgo/view/fake/FakeManagerActivity;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/greenbox/kgo/view/fake/FakeManagerActivity$$ExternalSyntheticLambda0;->f$0:Lcom/greenbox/kgo/view/fake/FakeManagerActivity;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onActivityResult(Ljava/lang/Object;)V
+    .registers 54
+
+    move-object/from16 v2, p1
+
+    move-object/from16 v1, p0
+
+    invoke-static {v1}, Lcom/greenbox/kgo/view/list/ۤۨۡ۟;->۟ۡۤ۟ۢ(Ljava/lang/Object;)Lcom/greenbox/kgo/view/fake/FakeManagerActivity;
+
+    move-result-object v0
+
+    check-cast v2, Landroidx/activity/result/ActivityResult;
+
+    invoke-static {v0, v2}, Lorg/osmdroid/views/overlay/simplefastpoint/ۦۥۡ۠;->۟ۥۦ۟ۡ(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method

@@ -1,0 +1,220 @@
+# classes.dex
+
+.class final Landroidx/core/os/ContinuationOutcomeReceiver;
+.super Ljava/util/concurrent/atomic/AtomicBoolean;
+.source "OutcomeReceiver.kt"
+
+# interfaces
+.implements Landroid/os/OutcomeReceiver;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<R:",
+        "Ljava/lang/Object;",
+        "E:",
+        "Ljava/lang/Throwable;",
+        ">",
+        "Ljava/util/concurrent/atomic/AtomicBoolean;",
+        "Landroid/os/OutcomeReceiver<",
+        "TR;TE;>;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000,\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0000\b\u0003\u0018\u0000*\u0004\b\u0000\u0010\u0001*\b\b\u0001\u0010\u0002*\u00020\u00032\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00042\u00020\u0005B\u0013\u0012\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007¢\u0006\u0002\u0010\bJ\u0015\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010\fJ\u001a\u0010\r\u001a\u00020\n2\b\u0010\u000e\u001a\u0004\b\u00028\u0000H\u0016ø\u0001\u0000¢\u0006\u0002\u0010\u000fJ\b\u0010\u0010\u001a\u00020\u0011H\u0016R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b9¨\u0006\u0012"
+    }
+    d2 = {
+        "Landroidx/core/os/ContinuationOutcomeReceiver;",
+        "R",
+        "E",
+        "",
+        "Landroid/os/OutcomeReceiver;",
+        "Ljava/util/concurrent/atomic/AtomicBoolean;",
+        "continuation",
+        "Lkotlin/coroutines/Continuation;",
+        "(Lkotlin/coroutines/Continuation;)V",
+        "onError",
+        "",
+        "error",
+        "(Ljava/lang/Throwable;)V",
+        "onResult",
+        "result",
+        "(Ljava/lang/Object;)V",
+        "toString",
+        "",
+        "core-ktx_release"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final continuation:Lkotlin/coroutines/Continuation;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/coroutines/Continuation<",
+            "TR;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lkotlin/coroutines/Continuation;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlin/coroutines/Continuation<",
+            "-TR;>;)V"
+        }
+    .end annotation
+
+    const-string v0, "0D1F0315070F120406071F03"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    .line 63
+    invoke-direct {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+
+    .line 62
+    iput-object p1, p0, Landroidx/core/os/ContinuationOutcomeReceiver;->continuation:Lkotlin/coroutines/Continuation;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onError(Ljava/lang/Throwable;)V
+    .registers 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)V"
+        }
+    .end annotation
+
+    const-string v0, "0B021F0E1C"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    .line 75
+    invoke-virtual {p0, v0, v1}, Landroidx/core/os/ContinuationOutcomeReceiver;->compareAndSet(ZZ)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_20
+
+    .line 76
+    iget-object v0, p0, Landroidx/core/os/ContinuationOutcomeReceiver;->continuation:Lkotlin/coroutines/Continuation;
+
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {p1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-interface {v0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+
+    :cond_20
+    return-void
+.end method
+
+.method public onResult(Ljava/lang/Object;)V
+    .registers 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TR;)V"
+        }
+    .end annotation
+
+    const-string v0, "1C151E140215"
+
+    invoke-static {v0}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    .line 67
+    invoke-virtual {p0, v0, v1}, Landroidx/core/os/ContinuationOutcomeReceiver;->compareAndSet(ZZ)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1c
+
+    .line 68
+    iget-object v0, p0, Landroidx/core/os/ContinuationOutcomeReceiver;->continuation:Lkotlin/coroutines/Continuation;
+
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-interface {v0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+
+    :cond_1c
+    return-void
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 3
+
+    .line 80
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "2D1F0315070F120406071F032E1B15040A1F0B2208020B08110000461F18150D0E0A00200B130808180403454F4E"
+
+    invoke-static {v1}, Lobfuse/NPStringFog;->decode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroidx/core/os/ContinuationOutcomeReceiver;->get()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x29
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method

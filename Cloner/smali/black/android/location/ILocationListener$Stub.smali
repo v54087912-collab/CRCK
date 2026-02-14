@@ -1,0 +1,27 @@
+# classes.dex
+
+.class public interface abstract Lblack/android/location/ILocationListener$Stub;
+.super Ljava/lang/Object;
+.source "ILocationListener.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lblack/android/location/ILocationListener;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "Stub"
+.end annotation
+
+.annotation runtime Ltop/niunaijun/blackreflection/annotation/BClassName;
+    value = "android.location.ILocationListener$Stub"
+.end annotation
+
+
+# virtual methods
+.method public abstract asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
+    .annotation runtime Ltop/niunaijun/blackreflection/annotation/BStaticMethod;
+    .end annotation
+.end method
