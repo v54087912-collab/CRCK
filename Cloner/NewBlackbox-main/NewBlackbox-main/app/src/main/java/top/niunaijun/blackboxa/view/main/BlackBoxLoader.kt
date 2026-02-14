@@ -170,9 +170,13 @@ class BlackBoxLoader {
                                                 }
 
                                                 try {
-                                                    System.loadLibrary("Najmul101FreeMod")
-                                                    Log.i(TAG, "Successfully loaded libNajmul101FreeMod.so")
-                                                } catch (e: UnsatisfiedLinkError) {
+                                                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !android.os.Process.is64Bit()) {
+                                                        Log.e(TAG, "Skipping mod load: Process is 32-bit, but mod is 64-bit only.")
+                                                    } else {
+                                                        System.loadLibrary("Najmul101FreeMod")
+                                                        Log.i(TAG, "Successfully loaded libNajmul101FreeMod.so")
+                                                    }
+                                                } catch (e: Throwable) {
                                                     Log.e(TAG, "Failed to load mod library: ${e.message}")
                                                 }
                                             } catch (e: Exception) {

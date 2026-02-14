@@ -19,6 +19,8 @@
 // Original function pointers
 static int (*orig_open)(const char *pathname, int flags, ...);
 static int (*orig_open64)(const char *pathname, int flags, ...);
+static int (*orig_openat)(int dirfd, const char *pathname, int flags, ...);
+static int (*orig_faccessat)(int dirfd, const char *pathname, int mode, int flags);
 
 // Helper to sanitize /proc/self/maps
 int create_fake_maps() {
@@ -51,22 +53,38 @@ int create_fake_maps() {
     // Unlink immediately so it's removed on close
     unlink(pathBuf);
 
-    std::ifstream maps("/proc/self/maps");
-    std::string line;
-    std::string content;
-    
-    while (std::getline(maps, line)) {
-        // Replace /virtual/ paths with real-looking paths
-        // Logic: if path contains "/virtual/data", remove "/virtual"
-        // Adjust this logic based on actual VirtualApp path structure
-        size_t pos = line.find("/virtual/");
-        if (pos != std::string::npos) {
-             line.replace(pos, 9, "/");
-        }
-        content += line + "\n";
+    // Use orig_open to avoid recursion
+    int src_fd = -1;
+    if (orig_open) {
+        src_fd = orig_open("/proc/self/maps", O_RDONLY);
+    } else if (orig_openat) {
+        src_fd = orig_openat(AT_FDCWD, "/proc/self/maps", O_RDONLY);
     }
-    
-    write(fd, content.c_str(), content.size());
+
+    if (src_fd >= 0) {
+        char buffer[4096];
+        std::string content;
+        ssize_t bytesRead;
+        while ((bytesRead = read(src_fd, buffer, sizeof(buffer))) > 0) {
+            content.append(buffer, bytesRead);
+        }
+        close(src_fd);
+
+        // Process content line by line
+        std::istringstream stream(content);
+        std::string line;
+        std::string finalContent;
+        while (std::getline(stream, line)) {
+            size_t pos = line.find("/virtual/");
+            if (pos != std::string::npos) {
+                 line.replace(pos, 9, "/");
+            }
+            finalContent += line + "\n";
+        }
+        write(fd, finalContent.c_str(), finalContent.size());
+    } else {
+        ALOGE("FileSystemHook: Failed to open original /proc/self/maps");
+    }
     
     // Rewind for reading
     lseek(fd, 0, SEEK_SET);
@@ -131,6 +149,42 @@ int new_open64(const char *pathname, int flags, ...) {
     return orig_open64(pathname, flags, mode);
 }
 
+int new_openat(int dirfd, const char *pathname, int flags, ...) {
+    mode_t mode = 0;
+    if ((flags & O_CREAT)) {
+        va_list args;
+        va_start(args, flags);
+        mode = va_arg(args, mode_t);
+        va_end(args);
+    }
+
+    if (pathname) {
+        if (strstr(pathname, "/proc/") && strstr(pathname, "/maps")) {
+            int fd = create_fake_maps();
+            if (fd >= 0) {
+                ALOGD("FileSystemHook: Serving fake maps (openat) for %s", pathname);
+                return fd;
+            }
+        }
+
+        const char *redirect = IO::redirectPath(pathname);
+        if (redirect && strcmp(redirect, pathname) != 0) {
+             return orig_openat(dirfd, redirect, flags, mode);
+        }
+    }
+    return orig_openat(dirfd, pathname, flags, mode);
+}
+
+int new_faccessat(int dirfd, const char *pathname, int mode, int flags) {
+    if (pathname) {
+        const char *redirect = IO::redirectPath(pathname);
+        if (redirect && strcmp(redirect, pathname) != 0) {
+             return orig_faccessat(dirfd, redirect, mode, flags);
+        }
+    }
+    return orig_faccessat(dirfd, pathname, mode, flags);
+}
+
 void FileSystemHook::init() {
     ALOGD("FileSystemHook: Initializing file system hooks with Dobby");
     
@@ -150,6 +204,18 @@ void FileSystemHook::init() {
     if (open64_sym) {
         DobbyHook(open64_sym, (void *)new_open64, (void **)&orig_open64);
         ALOGD("FileSystemHook: Hooked open64");
+    }
+
+    void* openat_sym = xdl_sym(handle, "openat", nullptr);
+    if (openat_sym) {
+        DobbyHook(openat_sym, (void *)new_openat, (void **)&orig_openat);
+        ALOGD("FileSystemHook: Hooked openat");
+    }
+
+    void* faccessat_sym = xdl_sym(handle, "faccessat", nullptr);
+    if (faccessat_sym) {
+        DobbyHook(faccessat_sym, (void *)new_faccessat, (void **)&orig_faccessat);
+        ALOGD("FileSystemHook: Hooked faccessat");
     }
     
     xdl_close(handle);
