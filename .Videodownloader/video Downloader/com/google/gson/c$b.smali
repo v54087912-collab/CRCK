@@ -1,0 +1,43 @@
+# classes3.dex
+
+.class final enum Lcom/google/gson/c$b;
+.super Lcom/google/gson/c;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/gson/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4010
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>(Ljava/lang/String;I)V
+    .registers 4
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/google/gson/c;-><init>(Ljava/lang/String;ILcom/google/gson/c$a;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public translateName(Ljava/lang/reflect/Field;)Ljava/lang/String;
+    .registers 2
+
+    invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/google/gson/c;->upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+.end method

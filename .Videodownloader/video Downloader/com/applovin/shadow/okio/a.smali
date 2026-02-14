@@ -1,0 +1,16 @@
+# classes.dex
+
+.class public final synthetic Lcom/applovin/shadow/okio/a;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method public static bridge synthetic a(Ljava/nio/file/FileSystem;Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+    .registers 3
+
+    invoke-virtual {p0, p1, p2}, Ljava/nio/file/FileSystem;->getPath(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+
+    move-result-object p0
+
+    return-object p0
+.end method

@@ -1,0 +1,80 @@
+# classes.dex
+
+.class public Lcom/netease/ntunisdk/ResUtils;
+.super Ljava/lang/Object;
+.source "ResUtils.java"
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static getResId(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    .registers 4
+
+    .line 8
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p1, p2, p0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .registers 3
+
+    const/4 v0, 0x0
+
+    .line 12
+    invoke-static {p0, p1, v0}, Lcom/netease/ntunisdk/ResUtils;->getString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static getString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .registers 4
+
+    :try_start_0
+    const-string v0, "string"
+
+    .line 18
+    invoke-static {p0, p1, v0}, Lcom/netease/ntunisdk/ResUtils;->getResId(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p1
+
+    .line 19
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_12} :catch_13
+
+    return-object p0
+
+    :catch_13
+    return-object p2
+.end method

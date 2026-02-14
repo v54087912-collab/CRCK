@@ -1,0 +1,45 @@
+# classes.dex
+
+.class Lcom/applovin/impl/sdk/SessionTracker$a;
+.super Lcom/applovin/impl/b;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/applovin/impl/sdk/SessionTracker;-><init>(Lcom/applovin/impl/sdk/k;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/applovin/impl/sdk/SessionTracker;
+
+
+# direct methods
+.method constructor <init>(Lcom/applovin/impl/sdk/SessionTracker;)V
+    .registers 2
+
+    iput-object p1, p0, Lcom/applovin/impl/sdk/SessionTracker$a;->a:Lcom/applovin/impl/sdk/SessionTracker;
+
+    invoke-direct {p0}, Lcom/applovin/impl/b;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onActivityResumed(Landroid/app/Activity;)V
+    .registers 2
+
+    invoke-super {p0, p1}, Lcom/applovin/impl/b;->onActivityResumed(Landroid/app/Activity;)V
+
+    iget-object p1, p0, Lcom/applovin/impl/sdk/SessionTracker$a;->a:Lcom/applovin/impl/sdk/SessionTracker;
+
+    invoke-static {p1}, Lcom/applovin/impl/sdk/SessionTracker;->a(Lcom/applovin/impl/sdk/SessionTracker;)V
+
+    return-void
+.end method
