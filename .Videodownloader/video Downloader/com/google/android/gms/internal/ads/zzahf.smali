@@ -1,0 +1,39 @@
+# classes2.dex
+
+.class public Lcom/google/android/gms/internal/ads/zzahf;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzau;
+
+
+# instance fields
+.field public final zzf:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzahf;->zzf:Ljava/lang/String;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public toString()Ljava/lang/String;
+    .registers 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzahf;->zzf:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public synthetic zza(Lcom/google/android/gms/internal/ads/zzar;)V
+    .registers 2
+
+    return-void
+.end method

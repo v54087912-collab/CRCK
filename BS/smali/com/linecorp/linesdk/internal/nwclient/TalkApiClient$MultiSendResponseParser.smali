@@ -1,0 +1,138 @@
+# classes9.dex
+
+.class Lcom/linecorp/linesdk/internal/nwclient/TalkApiClient$MultiSendResponseParser;
+.super Lcom/linecorp/linesdk/internal/nwclient/JsonToObjectBaseResponseParser;
+.source "TalkApiClient.java"
+
+
+# annotations
+.annotation build Landroidx/annotation/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/linecorp/linesdk/internal/nwclient/TalkApiClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "MultiSendResponseParser"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/linecorp/linesdk/internal/nwclient/JsonToObjectBaseResponseParser<",
+        "Ljava/util/List<",
+        "Lcom/linecorp/linesdk/SendMessageResponse;",
+        ">;>;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 1
+
+    .line 549
+    invoke-direct {p0}, Lcom/linecorp/linesdk/internal/nwclient/JsonToObjectBaseResponseParser;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected bridge synthetic parseJsonToObject(Lorg/json/JSONObject;)Ljava/lang/Object;
+    .registers 2
+    .param p1  # Lorg/json/JSONObject;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .line 548
+    invoke-virtual {p0, p1}, Lcom/linecorp/linesdk/internal/nwclient/TalkApiClient$MultiSendResponseParser;->parseJsonToObject(Lorg/json/JSONObject;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method protected parseJsonToObject(Lorg/json/JSONObject;)Ljava/util/List;
+    .registers 5
+    .param p1  # Lorg/json/JSONObject;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/List<",
+            "Lcom/linecorp/linesdk/SendMessageResponse;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .line 553
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v1, "results"
+
+    .line 555
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_26
+
+    .line 556
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    .line 557
+    :goto_12
+    invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_26
+
+    .line 558
+    invoke-virtual {p1, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/linecorp/linesdk/SendMessageResponse;->fromJsonObject(Lorg/json/JSONObject;)Lcom/linecorp/linesdk/SendMessageResponse;
+
+    move-result-object v2
+
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_12
+
+    :cond_26
+    return-object v0
+.end method

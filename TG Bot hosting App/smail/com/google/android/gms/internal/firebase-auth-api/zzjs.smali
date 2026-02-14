@@ -1,0 +1,457 @@
+# classes.dex
+
+.class public final Lcom/google/android/gms/internal/firebase-auth-api/zzjs;
+.super Lcom/google/android/gms/internal/firebase-auth-api/zzkv;
+.source "SourceFile"
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/firebase-auth-api/zzjq;
+
+.field private final zzb:Ljava/security/spec/ECPoint;
+
+.field private final zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+.field private final zzd:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+.field private final zze:Ljava/lang/Integer;
+
+
+# direct methods
+.method private constructor <init>(Lcom/google/android/gms/internal/firebase-auth-api/zzjq;Ljava/security/spec/ECPoint;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Ljava/lang/Integer;)V
+    .registers 6
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzkv;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zza:Lcom/google/android/gms/internal/firebase-auth-api/zzjq;
+
+    .line 6
+    iput-object p2, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzb:Ljava/security/spec/ECPoint;
+
+    .line 8
+    iput-object p3, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    .line 10
+    iput-object p4, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzd:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    .line 12
+    iput-object p5, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zze:Ljava/lang/Integer;
+
+    .line 14
+    return-void
+.end method
+
+.method public static zza(Lcom/google/android/gms/internal/firebase-auth-api/zzjq;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Ljava/lang/Integer;)Lcom/google/android/gms/internal/firebase-auth-api/zzjs;
+    .registers 10
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzd()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;->zzd:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_36
+
+    .line 2
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzg()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    move-result-object v0
+
+    invoke-static {v0, p2}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzb(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)V
+
+    .line 3
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/firebase-auth-api/zzzn;->zza()I
+
+    move-result v0
+
+    const/16 v1, 0x20
+
+    if-ne v0, v1, :cond_2e
+
+    .line 4
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzg()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    move-result-object v0
+
+    invoke-static {v0, p2}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zza(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    move-result-object v5
+
+    .line 5
+    new-instance v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;
+
+    const/4 v3, 0x0
+
+    move-object v1, v0
+
+    move-object v2, p0
+
+    move-object v4, p1
+
+    move-object v6, p2
+
+    invoke-direct/range {v1 .. v6}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;-><init>(Lcom/google/android/gms/internal/firebase-auth-api/zzjq;Ljava/security/spec/ECPoint;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Ljava/lang/Integer;)V
+
+    return-object v0
+
+    .line 6
+    :cond_2e
+    new-instance p0, Ljava/security/GeneralSecurityException;
+
+    const-string p1, "Encoded public point byte length for X25519 curve must be 32"
+
+    invoke-direct {p0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    .line 7
+    :cond_36
+    new-instance p0, Ljava/security/GeneralSecurityException;
+
+    const-string p1, "createForCurveX25519 may only be called with parameters for curve X25519"
+
+    invoke-direct {p0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public static zza(Lcom/google/android/gms/internal/firebase-auth-api/zzjq;Ljava/security/spec/ECPoint;Ljava/lang/Integer;)Lcom/google/android/gms/internal/firebase-auth-api/zzjs;
+    .registers 10
+
+    .line 8
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzd()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;->zzd:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5d
+
+    .line 9
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzg()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    move-result-object v0
+
+    invoke-static {v0, p2}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzb(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)V
+
+    .line 10
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzd()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    move-result-object v0
+
+    .line 11
+    sget-object v1, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;->zza:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    if-ne v0, v1, :cond_22
+
+    .line 12
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzmt;->zza:Ljava/security/spec/ECParameterSpec;
+
+    .line 13
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+
+    move-result-object v0
+
+    goto :goto_37
+
+    .line 14
+    :cond_22
+    sget-object v1, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;->zzb:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    if-ne v0, v1, :cond_2d
+
+    .line 15
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzmt;->zzb:Ljava/security/spec/ECParameterSpec;
+
+    .line 16
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+
+    move-result-object v0
+
+    goto :goto_37
+
+    .line 17
+    :cond_2d
+    sget-object v1, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;->zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zza;
+
+    if-ne v0, v1, :cond_4d
+
+    .line 18
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzmt;->zzc:Ljava/security/spec/ECParameterSpec;
+
+    .line 19
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+
+    move-result-object v0
+
+    .line 20
+    :goto_37
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/firebase-auth-api/zzmt;->zza(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)V
+
+    .line 21
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzjq;->zzg()Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    move-result-object v0
+
+    invoke-static {v0, p2}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zza(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    move-result-object v5
+
+    .line 22
+    new-instance v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;
+
+    const/4 v4, 0x0
+
+    move-object v1, v0
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move-object v6, p2
+
+    invoke-direct/range {v1 .. v6}, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;-><init>(Lcom/google/android/gms/internal/firebase-auth-api/zzjq;Ljava/security/spec/ECPoint;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Lcom/google/android/gms/internal/firebase-auth-api/zzzn;Ljava/lang/Integer;)V
+
+    return-object v0
+
+    .line 23
+    :cond_4d
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Unable to determine NIST curve type for "
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    .line 24
+    :cond_5d
+    new-instance p0, Ljava/security/GeneralSecurityException;
+
+    const-string p1, "createForNistCurve may only be called with parameters for NIST curve"
+
+    invoke-direct {p0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method private static zza(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+    .registers 3
+
+    .line 25
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;->zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    if-ne p0, v0, :cond_7
+
+    .line 26
+    sget-object p0, Lcom/google/android/gms/internal/firebase-auth-api/zzor;->zza:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    return-object p0
+
+    :cond_7
+    if-eqz p1, :cond_33
+
+    .line 27
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;->zzb:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    if-ne p0, v0, :cond_16
+
+    .line 28
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzor;->zza(I)Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    move-result-object p0
+
+    return-object p0
+
+    .line 29
+    :cond_16
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;->zza:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    if-ne p0, v0, :cond_23
+
+    .line 30
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p0}, Lcom/google/android/gms/internal/firebase-auth-api/zzor;->zzb(I)Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    move-result-object p0
+
+    return-object p0
+
+    .line 31
+    :cond_23
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "Unknown EciesParameters.Variant: "
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 32
+    :cond_33
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "idRequirement must be non-null for EciesParameters.Variant: "
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method private static zzb(Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;Ljava/lang/Integer;)V
+    .registers 4
+
+    .line 2
+    sget-object v0, Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;->zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzjq$zze;
+
+    invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1d
+
+    if-eqz p1, :cond_b
+
+    goto :goto_1d
+
+    .line 3
+    :cond_b
+    new-instance p1, Ljava/security/GeneralSecurityException;
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "\'idRequirement\' must be non-null for "
+
+    const-string v1, " variant."
+
+    .line 4
+    invoke-static {v0, p0, v1}, Lv/d;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 5
+    invoke-direct {p1, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 6
+    :cond_1d
+    :goto_1d
+    invoke-virtual {p0, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2e
+
+    if-nez p1, :cond_26
+
+    goto :goto_2e
+
+    .line 7
+    :cond_26
+    new-instance p0, Ljava/security/GeneralSecurityException;
+
+    const-string p1, "\'idRequirement\' must be null for NO_PREFIX variant."
+
+    invoke-direct {p0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_2e
+    :goto_2e
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zza()Ljava/lang/Integer;
+    .registers 2
+
+    .line 33
+    iget-object v0, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zze:Ljava/lang/Integer;
+
+    return-object v0
+.end method
+
+.method public final zzb()Lcom/google/android/gms/internal/firebase-auth-api/zzjq;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zza:Lcom/google/android/gms/internal/firebase-auth-api/zzjq;
+
+    return-object v0
+.end method
+
+.method public final zzc()Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzd:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final zzd()Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzc:Lcom/google/android/gms/internal/firebase-auth-api/zzzn;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final zze()Ljava/security/spec/ECPoint;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/firebase-auth-api/zzjs;->zzb:Ljava/security/spec/ECPoint;
+
+    .line 3
+    return-object v0
+.end method

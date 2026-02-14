@@ -1,0 +1,50 @@
+# classes2.dex
+
+.class public Lcom/google/android/gms/internal/ads/zzgzw;
+.super Ljava/io/IOException;
+
+
+# instance fields
+.field private zza:Z
+
+
+# direct methods
+.method public constructor <init>(Ljava/io/IOException;)V
+    .registers 3
+
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;)V
+    .registers 2
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method final zza()V
+    .registers 2
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ads/zzgzw;->zza:Z
+
+    return-void
+.end method
+
+.method final zzb()Z
+    .registers 2
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/ads/zzgzw;->zza:Z
+
+    return v0
+.end method

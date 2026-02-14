@@ -1,0 +1,53 @@
+# classes.dex
+
+.class public final Lcom/applovin/shadow/okhttp3/internal/connection/RealCall$CallReference;
+.super Ljava/lang/ref/WeakReference;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "CallReference"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/ref/WeakReference<",
+        "Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final callStackTrace:Ljava/lang/Object;
+
+
+# direct methods
+.method public constructor <init>(Lcom/applovin/shadow/okhttp3/internal/connection/RealCall;Ljava/lang/Object;)V
+    .registers 4
+
+    const-string v0, "referent"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/l;->f(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object p2, p0, Lcom/applovin/shadow/okhttp3/internal/connection/RealCall$CallReference;->callStackTrace:Ljava/lang/Object;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final getCallStackTrace()Ljava/lang/Object;
+    .registers 2
+
+    iget-object v0, p0, Lcom/applovin/shadow/okhttp3/internal/connection/RealCall$CallReference;->callStackTrace:Ljava/lang/Object;
+
+    return-object v0
+.end method

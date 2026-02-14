@@ -1,0 +1,61 @@
+# classes2.dex
+
+.class Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity$6;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/view/View$OnTouchListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;->rk(Landroid/content/Context;Landroid/widget/FrameLayout;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic rk:Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;
+
+
+# direct methods
+.method constructor <init>(Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;)V
+    .registers 2
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity$6;->rk:Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .registers 3
+
+    iget-object p1, p0, Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity$6;->rk:Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;
+
+    invoke-static {p1}, Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;->fFV(Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;)Lcom/bytedance/sdk/openadsdk/DK/nP;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_11
+
+    iget-object p1, p0, Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity$6;->rk:Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;
+
+    invoke-static {p1}, Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;->fFV(Lcom/bytedance/sdk/openadsdk/activity/TTCeilingLandingPageActivity;)Lcom/bytedance/sdk/openadsdk/DK/nP;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Lcom/bytedance/sdk/openadsdk/DK/nP;->rk(Landroid/view/MotionEvent;)V
+
+    :cond_11
+    const/4 p1, 0x0
+
+    return p1
+.end method

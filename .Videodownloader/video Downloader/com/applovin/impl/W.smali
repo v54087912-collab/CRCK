@@ -1,0 +1,35 @@
+# classes.dex
+
+.class public final synthetic Lcom/applovin/impl/W;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Lcom/applovin/impl/d1;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/applovin/impl/d1;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/applovin/impl/W;->a:Lcom/applovin/impl/d1;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 2
+
+    iget-object v0, p0, Lcom/applovin/impl/W;->a:Lcom/applovin/impl/d1;
+
+    invoke-static {v0}, Lcom/applovin/impl/d1;->e(Lcom/applovin/impl/d1;)V
+
+    return-void
+.end method

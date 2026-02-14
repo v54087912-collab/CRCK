@@ -1,0 +1,46 @@
+# classes2.dex
+
+.class public final Lcom/google/android/gms/internal/ads/zzfs;
+.super Ljava/lang/Object;
+
+
+# instance fields
+.field public final zza:Lcom/google/android/gms/internal/ads/zzfyq;
+
+.field public final zzb:Lcom/google/android/gms/internal/ads/zzfl;
+
+.field public final zzc:Lcom/google/android/gms/internal/ads/zzfn;
+
+.field public final zzd:Lcom/google/android/gms/internal/ads/zzfr;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/ads/zzfj;Ljava/util/List;Lcom/google/android/gms/internal/ads/zzfl;Lcom/google/android/gms/internal/ads/zzfn;Lcom/google/android/gms/internal/ads/zzfr;)V
+    .registers 6
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    if-eqz p2, :cond_a
+
+    invoke-static {p2}, Lcom/google/android/gms/internal/ads/zzfyq;->zzl(Ljava/util/Collection;)Lcom/google/android/gms/internal/ads/zzfyq;
+
+    move-result-object p1
+
+    goto :goto_e
+
+    :cond_a
+    invoke-static {}, Lcom/google/android/gms/internal/ads/zzfyq;->zzn()Lcom/google/android/gms/internal/ads/zzfyq;
+
+    move-result-object p1
+
+    :goto_e
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzfs;->zza:Lcom/google/android/gms/internal/ads/zzfyq;
+
+    iput-object p3, p0, Lcom/google/android/gms/internal/ads/zzfs;->zzb:Lcom/google/android/gms/internal/ads/zzfl;
+
+    iput-object p4, p0, Lcom/google/android/gms/internal/ads/zzfs;->zzc:Lcom/google/android/gms/internal/ads/zzfn;
+
+    iput-object p5, p0, Lcom/google/android/gms/internal/ads/zzfs;->zzd:Lcom/google/android/gms/internal/ads/zzfr;
+
+    return-void
+.end method

@@ -1,0 +1,439 @@
+# classes10.dex
+
+.class public Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;
+.super Landroid/widget/Button;
+.source "TwitterLoginButton.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/twitter/sdk/android/core/identity/TwitterLoginButton$LoginClickListener;
+    }
+.end annotation
+
+
+# static fields
+.field static final ERROR_MSG_NO_ACTIVITY:Ljava/lang/String; = "TwitterLoginButton requires an activity. Override getActivity to provide the activity for this button."
+
+.field static final TAG:Ljava/lang/String; = "Twitter"
+
+
+# instance fields
+.field final activityRef:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Landroid/app/Activity;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field volatile authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+.field callback:Lcom/twitter/sdk/android/core/Callback;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/twitter/sdk/android/core/Callback<",
+            "Lcom/twitter/sdk/android/core/TwitterSession;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field onClickListener:Landroid/view/View$OnClickListener;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .registers 3
+
+    const/4 v0, 0x0
+
+    .line 58
+    invoke-direct {p0, p1, v0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .registers 4
+
+    const v0, 0x1010048
+
+    .line 62
+    invoke-direct {p0, p1, p2, v0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    .registers 5
+
+    const/4 v0, 0x0
+
+    .line 66
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;ILcom/twitter/sdk/android/core/identity/TwitterAuthClient;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;ILcom/twitter/sdk/android/core/identity/TwitterAuthClient;)V
+    .registers 5
+
+    .line 71
+    invoke-direct {p0, p1, p2, p3}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    .line 72
+    new-instance p1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object p1, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->activityRef:Ljava/lang/ref/WeakReference;
+
+    .line 73
+    iput-object p4, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    .line 74
+    invoke-direct {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->setupButton()V
+
+    .line 76
+    invoke-direct {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->checkTwitterCoreAndEnable()V
+
+    return-void
+.end method
+
+.method private checkTwitterCoreAndEnable()V
+    .registers 4
+
+    .line 195
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->isInEditMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    return-void
+
+    .line 198
+    :cond_7
+    :try_start_7
+    invoke-static {}, Lcom/twitter/sdk/android/core/TwitterCore;->getInstance()Lcom/twitter/sdk/android/core/TwitterCore;
+    :try_end_a
+    .catch Ljava/lang/IllegalStateException; {:try_start_7 .. :try_end_a} :catch_b
+
+    goto :goto_1d
+
+    :catch_b
+    move-exception v0
+
+    .line 201
+    invoke-static {}, Lcom/twitter/sdk/android/core/Twitter;->getLogger()Lcom/twitter/sdk/android/core/Logger;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "Twitter"
+
+    invoke-interface {v1, v2, v0}, Lcom/twitter/sdk/android/core/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    .line 202
+    invoke-virtual {p0, v0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->setEnabled(Z)V
+
+    :goto_1d
+    return-void
+.end method
+
+.method private setupButton()V
+    .registers 6
+
+    .line 81
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 82
+    sget v1, Lcom/twitter/sdk/android/core/R$drawable;->tw__ic_logo_default:I
+
+    .line 83
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    .line 82
+    invoke-super {p0, v1, v2, v2, v2}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    .line 84
+    sget v1, Lcom/twitter/sdk/android/core/R$dimen;->tw__login_btn_drawable_padding:I
+
+    .line 85
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    .line 84
+    invoke-super {p0, v1}, Landroid/widget/Button;->setCompoundDrawablePadding(I)V
+
+    .line 86
+    sget v1, Lcom/twitter/sdk/android/core/R$string;->tw__login_btn_txt:I
+
+    invoke-super {p0, v1}, Landroid/widget/Button;->setText(I)V
+
+    .line 87
+    sget v1, Lcom/twitter/sdk/android/core/R$color;->tw__solid_white:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    invoke-super {p0, v1}, Landroid/widget/Button;->setTextColor(I)V
+
+    .line 88
+    sget v1, Lcom/twitter/sdk/android/core/R$dimen;->tw__login_btn_text_size:I
+
+    .line 89
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    const/4 v3, 0x0
+
+    .line 88
+    invoke-super {p0, v3, v1}, Landroid/widget/Button;->setTextSize(IF)V
+
+    .line 90
+    sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+
+    invoke-super {p0, v1}, Landroid/widget/Button;->setTypeface(Landroid/graphics/Typeface;)V
+
+    .line 91
+    sget v1, Lcom/twitter/sdk/android/core/R$dimen;->tw__login_btn_left_padding:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    sget v4, Lcom/twitter/sdk/android/core/R$dimen;->tw__login_btn_right_padding:I
+
+    .line 92
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    .line 91
+    invoke-super {p0, v1, v3, v0, v3}, Landroid/widget/Button;->setPadding(IIII)V
+
+    .line 93
+    sget v0, Lcom/twitter/sdk/android/core/R$drawable;->tw__login_btn:I
+
+    invoke-super {p0, v0}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 94
+    new-instance v0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton$LoginClickListener;
+
+    invoke-direct {v0, p0, v2}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton$LoginClickListener;-><init>(Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;Lcom/twitter/sdk/android/core/identity/TwitterLoginButton$1;)V
+
+    invoke-super {p0, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 95
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x15
+
+    if-lt v0, v1, :cond_5a
+
+    .line 96
+    invoke-super {p0, v3}, Landroid/widget/Button;->setAllCaps(Z)V
+
+    :cond_5a
+    return-void
+.end method
+
+
+# virtual methods
+.method protected getActivity()Landroid/app/Activity;
+    .registers 3
+
+    .line 139
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    instance-of v0, v0, Landroid/app/Activity;
+
+    if-eqz v0, :cond_f
+
+    .line 140
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    return-object v0
+
+    .line 141
+    :cond_f
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->isInEditMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_17
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    .line 144
+    :cond_17
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "TwitterLoginButton requires an activity. Override getActivity to provide the activity for this button."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public getCallback()Lcom/twitter/sdk/android/core/Callback;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/twitter/sdk/android/core/Callback<",
+            "Lcom/twitter/sdk/android/core/TwitterSession;",
+            ">;"
+        }
+    .end annotation
+
+    .line 117
+    iget-object v0, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->callback:Lcom/twitter/sdk/android/core/Callback;
+
+    return-object v0
+.end method
+
+.method getTwitterAuthClient()Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+    .registers 3
+
+    .line 183
+    iget-object v0, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    if-nez v0, :cond_17
+
+    .line 184
+    const-class v0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;
+
+    monitor-enter v0
+
+    .line 185
+    :try_start_7
+    iget-object v1, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    if-nez v1, :cond_12
+
+    .line 186
+    new-instance v1, Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    invoke-direct {v1}, Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;-><init>()V
+
+    iput-object v1, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    .line 188
+    :cond_12
+    monitor-exit v0
+
+    goto :goto_17
+
+    :catchall_14
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_16
+    .catchall {:try_start_7 .. :try_end_16} :catchall_14
+
+    throw v1
+
+    .line 190
+    :cond_17
+    :goto_17
+    iget-object v0, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->authClient:Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    return-object v0
+.end method
+
+.method public onActivityResult(IILandroid/content/Intent;)V
+    .registers 5
+
+    .line 129
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getTwitterAuthClient()Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;->getRequestCode()I
+
+    move-result v0
+
+    if-ne p1, v0, :cond_11
+
+    .line 130
+    invoke-virtual {p0}, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->getTwitterAuthClient()Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/twitter/sdk/android/core/identity/TwitterAuthClient;->onActivityResult(IILandroid/content/Intent;)V
+
+    :cond_11
+    return-void
+.end method
+
+.method public setCallback(Lcom/twitter/sdk/android/core/Callback;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/twitter/sdk/android/core/Callback<",
+            "Lcom/twitter/sdk/android/core/TwitterSession;",
+            ">;)V"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_5
+
+    .line 110
+    iput-object p1, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->callback:Lcom/twitter/sdk/android/core/Callback;
+
+    return-void
+
+    .line 108
+    :cond_5
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "Callback cannot be null"
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .registers 2
+
+    .line 150
+    iput-object p1, p0, Lcom/twitter/sdk/android/core/identity/TwitterLoginButton;->onClickListener:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method

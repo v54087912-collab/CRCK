@@ -1,0 +1,59 @@
+# classes2.dex
+
+.class public final Lcom/google/android/gms/internal/ads/zzcvk;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzhgr;
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/ads/zzcvh;
+
+
+# direct methods
+.method private constructor <init>(Lcom/google/android/gms/internal/ads/zzcvh;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzcvk;->zza:Lcom/google/android/gms/internal/ads/zzcvh;
+
+    return-void
+.end method
+
+.method public static zzc(Lcom/google/android/gms/internal/ads/zzcvh;)Lcom/google/android/gms/internal/ads/zzcvk;
+    .registers 2
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzcvk;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/ads/zzcvk;-><init>(Lcom/google/android/gms/internal/ads/zzcvh;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final zza()Landroid/os/Bundle;
+    .registers 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzcvk;->zza:Lcom/google/android/gms/internal/ads/zzcvh;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzcvh;->zzc()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final synthetic zzb()Ljava/lang/Object;
+    .registers 2
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzcvk;->zza:Lcom/google/android/gms/internal/ads/zzcvh;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzcvh;->zzc()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    return-object v0
+.end method

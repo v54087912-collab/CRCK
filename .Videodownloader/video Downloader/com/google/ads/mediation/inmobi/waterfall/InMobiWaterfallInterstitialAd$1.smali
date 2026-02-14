@@ -1,0 +1,94 @@
+# classes2.dex
+
+.class Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/ads/mediation/inmobi/InMobiInitializer$Listener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;->loadAd()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;
+
+.field final synthetic val$context:Landroid/content/Context;
+
+.field final synthetic val$placementId:J
+
+
+# direct methods
+.method constructor <init>(Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;Landroid/content/Context;J)V
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->this$0:Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;
+
+    iput-object p2, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->val$context:Landroid/content/Context;
+
+    iput-wide p3, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->val$placementId:J
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onInitializeError(Lcom/google/android/gms/ads/AdError;)V
+    .registers 4
+
+    sget-object v0, Lcom/google/ads/mediation/inmobi/InMobiMediationAdapter;->TAG:Ljava/lang/String;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/ads/AdError;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->this$0:Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;
+
+    invoke-static {v0}, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;->access$100(Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;)Lcom/google/android/gms/ads/mediation/MediationAdLoadCallback;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1a
+
+    iget-object v0, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->this$0:Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;
+
+    invoke-static {v0}, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;->access$200(Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;)Lcom/google/android/gms/ads/mediation/MediationAdLoadCallback;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/google/android/gms/ads/mediation/MediationAdLoadCallback;->onFailure(Lcom/google/android/gms/ads/AdError;)V
+
+    :cond_1a
+    return-void
+.end method
+
+.method public onInitializeSuccess()V
+    .registers 5
+
+    iget-object v0, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->this$0:Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;
+
+    iget-object v1, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->val$context:Landroid/content/Context;
+
+    iget-wide v2, p0, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd$1;->val$placementId:J
+
+    invoke-static {v0, v1, v2, v3}, Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;->access$000(Lcom/google/ads/mediation/inmobi/waterfall/InMobiWaterfallInterstitialAd;Landroid/content/Context;J)V
+
+    return-void
+.end method

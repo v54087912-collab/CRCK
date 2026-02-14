@@ -1,0 +1,130 @@
+# classes3.dex
+
+.class final Lcom/google/android/gms/internal/measurement/zzkc;
+.super Lcom/google/android/gms/internal/measurement/zzkl;
+
+
+# direct methods
+.method constructor <init>(Lcom/google/android/gms/internal/measurement/zzkf;Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    .registers 11
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/measurement/zzkl;-><init>(Lcom/google/android/gms/internal/measurement/zzkf;Ljava/lang/String;Ljava/lang/Object;Z[B)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method final synthetic zza(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 6
+
+    instance-of v0, p1, Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_7
+
+    check-cast p1, Ljava/lang/Boolean;
+
+    goto :goto_5c
+
+    :cond_7
+    instance-of v0, p1, Ljava/lang/String;
+
+    if-eqz v0, :cond_2c
+
+    move-object v0, p1
+
+    check-cast v0, Ljava/lang/String;
+
+    sget-object v1, Lcom/google/android/gms/internal/measurement/zzjg;->zzc:Ljava/util/regex/Pattern;
+
+    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1d
+
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    goto :goto_5c
+
+    :cond_1d
+    sget-object v1, Lcom/google/android/gms/internal/measurement/zzjg;->zzd:Ljava/util/regex/Pattern;
+
+    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2c
+
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    goto :goto_5c
+
+    :cond_2c
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzkl;->zzb:Ljava/lang/String;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, 0x1c
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    add-int/2addr v1, v2
+
+    invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    const-string v1, "Invalid boolean value for "
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ": "
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "PhenotypeFlag"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p1, 0x0
+
+    :goto_5c
+    return-object p1
+.end method

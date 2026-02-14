@@ -1,0 +1,264 @@
+# classes2.dex
+
+.class public final Lcom/google/android/gms/internal/ads/zzagr;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzau;
+
+
+# instance fields
+.field public final zza:Ljava/lang/String;
+
+.field public final zzb:Ljava/lang/String;
+
+.field public final zzc:J
+
+.field public final zzd:J
+
+.field public final zze:[B
+
+.field private zzf:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 2
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzx;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/ads/zzx;-><init>()V
+
+    const-string v1, "application/id3"
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/ads/zzx;->zzah(Ljava/lang/String;)Lcom/google/android/gms/internal/ads/zzx;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzx;->zzan()Lcom/google/android/gms/internal/ads/zzz;
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzx;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/ads/zzx;-><init>()V
+
+    const-string v1, "application/x-scte35"
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/ads/zzx;->zzah(Ljava/lang/String;)Lcom/google/android/gms/internal/ads/zzx;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ads/zzx;->zzan()Lcom/google/android/gms/internal/ads/zzz;
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;JJ[B)V
+    .registers 8
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zza:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzb:Ljava/lang/String;
+
+    iput-wide p3, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzc:J
+
+    iput-wide p5, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzd:J
+
+    iput-object p7, p0, Lcom/google/android/gms/internal/ads/zzagr;->zze:[B
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .registers 8
+
+    const/4 v0, 0x1
+
+    if-ne p0, p1, :cond_4
+
+    return v0
+
+    :cond_4
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_41
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-class v3, Lcom/google/android/gms/internal/ads/zzagr;
+
+    if-eq v3, v2, :cond_10
+
+    goto :goto_41
+
+    :cond_10
+    check-cast p1, Lcom/google/android/gms/internal/ads/zzagr;
+
+    iget-wide v2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzc:J
+
+    iget-wide v4, p1, Lcom/google/android/gms/internal/ads/zzagr;->zzc:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_41
+
+    iget-wide v2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzd:J
+
+    iget-wide v4, p1, Lcom/google/android/gms/internal/ads/zzagr;->zzd:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_41
+
+    iget-object v2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zza:Ljava/lang/String;
+
+    iget-object v3, p1, Lcom/google/android/gms/internal/ads/zzagr;->zza:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_41
+
+    iget-object v2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzb:Ljava/lang/String;
+
+    iget-object v3, p1, Lcom/google/android/gms/internal/ads/zzagr;->zzb:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_41
+
+    iget-object v2, p0, Lcom/google/android/gms/internal/ads/zzagr;->zze:[B
+
+    iget-object p1, p1, Lcom/google/android/gms/internal/ads/zzagr;->zze:[B
+
+    invoke-static {v2, p1}, Ljava/util/Arrays;->equals([B[B)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_41
+
+    return v0
+
+    :cond_41
+    :goto_41
+    return v1
+.end method
+
+.method public final hashCode()I
+    .registers 9
+
+    iget v0, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzf:I
+
+    if-nez v0, :cond_31
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzagr;->zza:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    add-int/lit16 v0, v0, 0x20f
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzb:Ljava/lang/String;
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    iget-wide v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzc:J
+
+    iget-wide v3, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzd:J
+
+    iget-object v5, p0, Lcom/google/android/gms/internal/ads/zzagr;->zze:[B
+
+    const/16 v6, 0x20
+
+    ushr-long v6, v1, v6
+
+    xor-long/2addr v1, v6
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    long-to-int v1, v1
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    long-to-int v1, v3
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    invoke-static {v5}, Ljava/util/Arrays;->hashCode([B)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzf:I
+
+    :cond_31
+    return v0
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .registers 4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "EMSG: scheme="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zza:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", id="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-wide v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzd:J
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v1, ", durationMs="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-wide v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzc:J
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v1, ", value="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ads/zzagr;->zzb:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public final synthetic zza(Lcom/google/android/gms/internal/ads/zzar;)V
+    .registers 2
+
+    return-void
+.end method

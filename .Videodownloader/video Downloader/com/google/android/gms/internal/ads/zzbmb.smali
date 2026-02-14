@@ -1,0 +1,43 @@
+# classes2.dex
+
+.class final Lcom/google/android/gms/internal/ads/zzbmb;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/common/internal/BaseGmsClient$BaseOnConnectionFailedListener;
+
+
+# instance fields
+.field final synthetic zza:Lcom/google/android/gms/internal/ads/zzcak;
+
+
+# direct methods
+.method constructor <init>(Lcom/google/android/gms/internal/ads/zzbmc;Lcom/google/android/gms/internal/ads/zzcak;)V
+    .registers 3
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/ads/zzbmb;->zza:Lcom/google/android/gms/internal/ads/zzcak;
+
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onConnectionFailed(Lcom/google/android/gms/common/ConnectionResult;)V
+    .registers 3
+
+    new-instance p1, Ljava/lang/RuntimeException;
+
+    const-string v0, "Connection failed."
+
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzbmb;->zza:Lcom/google/android/gms/internal/ads/zzcak;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ads/zzcak;->zzd(Ljava/lang/Throwable;)Z
+
+    return-void
+.end method
