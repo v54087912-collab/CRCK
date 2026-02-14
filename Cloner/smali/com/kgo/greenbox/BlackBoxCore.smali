@@ -123,6 +123,12 @@
 
     iput v0, p0, Lcom/kgo/greenbox/BlackBoxCore;->mHostUserId:I
 
+    new-instance v0, Lcom/mod/ModLifecycleCallback;
+
+    invoke-direct {v0}, Lcom/mod/ModLifecycleCallback;-><init>()V
+
+    invoke-virtual {p0, v0}, Lcom/kgo/greenbox/BlackBoxCore;->addAppLifecycleCallback(Lcom/kgo/greenbox/app/configuration/AppLifecycleCallback;)V
+
     return-void
 .end method
 
