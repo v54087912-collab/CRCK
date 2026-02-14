@@ -858,7 +858,33 @@
 .end method
 
 .method private O00000o0()V
-    .registers 1
+    .registers 8
+
+    .line 436
+    iget-object v0, p0, Lcom/NextToppers/ABhi/MainActivity;->O00o0oOO:Ljava/util/TimerTask;
+
+    if-eqz v0, :cond_7
+
+    .line 437
+    invoke-virtual {v0}, Ljava/util/TimerTask;->cancel()Z
+
+    .line 440
+    :cond_7
+    new-instance v2, Lqgrapx/O0OOO0;
+
+    invoke-direct {v2, p0}, Lqgrapx/O0OOO0;-><init>(Lcom/NextToppers/ABhi/MainActivity;)V
+
+    iput-object v2, p0, Lcom/NextToppers/ABhi/MainActivity;->O00o0oOO:Ljava/util/TimerTask;
+
+    .line 455
+    iget-object v1, p0, Lcom/NextToppers/ABhi/MainActivity;->O000Ooo0:Ljava/util/Timer;
+
+    const-wide/16 v3, 0x0
+
+    const-wide/16 v5, 0x2710
+
+    invoke-virtual/range {v1 .. v6}, Ljava/util/Timer;->scheduleAtFixedRate(Ljava/util/TimerTask;JJ)V
+
     return-void
 .end method
 
@@ -904,11 +930,11 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lqgrapx/o0O00000;->O00000Oo(Landroid/content/Context;)Z
+    # invoke-static {v0}, Lqgrapx/o0O00000;->O00000Oo(Landroid/content/Context;)Z
 
-    move-result v0
+    # move-result v0
 
-    if-eqz v0, :cond_b8
+    # if-eqz v0, :cond_b8
 
     .line 410
     iget-object v0, p0, Lcom/NextToppers/ABhi/MainActivity;->O0000o:Landroid/content/SharedPreferences;
