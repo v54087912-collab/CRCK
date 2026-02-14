@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="ic_call_answer">res/drawable-ldpi-v4/ic_call_answer.png</path>
+    <path name="ic_call_answer_low">res/drawable-ldpi-v4/ic_call_answer_low.png</path>
+    <path name="ic_call_answer_video">res/drawable-ldpi-v4/ic_call_answer_video.png</path>
+    <path name="ic_call_answer_video_low">res/drawable-ldpi-v4/ic_call_answer_video_low.png</path>
+    <path name="ic_call_decline">res/drawable-ldpi-v4/ic_call_decline.png</path>
+    <path name="ic_call_decline_low">res/drawable-ldpi-v4/ic_call_decline_low.png</path>
+    <path name="ic_empty">res/drawable-ldpi-v4/ic_empty.png</path>
+    <path name="md_nav_back">res/drawable-ldpi-v4/md_nav_back.png</path>
+</resources>

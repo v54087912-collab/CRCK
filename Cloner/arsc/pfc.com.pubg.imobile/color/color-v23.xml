@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <color name="abc_btn_colored_borderless_text_material">res/color-v23/abc_btn_colored_borderless_text_material.xml</color>
+    <color name="abc_btn_colored_text_material">res/color-v23/abc_btn_colored_text_material.xml</color>
+    <color name="abc_color_highlight_material">res/color-v23/abc_color_highlight_material.xml</color>
+    <color name="abc_tint_btn_checkable">res/color-v23/abc_tint_btn_checkable.xml</color>
+    <color name="abc_tint_default">res/color-v23/abc_tint_default.xml</color>
+    <color name="abc_tint_edittext">res/color-v23/abc_tint_edittext.xml</color>
+    <color name="abc_tint_seek_thumb">res/color-v23/abc_tint_seek_thumb.xml</color>
+    <color name="abc_tint_spinner">res/color-v23/abc_tint_spinner.xml</color>
+    <color name="abc_tint_switch_track">res/color-v23/abc_tint_switch_track.xml</color>
+</resources>

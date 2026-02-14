@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="ic_add">res/drawable-anydpi-v21/ic_add.xml</path>
+    <path name="ic_call_answer">res/drawable-anydpi-v21/ic_call_answer.xml</path>
+    <path name="ic_call_answer_low">res/drawable-anydpi-v21/ic_call_answer_low.xml</path>
+    <path name="ic_call_answer_video">res/drawable-anydpi-v21/ic_call_answer_video.xml</path>
+    <path name="ic_call_answer_video_low">res/drawable-anydpi-v21/ic_call_answer_video_low.xml</path>
+    <path name="ic_call_decline">res/drawable-anydpi-v21/ic_call_decline.xml</path>
+    <path name="ic_call_decline_low">res/drawable-anydpi-v21/ic_call_decline_low.xml</path>
+    <path name="ic_location_change">res/drawable-anydpi-v21/ic_location_change.xml</path>
+    <path name="ic_search">res/drawable-anydpi-v21/ic_search.xml</path>
+    <path name="md_nav_back">res/drawable-anydpi-v21/md_nav_back.xml</path>
+</resources>

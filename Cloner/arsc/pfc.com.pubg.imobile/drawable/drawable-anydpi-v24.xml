@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="drawable0006">res/drawable-anydpi-v24/$ic_empty__0.xml</path>
+    <path name="drawable0007">res/drawable-anydpi-v24/$ic_launcher_foreground__0.xml</path>
+    <path name="ic_empty">res/drawable-anydpi-v24/ic_empty.xml</path>
+    <path name="ic_launcher_foreground">res/drawable-anydpi-v24/ic_launcher_foreground.xml</path>
+</resources>

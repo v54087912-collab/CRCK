@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x0d" defaultPublic="true">
+    <entry id="0x7f0d0000" name="app_menu" />
+    <entry id="0x7f0d0001" name="menu_list" />
+    <entry id="0x7f0d0002" name="menu_main" />
+    <entry id="0x7f0d0003" name="menu_search" />
+</type>

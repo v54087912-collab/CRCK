@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x04" defaultPublic="true">
+    <entry id="0x7f040000" name="abc_action_bar_embed_tabs" />
+    <entry id="0x7f040001" name="abc_config_actionMenuItemAllCaps" />
+    <entry id="0x7f040002" name="config_materialPreferenceIconSpaceReserved" />
+    <entry id="0x7f040003" name="mtrl_btn_textappearance_all_caps" />
+</type>

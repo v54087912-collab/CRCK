@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <color name="material_timepicker_button_stroke">res/color-night-v8/material_timepicker_button_stroke.xml</color>
+    <color name="material_timepicker_clockface">res/color-night-v8/material_timepicker_clockface.xml</color>
+    <color name="material_timepicker_modebutton_tint">res/color-night-v8/material_timepicker_modebutton_tint.xml</color>
+</resources>

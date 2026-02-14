@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x0f" defaultPublic="true">
+    <entry id="0x7f0f0000" name="mtrl_badge_content_description" />
+</type>
