@@ -9,32 +9,62 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string>
+#include <sys/syscall.h>
 #include "Dobby/dobby.h"
 
 static int (*orig_open)(const char *pathname, int flags, ...) = nullptr;
 static int (*orig_open64)(const char *pathname, int flags, ...) = nullptr;
 
+// Helper to get the current process package name (host package)
+// Reads from /proc/self/cmdline using syscalls
+static std::string get_host_package_name() {
+    char buffer[256];
+    int fd = syscall(__NR_openat, AT_FDCWD, "/proc/self/cmdline", O_RDONLY, 0);
+    if (fd < 0) return "";
+
+    ssize_t len = syscall(__NR_read, fd, buffer, sizeof(buffer) - 1);
+    syscall(__NR_close, fd);
+
+    if (len > 0) {
+        buffer[len] = '\0';
+        std::string procName(buffer);
+        size_t colon = procName.find(':');
+        if (colon != std::string::npos) {
+            return procName.substr(0, colon);
+        }
+        return procName;
+    }
+    return "";
+}
+
 // Helper to spoof maps for cheats that scan /proc/self/maps
-// Returns a file descriptor to a temp file containing spoofed maps, or -1 on failure.
+// Uses direct syscalls to avoid recursion or dependency on hooked functions.
 static int create_spoofed_maps() {
-    if (!orig_open) return -1;
+    std::string hostPkg = get_host_package_name();
+    if (hostPkg.empty()) {
+        hostPkg = "top.niunaijun.blackbox";
+    }
 
-    // Use a fixed path in the app's cache.
-    // We assume /data/data/top.niunaijun.blackbox/cache exists.
-    // If not, we might try other paths or fail.
-    const char* temp_path = "/data/data/top.niunaijun.blackbox/cache/maps_spoofed";
+    // Construct path: /data/data/<pkg>/cache/maps_spoofed
+    std::string cache_dir = "/data/data/" + hostPkg + "/cache";
+    std::string temp_path_str = cache_dir + "/maps_spoofed";
+    const char* temp_path = temp_path_str.c_str();
 
-    // Open original maps using the trampoline (bypassing the hook)
-    int fd_in = orig_open("/proc/self/maps", O_RDONLY);
+    // Ensure cache directory exists
+    // Mode 0777 is permissive but safe for private app storage in most cases
+    // We ignore error because it might already exist
+    syscall(__NR_mkdirat, AT_FDCWD, cache_dir.c_str(), 0777);
+
+    // Open original maps
+    int fd_in = syscall(__NR_openat, AT_FDCWD, "/proc/self/maps", O_RDONLY, 0);
     if (fd_in < 0) {
-        // Fallback: maybe the path is different or permission denied
         return -1;
     }
 
     // Open temp file for writing
-    int fd_out = orig_open(temp_path, O_CREAT | O_TRUNC | O_RDWR, 0666);
+    int fd_out = syscall(__NR_openat, AT_FDCWD, temp_path, O_CREAT | O_TRUNC | O_RDWR, 0666);
     if (fd_out < 0) {
-        close(fd_in);
+        syscall(__NR_close, fd_in);
         return -1;
     }
 
@@ -42,18 +72,15 @@ static int create_spoofed_maps() {
     char buffer[4096];
     std::string content;
     ssize_t bytes_read;
-    while ((bytes_read = read(fd_in, buffer, sizeof(buffer))) > 0) {
+    while ((bytes_read = syscall(__NR_read, fd_in, buffer, sizeof(buffer))) > 0) {
         content.append(buffer, bytes_read);
     }
-    close(fd_in);
+    syscall(__NR_close, fd_in);
 
     // Perform replacement
-    // Host package: top.niunaijun.blackbox (or blackboxa)
-    // Target package: com.netease.newspike
-    // We replace the host package string with the target package string.
-    std::string target = "top.niunaijun.blackbox";
+    std::string target = hostPkg;
     std::string replacement = "com.netease.newspike";
-    
+
     size_t pos = 0;
     while ((pos = content.find(target, pos)) != std::string::npos) {
         content.replace(pos, target.length(), replacement);
@@ -61,11 +88,12 @@ static int create_spoofed_maps() {
     }
 
     // Write spoofed content
-    write(fd_out, content.c_str(), content.length());
-    close(fd_out);
+    syscall(__NR_write, fd_out, content.c_str(), content.length());
+    syscall(__NR_close, fd_out);
 
     // Return FD to the spoofed file (READ ONLY)
-    return orig_open(temp_path, O_RDONLY);
+    // We return a fresh FD to the temp file.
+    return syscall(__NR_openat, AT_FDCWD, temp_path, O_RDONLY, 0);
 }
 
 int new_open(const char *pathname, int flags, ...) {
@@ -75,9 +103,7 @@ int new_open(const char *pathname, int flags, ...) {
     va_end(args);
 
     if (pathname != nullptr) {
-        // Check for maps read
         if (strstr(pathname, "/proc/") && strstr(pathname, "/maps")) {
-             ALOGD("FileSystemHook: Intercepting maps read: %s", pathname);
              int fd = create_spoofed_maps();
              if (fd >= 0) {
                  ALOGD("FileSystemHook: Returned spoofed maps FD: %d", fd);
@@ -91,13 +117,16 @@ int new_open(const char *pathname, int flags, ...) {
             strstr(pathname, ".frro") ||
             strstr(pathname, "systemui") ||
             strstr(pathname, "data@resource-cache@")) {
-            ALOGD("FileSystemHook: Blocking problematic file access: %s", pathname);
             errno = ENOENT; 
             return -1;
         }
     }
     
-    return orig_open(pathname, flags, mode);
+    if (orig_open) {
+        return orig_open(pathname, flags, mode);
+    }
+
+    return syscall(__NR_openat, AT_FDCWD, pathname, flags, mode);
 }
 
 
@@ -108,9 +137,7 @@ int new_open64(const char *pathname, int flags, ...) {
     va_end(args);
 
     if (pathname != nullptr) {
-        // Check for maps read
         if (strstr(pathname, "/proc/") && strstr(pathname, "/maps")) {
-             ALOGD("FileSystemHook: Intercepting maps read (64): %s", pathname);
              int fd = create_spoofed_maps();
              if (fd >= 0) {
                  ALOGD("FileSystemHook: Returned spoofed maps FD (64): %d", fd);
@@ -123,13 +150,16 @@ int new_open64(const char *pathname, int flags, ...) {
             strstr(pathname, ".frro") ||
             strstr(pathname, "systemui") ||
             strstr(pathname, "data@resource-cache@")) {
-            ALOGD("FileSystemHook: Blocking problematic file access (64): %s", pathname);
             errno = ENOENT; 
             return -1;
         }
     }
     
-    return orig_open64(pathname, flags, mode);
+    if (orig_open64) {
+        return orig_open64(pathname, flags, mode);
+    }
+
+    return syscall(__NR_openat, AT_FDCWD, pathname, flags, mode);
 }
 
 void FileSystemHook::init() {
@@ -143,18 +173,12 @@ void FileSystemHook::init() {
     
     void* addr_open = xdl_sym(handle, "open", nullptr);
     if (addr_open) {
-        ALOGD("FileSystemHook: Hooking open at %p", addr_open);
         DobbyHook(addr_open, (void *)new_open, (void **)&orig_open);
-    } else {
-        ALOGE("FileSystemHook: Failed to find open function");
     }
     
     void* addr_open64 = xdl_sym(handle, "open64", nullptr);
     if (addr_open64) {
-        ALOGD("FileSystemHook: Hooking open64 at %p", addr_open64);
         DobbyHook(addr_open64, (void *)new_open64, (void **)&orig_open64);
-    } else {
-        ALOGE("FileSystemHook: Failed to find open64 function");
     }
     
     xdl_close(handle);
