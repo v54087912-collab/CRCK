@@ -411,7 +411,7 @@
 
     .line 334
     :cond_f5
-    invoke-virtual {p0}, Lcom/NextToppers/ABhi/MainActivity;->finishAffinity()V
+    # invoke-virtual {p0}, Lcom/NextToppers/ABhi/MainActivity;->finishAffinity()V
 
     .line 336
     :goto_f8
@@ -858,33 +858,7 @@
 .end method
 
 .method private O00000o0()V
-    .registers 8
-
-    .line 436
-    iget-object v0, p0, Lcom/NextToppers/ABhi/MainActivity;->O00o0oOO:Ljava/util/TimerTask;
-
-    if-eqz v0, :cond_7
-
-    .line 437
-    invoke-virtual {v0}, Ljava/util/TimerTask;->cancel()Z
-
-    .line 440
-    :cond_7
-    new-instance v2, Lqgrapx/O0OOO0;
-
-    invoke-direct {v2, p0}, Lqgrapx/O0OOO0;-><init>(Lcom/NextToppers/ABhi/MainActivity;)V
-
-    iput-object v2, p0, Lcom/NextToppers/ABhi/MainActivity;->O00o0oOO:Ljava/util/TimerTask;
-
-    .line 455
-    iget-object v1, p0, Lcom/NextToppers/ABhi/MainActivity;->O000Ooo0:Ljava/util/Timer;
-
-    const-wide/16 v3, 0x0
-
-    const-wide/16 v5, 0x2710
-
-    invoke-virtual/range {v1 .. v6}, Ljava/util/Timer;->scheduleAtFixedRate(Ljava/util/TimerTask;JJ)V
-
+    .registers 1
     return-void
 .end method
 

@@ -1184,24 +1184,16 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 3
+    .registers 4
 
     .line 163
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0d001e
-
-    .line 164
-    invoke-virtual {p0, v0}, Lcom/NextToppers/ABhi/AuthVerifyActivity;->setContentView(I)V
-
-    .line 165
-    invoke-direct {p0, p1}, Lcom/NextToppers/ABhi/AuthVerifyActivity;->O000000o(Landroid/os/Bundle;)V
-
-    .line 166
-    invoke-static {p0}, Lcom/google/firebase/FirebaseApp;->initializeApp(Landroid/content/Context;)Lcom/google/firebase/FirebaseApp;
-
-    .line 167
-    invoke-direct {p0}, Lcom/NextToppers/ABhi/AuthVerifyActivity;->O000000o()V
+    new-instance v0, Landroid/content/Intent;
+    const-class v1, Lcom/NextToppers/ABhi/MainActivity;
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-virtual {p0, v0}, Lcom/NextToppers/ABhi/AuthVerifyActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0}, Lcom/NextToppers/ABhi/AuthVerifyActivity;->finish()V
 
     return-void
 .end method
