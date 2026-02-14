@@ -62,7 +62,19 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
+    .line 25
+    iget-object v1, p0, Lcom/NextToppers/ABhi/BatchClickListener;->activity:Lcom/NextToppers/ABhi/ViewActivity;
+
+    iget-object v1, v1, Lcom/NextToppers/ABhi/ViewActivity;->jsonString:Ljava/lang/String;
+
+    if-eqz v1, :cond_put_extra
+
+    const-string v2, "batch_json_data"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     .line 26
+    :cond_put_extra
     iget-object v1, p0, Lcom/NextToppers/ABhi/BatchClickListener;->activity:Lcom/NextToppers/ABhi/ViewActivity;
 
     invoke-virtual {v1, v0}, Lcom/NextToppers/ABhi/ViewActivity;->startActivity(Landroid/content/Intent;)V
