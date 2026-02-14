@@ -1,4 +1,0 @@
-# classes3.dex
-
-.class public final synthetic Lcom/google/android/gms/internal/play_billing/zzbt;
-.super Ljava/lang/Object;
