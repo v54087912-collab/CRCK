@@ -340,11 +340,7 @@
     iput-object p1, p0, Lcom/NextToppers/ABhi/GetchapterActivity;->O0000o:Landroid/content/SharedPreferences;
 
     .line 106
-    const-string p1, "MTUyTA=="
-
-    invoke-static {p1}, Lqgrapx/oO0Ooo00;->O0000oo0(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
+    const-string p1, "BatchDataPrefs"
 
     invoke-virtual {p0, p1, v0}, Lcom/NextToppers/ABhi/GetchapterActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 

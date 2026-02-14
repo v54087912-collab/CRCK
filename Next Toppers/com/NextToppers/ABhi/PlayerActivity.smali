@@ -546,7 +546,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1ff
+    if-eqz v0, :cond_skip_icyq
 
     .line 188
     invoke-virtual {p0}, Lcom/NextToppers/ABhi/PlayerActivity;->getIntent()Landroid/content/Intent;
@@ -586,6 +586,7 @@
     iput-object v0, p0, Lcom/NextToppers/ABhi/PlayerActivity;->O0OoOO:Ljava/lang/String;
 
     .line 191
+    :cond_skip_icyq
     iget-object v0, p0, Lcom/NextToppers/ABhi/PlayerActivity;->O0OoOo:Ljava/lang/String;
 
     const-string v1, "NjgjTEo+MT8="
@@ -677,7 +678,7 @@
 
     .line 197
     :cond_1ff
-    invoke-virtual {p0}, Lcom/NextToppers/ABhi/PlayerActivity;->finish()V
+    # invoke-virtual {p0}, Lcom/NextToppers/ABhi/PlayerActivity;->finish()V
 
     :goto_202
     return-void

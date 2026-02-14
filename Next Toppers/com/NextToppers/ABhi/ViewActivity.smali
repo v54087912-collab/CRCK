@@ -128,6 +128,8 @@
 
 .field private OO0000:Lqgrapx/OO0Oo0;
 
+.field public jsonString:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -233,6 +235,8 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
+
+    iput-object v1, p0, Lcom/NextToppers/ABhi/ViewActivity;->jsonString:Ljava/lang/String;
 
     new-instance v2, Lqgrapx/o0Oo0000;
 
@@ -797,27 +801,27 @@
     .line 169
     iget-object p1, p0, Lcom/NextToppers/ABhi/ViewActivity;->O0oooOO:Landroid/widget/LinearLayout;
 
-    new-instance v0, Lqgrapx/o0OO0o00;
+    new-instance v0, Lcom/NextToppers/ABhi/BatchClickListener;
 
-    invoke-direct {v0, p0}, Lqgrapx/o0OO0o00;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
+    invoke-direct {v0, p0}, Lcom/NextToppers/ABhi/BatchClickListener;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 181
     iget-object p1, p0, Lcom/NextToppers/ABhi/ViewActivity;->O0oooo0:Landroid/widget/LinearLayout;
 
-    new-instance v0, Lqgrapx/o0OOOO00;
+    new-instance v0, Lcom/NextToppers/ABhi/BatchClickListener;
 
-    invoke-direct {v0, p0}, Lqgrapx/o0OOOO00;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
+    invoke-direct {v0, p0}, Lcom/NextToppers/ABhi/BatchClickListener;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 216
     iget-object p1, p0, Lcom/NextToppers/ABhi/ViewActivity;->O0ooooO:Landroid/widget/LinearLayout;
 
-    new-instance v0, Lqgrapx/o0OOOO0o;
+    new-instance v0, Lcom/NextToppers/ABhi/BatchClickListener;
 
-    invoke-direct {v0, p0}, Lqgrapx/o0OOOO0o;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
+    invoke-direct {v0, p0}, Lcom/NextToppers/ABhi/BatchClickListener;-><init>(Lcom/NextToppers/ABhi/ViewActivity;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

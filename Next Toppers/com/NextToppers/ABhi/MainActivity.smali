@@ -411,7 +411,7 @@
 
     .line 334
     :cond_f5
-    invoke-virtual {p0}, Lcom/NextToppers/ABhi/MainActivity;->finishAffinity()V
+    # invoke-virtual {p0}, Lcom/NextToppers/ABhi/MainActivity;->finishAffinity()V
 
     .line 336
     :goto_f8
@@ -930,11 +930,11 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lqgrapx/o0O00000;->O00000Oo(Landroid/content/Context;)Z
+    # invoke-static {v0}, Lqgrapx/o0O00000;->O00000Oo(Landroid/content/Context;)Z
 
-    move-result v0
+    # move-result v0
 
-    if-eqz v0, :cond_b8
+    # if-eqz v0, :cond_b8
 
     .line 410
     iget-object v0, p0, Lcom/NextToppers/ABhi/MainActivity;->O0000o:Landroid/content/SharedPreferences;
