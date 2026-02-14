@@ -1,6 +1,6 @@
 # Technical Analysis of `{Cloner}` Folder
 
-This document provides a deep technical analysis of the `{Cloner}` directory, focusing on `NewBlackbox-main`, the core virtualization engine found within.
+This document provides a deep technical analysis of the `{Cloner}` directory, focusing on `NewBlackbox-main`, the core virtualization engine found within, and the integrated `libNajmul101FreeMod.so` library.
 
 ## 1. File Structure & Architecture Pattern
 
@@ -72,7 +72,7 @@ The project implements a **Client-Server Architecture** within a single Android 
 -   **Context Leaks**: `HookManager` maintains static maps of injectors. If not cleared, they persist for the app's life.
 -   **Binder Pressure**: Heavy IPC traffic between virtual processes and the Daemon can cause Binder transaction buffer exhaustion (`TransactionTooLargeException`).
 
-## 7. Unused, Duplicate or dead code
+## 7. Unused, Duplicate or Dead Code
 
 -   **Duplicate Proxies**: Some proxies in `HookManager` might be redundant for specific Android versions but are kept for compatibility.
 -   **Legacy Code**: Traces of `VirtualApp` (the project this is likely based on) might remain.
@@ -89,7 +89,7 @@ The project implements a **Client-Server Architecture** within a single Android 
 -   **`libblackbox.so`**: The core native engine. Handles `ptrace` (maybe), `dlopen` hooking, and syscall interception.
 -   **`Dobby`**: A powerful, open-source inline hooking library. Used to overwrite function prologs in memory.
 -   **`xdl`**: Enhanced dynamic linker for Android, used to bypass linker restrictions (namespace isolation).
--   **`libNajmul101FreeMod.so`**: Likely a game mod or cheat library injected into specific virtual apps.
+-   **`libNajmul101FreeMod.so`**: Game mod library injected into virtual apps. See detailed analysis below.
 
 ## 10. Possible Crash Causes
 
@@ -98,9 +98,31 @@ The project implements a **Client-Server Architecture** within a single Android 
 -   **Native Crashes**: Inline hooking (`Dobby`) can cause instruction alignment issues or race conditions in multi-threaded environments, leading to `SIGSEGV`.
 -   **Process Death**: If the `DaemonService` is killed by the system (Low Memory Killer), all virtual apps will destabilize or crash.
 
-## 11. Recommendations
+## Detailed Analysis of `libNajmul101FreeMod.so`
 
-1.  **Isolate Native Deps**: Ensure `libNajmul101FreeMod.so` and `libblackbox.so` are loaded only when needed.
-2.  **Permission Review**: Remove permissions not strictly required for the *engine* itself, or request them at runtime only when the guest app needs them.
-3.  **Crash Guards**: Add more `try-catch` blocks around reflection calls in `HookManager` to degrade gracefully on unsupported ROMs.
-4.  **Update Hooks**: Regularly update `Reflection` and `BActivityThread` logic to support the latest Android versions (14/15).
+This library, integrated into `NewBlackbox-main`, is a game mod menu ("Free Mod By Najmul101") specifically targeting "Blood Strike".
+
+### Characteristics
+-   **Type**: Shared Object (`.so`) with JNI interface.
+-   **Architecture**: `arm64-v8a` only (missing `armeabi-v7a` causing potential crashes on older devices).
+-   **Initialization**: Uses `JNI_OnLoad` for dynamic registration. Likely hooks game functions using `xhook` or similar.
+-   **UI Framework**: Uses **ImGui** for the overlay menu (evidenced by strings "TabLogin", "Key Information").
+-   **Network Activity**: Contains strings like `https proxy request`, `http/1.1`, and OpenSSL functions, indicating it communicates with a remote server (`https://Najmul101.ltd/Mods/` potentially) for key verification or updates.
+
+### Login Mechanism (The "Bypass" Issue)
+The screenshot provided by the user shows a mandatory login screen:
+-   **UI**: "Please Login! [Copy Key to Clipboard]", "Paste Key", "Tap Login 2x".
+-   **Logic**:
+    1.  The library generates a unique device ID ("Information Key").
+    2.  The user must copy this key and likely visit a website (e.g., via linkvertise) to generate a valid session key.
+    3.  The user pastes the key and taps Login.
+    4.  The library validates the key, likely via a network request to the backend.
+
+### Bypass Challenges
+-   **Obfuscation**: The library is stripped (`nm -D` shows no debug symbols) and likely uses string encryption (though some strings are visible).
+-   **Native Implementation**: The login logic is compiled C++, making it hard to modify without disassembly.
+-   **Server-Side Check**: If the validation is purely server-side (sending key -> receiving token), a bypass requires mimicking the server response. If it's local (algorithm-based), reverse engineering the algorithm is required.
+
+### Risks
+-   **Malware Potential**: The library has full access to the game process and memory. It could be a vehicle for malware or data theft.
+-   **Ban Risk**: Using such mods is highly detectable by anti-cheat systems (e.g., identifying the overlay window or hooked functions), leading to account bans.
