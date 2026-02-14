@@ -1,0 +1,5 @@
+<!--
+IMPORTANT: To enable the Mod Menu overlay, you MUST add the following permission to the AndroidManifest.xml of the Cloner application.
+Without this, the app will crash or fail to show the menu.
+-->
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
