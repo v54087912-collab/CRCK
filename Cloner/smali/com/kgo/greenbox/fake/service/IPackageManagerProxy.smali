@@ -289,5 +289,11 @@
     invoke-virtual {p0, v0}, Lcom/kgo/greenbox/fake/service/IPackageManagerProxy;->addMethodHook(Lcom/kgo/greenbox/fake/hook/MethodHook;)V
 
     :cond_46
+    new-instance v0, Lcom/kgo/greenbox/fake/service/IPackageManagerProxy$GetPackageInstaller;
+
+    invoke-direct {v0}, Lcom/kgo/greenbox/fake/service/IPackageManagerProxy$GetPackageInstaller;-><init>()V
+
+    invoke-virtual {p0, v0}, Lcom/kgo/greenbox/fake/service/IPackageManagerProxy;->addMethodHook(Lcom/kgo/greenbox/fake/hook/MethodHook;)V
+
     return-void
 .end method
